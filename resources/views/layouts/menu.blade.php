@@ -26,11 +26,31 @@
                         </ul>
                     </nav>
 
-                    <!-- Phone Home -->
 
+                    <!-- Phone Home -->
+                    @if(!Auth::check())
                     <div class="phone_home text-center">
-                        <span>+0080 234 567 84441</span>
+                        <span>Call now : 023 999 888</span>
                     </div>
+                    @else
+                    <nav class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </nav>
+                    @endif
 
                     <!-- Hamburger -->
 
@@ -49,51 +69,17 @@
 
     <div class="menu menu_mm">
         <ul class="menu_list">
-            <li class="menu_item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <a href="#">home</a>
+            @foreach ($menu as $m)
+                <li class="menu_item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <a href="#">{{ $m }}</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="menu_item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <a href="about.html">about us</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="menu_item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <a href="listings.html">listings</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="menu_item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <a href="news.html">news</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="menu_item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <a href="contact.html">contact</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
+                </li>
+            @endforeach
         </ul>
     </div>
 
