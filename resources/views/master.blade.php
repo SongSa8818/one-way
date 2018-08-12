@@ -22,6 +22,16 @@
 
     <div class="super_container">
 
+        <!-- Home -->
+        <div class="home">
+
+            @include('layouts.slider')
+
+        </div>
+
+        <!-- Header -->
+        @include('layouts.menu', ['menu' => array("Home", "Exclusive", "Request","Contact", "About")])
+        
         @yield('content')
 
         @include('layouts.footer')

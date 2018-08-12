@@ -3,16 +3,6 @@
 
 @section('content')
 
-    <!-- Home -->
-    <div class="home">
-
-        @include('layouts.slider')
-
-    </div>
-
-    <!-- Header -->
-    @include('layouts.menu', ['menu' => array("Home", "Exclusive", "Request","Contact", "About")])
-
     <!-- Search Box -->
 
     <div class="search_box">
