@@ -26,6 +26,27 @@
 .dropdown-menu li a {
     color: #FFFFFF;
 }
+.card-body {
+    padding-left: 15px;
+    background: #edeff4;
+    padding-bottom: 10px;
+}
+.card-title {
+    margin-top: 0;
+}
+.featured_card_container:hover {
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.55);
+}
+.featured_card_container:hover .card {
+    box-shadow: none;
+}
+.featured_card_container:hover .featured_card_box {
+    box-shadow: none; /*0px 10px 10px rgba(0,0,0,0.55);*/
+}
+.featured_card_box {
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
 @media only screen and (max-width: 991px)
 {
     .navbar-right { display: none; }
