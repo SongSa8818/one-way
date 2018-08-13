@@ -20,8 +20,8 @@
 
                 <nav class="main_nav">
                     <ul class="main_nav_list">
-                        @foreach ($menu as $m)
-                            <li class="main_nav_item"><a href="#">{{$m}}</a></li>
+                        @foreach ($menus as $key => $value)
+                            <li class="main_nav_item"><a href="{!! url($key); !!}">{{$value}}</a></li>
                         @endforeach
                     </ul>
                 </nav>
@@ -69,12 +69,12 @@
 
 <div class="menu menu_mm">
     <ul class="menu_list">
-        @foreach ($menu as $m)
+        @foreach ($menus as $key => $value)
             <li class="menu_item">
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <a href="#">{{ $m }}</a>
+                            <a href="{!! url($key); !!}">{{ $value }}</a>
                         </div>
                     </div>
                 </div>
