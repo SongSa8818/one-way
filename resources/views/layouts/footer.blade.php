@@ -1,4 +1,4 @@
-<!-- Newslette -->
+<!-- Newslette
 
 <div class="newsletter">
     <div class="container">
@@ -36,7 +36,7 @@
         </div>
     </div>
 </div>
-
+-->
 <!-- Footer -->
 
 <footer class="footer">

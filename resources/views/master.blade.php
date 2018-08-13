@@ -11,6 +11,10 @@
     <link rel="shortcut icon" href="{{asset('images/logo.png')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('styles/bootstrap4/bootstrap.min.css')}}">
     <link href="{{asset('plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_responsive.css')}}">
+
     @if (Route::getCurrentRoute()->uri() == '/')
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">

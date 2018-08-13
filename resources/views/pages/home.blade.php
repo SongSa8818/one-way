@@ -16,7 +16,7 @@
                             <div class="search_box_title text-center">
                                 <div class="search_box_title_inner">
                                     <div class="search_box_title_icon d-flex flex-column align-items-center justify-content-center"><img src="images/search.png" alt=""></div>
-                                    <span>search your home</span>
+                                    <span>Find your properties</span>
                                 </div>
                             </div>
 
@@ -217,241 +217,39 @@
             <div class="row">
                 <div class="col">
                     <div class="section_title text-center">
-                        <h3>featured properties</h3>
+                        <h3>LATEST PROPERTIES</h3>
                         <span class="section_subtitle">See our best offers</span>
                     </div>
                 </div>
             </div>
 
             <div class="row featured_row">
+                @for($i = 0; $i < 12; $i++)
                 <div class="col-lg-4 featured_card_col">
-
-                    <div class="featured_card_container">
-                        <div class="card featured_card trans_300">
-                            <div class="featured_panel">featured</div>
+                    <div class="featured_card_container trans_200">
+                        <div class="card featured_card">
+                            <div class="featured_panel">For sale</div>
                             <img class="card-img-top" src="images/featured_1.jpg" alt="https://unsplash.com/@breather">
                             <div class="card-body">
                                 <div class="card-title"><a href="listings_single.html">House in West California</a></div>
-                                <div class="card-text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</div>
-                                <div class="rooms">
-
-                                    <div class="room">
-                                        <span class="room_title">Bedrooms</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/bedroom.png" alt=""></div>
-                                            <span class="room_number">4</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Bathrooms</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/shower.png" alt=""></div>
-                                            <span class="room_number">3</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Area</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/area.png" alt=""></div>
-                                            <span class="room_number">7100 Sq Ft</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Patio</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/patio.png" alt=""></div>
-                                            <span class="room_number">1</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Garage</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/garage.png" alt=""></div>
-                                            <span class="room_number">2</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="room_tags">
-                                    <span class="room_tag"><a href="#">Hottub</a></span>
-                                    <span class="room_tag"><a href="#">Swimming Pool</a></span>
-                                    <span class="room_tag"><a href="#">Garden</a></span>
-                                    <span class="room_tag"><a href="#">Patio</a></span>
-                                    <span class="room_tag"><a href="#">Hard Wood Floor</a></span>
-                                </div>
-
                             </div>
                         </div>
-
-                        <div class="featured_card_box d-flex flex-row align-items-center trans_300">
+                        <div class="featured_card_box d-flex flex-row align-items-center">
                             <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
                             <div class="featured_card_box_content">
                                 <div class="featured_card_price_title">For Sale</div>
                                 <div class="featured_card_price">$540,000</div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
-                <div class="col-lg-4 featured_card_col">
-
-                    <div class="featured_card_container">
-                        <div class="card featured_card trans_300">
-                            <div class="featured_panel">featured</div>
-                            <img class="card-img-top" src="images/featured_2.jpg" alt="https://unsplash.com/@astute">
-                            <div class="card-body">
-                                <div class="card-title"><a href="listings_single.html">House in West California</a></div>
-                                <div class="card-text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</div>
-                                <div class="rooms">
-
-                                    <div class="room">
-                                        <span class="room_title">Bedrooms</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/bedroom.png" alt=""></div>
-                                            <span class="room_number">4</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Bathrooms</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/shower.png" alt=""></div>
-                                            <span class="room_number">3</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Area</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/area.png" alt=""></div>
-                                            <span class="room_number">7100 Sq Ft</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Patio</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/patio.png" alt=""></div>
-                                            <span class="room_number">1</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Garage</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/garage.png" alt=""></div>
-                                            <span class="room_number">2</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="room_tags">
-                                    <span class="room_tag"><a href="#">Hottub</a></span>
-                                    <span class="room_tag"><a href="#">Swimming Pool</a></span>
-                                    <span class="room_tag"><a href="#">Garden</a></span>
-                                    <span class="room_tag"><a href="#">Patio</a></span>
-                                    <span class="room_tag"><a href="#">Hard Wood Floor</a></span>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="featured_card_box d-flex flex-row align-items-center trans_300">
-                            <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
-                            <div class="featured_card_box_content">
-                                <div class="featured_card_price_title">For Sale</div>
-                                <div class="featured_card_price">$540,000</div>
-                            </div>
-                        </div>
-
-                    </div>
-
+                @endfor
+            </div>
+            <!-- Buttons -->
+            <div class="elements_section buttons_section">
+                <div class="buttons_section_content">
+                    <div class="button elements_button_1"><a href="#">View more</a></div>
                 </div>
-
-                <div class="col-lg-4 featured_card_col">
-
-                    <div class="featured_card_container">
-                        <div class="card featured_card trans_300">
-                            <div class="featured_panel">featured</div>
-                            <img class="card-img-top" src="images/featured_3.jpg" alt="https://unsplash.com/@marcusneto">
-                            <div class="card-body">
-                                <div class="card-title"><a href="listings_single.html">House in West California</a></div>
-                                <div class="card-text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</div>
-                                <div class="rooms">
-
-                                    <div class="room">
-                                        <span class="room_title">Bedrooms</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/bedroom.png" alt=""></div>
-                                            <span class="room_number">4</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Bathrooms</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/shower.png" alt=""></div>
-                                            <span class="room_number">3</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Area</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/area.png" alt=""></div>
-                                            <span class="room_number">7100 Sq Ft</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Patio</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/patio.png" alt=""></div>
-                                            <span class="room_number">1</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Garage</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/garage.png" alt=""></div>
-                                            <span class="room_number">2</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="room_tags">
-                                    <span class="room_tag"><a href="#">Hottub</a></span>
-                                    <span class="room_tag"><a href="#">Swimming Pool</a></span>
-                                    <span class="room_tag"><a href="#">Garden</a></span>
-                                    <span class="room_tag"><a href="#">Patio</a></span>
-                                    <span class="room_tag"><a href="#">Hard Wood Floor</a></span>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="featured_card_box d-flex flex-row align-items-center trans_300">
-                            <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
-                            <div class="featured_card_box_content">
-                                <div class="featured_card_price_title">For Sale</div>
-                                <div class="featured_card_price">$540,000</div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
             </div>
         </div>
     </div>
@@ -467,8 +265,8 @@
             <div class="row">
                 <div class="col">
                     <div class="section_title text-center">
-                        <h3>clients testimonials</h3>
-                        <span class="section_subtitle">See our best offers</span>
+                        <h3>Our agency</h3>
+                        <span class="section_subtitle">See our best agencies</span>
                     </div>
                 </div>
             </div>
@@ -732,7 +530,7 @@
 
                     <div class="cta_1_content d-flex flex-lg-row flex-column align-items-center justify-content-start">
                         <h3 class="cta_1_text text-lg-left text-center">Do you want to talk with one of our <span>real estate experts?</span></h3>
-                        <div class="cta_1_phone">Call now:   +0080 234 567 84441</div>
+                        <div class="cta_1_phone">Call now:   +885 23 999 888</div>
                     </div>
 
                 </div>
