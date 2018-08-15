@@ -21,3 +21,4 @@ Route::get('/exclusive', 'ExclusiveController@index');
 Route::get('/about', 'AboutController@index');
 Route::get('/contact', 'ContactController@index');
 Route::get('/property', 'PropertyController@index');
+Route::get('/request', 'RequestController@index');
