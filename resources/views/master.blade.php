@@ -39,7 +39,7 @@
         @endif
         <!-- Header -->
         <header class="header trans_300">
-            @include('layouts.menu', ['menus' => array("/" => "Home", "exclusive" => "Exclusive", "Request","Contact", "About")])
+            @include('layouts.menu', ['menus' => array("/" => "Home", "exclusive" => "Exclusive","property" => "Property", "Request","contact" =>"Contact","about" => "About Us")])
         </header>
 
         @yield('content')

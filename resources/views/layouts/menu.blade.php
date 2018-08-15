@@ -11,7 +11,7 @@
                     <a href="#">
                         <div class="logo">
                             <img src="images/logo.png" alt="">
-                            <span>the estate</span>
+                            <span>OneWay Realty</span>
                         </div>
                     </a>
                 </div>
@@ -30,7 +30,7 @@
                 <!-- Phone Home -->
                 @if(!Auth::check())
                 <div class="phone_home text-center">
-                    <span>Call now : 023 999 888</span>
+                    <span>Call now : 010 873 132</span>
                 </div>
                 @else
                 <nav class="nav navbar-nav navbar-right">
