@@ -44,7 +44,7 @@ $(document).ready(function()
 	initMenu();
 	initListingSlider();
 	initPopup();
-	initGoogleMap();
+	//initGoogleMap();
 	initSearchFeatures();
 
 	/* 

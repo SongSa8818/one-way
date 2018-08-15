@@ -231,7 +231,7 @@
                             <div class="featured_panel">For sale</div>
                             <img class="card-img-top" src="images/featured_1.jpg" alt="https://unsplash.com/@breather">
                             <div class="card-body">
-                                <div class="card-title"><a href="listings_single.html">House in West California</a></div>
+                                <div class="card-title"><a href="{{ route('property.index') }}">House in West California</a></div>
                             </div>
                         </div>
                         <div class="featured_card_box d-flex flex-row align-items-center">

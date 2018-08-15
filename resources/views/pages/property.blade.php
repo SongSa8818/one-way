@@ -2,308 +2,222 @@
 @section('title','Property')
 
 @section('content')
-    <title>The Estate</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="The Estate Teplate">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-    <link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-    <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
-    <!-- Search Box -->
-    <div class="search_box">
+
+
+    <!-- Listing -->
+
+    <div class="listing">
         <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <!-- Listing Title -->
+                    <div class="listing_title_container">
+                        <div class="listing_title">House in west California</div>
+                        <p class="listing_text">Donec ullamcorper nulla non metus auctor fringi lla.Curabitur blandit tempus porttitor.</p>
+                        <div class="room_tags">
+                            <span class="room_tag"><a href="#">Hottub</a></span>
+                            <span class="room_tag"><a href="#">Swimming Pool</a></span>
+                            <span class="room_tag"><a href="#">Garden</a></span>
+                            <span class="room_tag"><a href="#">Patio</a></span>
+                            <span class="room_tag"><a href="#">Hard Wood Floor</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing Price -->
+                <div class="col-lg-4 listing_price_col clearfix">
+                    <div class="featured_card_box d-flex flex-row align-items-center trans_300 float-lg-right">
+                        <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                        <div class="featured_card_box_content">
+                            <div class="featured_card_price_title trans_300">For Sale</div>
+                            <div class="featured_card_price trans_300">$540,000</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             <div class="row">
                 <div class="col">
 
-                    <div class="search_box_outer">
-                        <div class="search_box_inner">
+                    <!-- Listing Image Slider -->
+
+                    <div class="listing_slider_container">
+                        <div class="owl-carousel owl-theme listing_slider">
+
+                            <!-- Listing Slider Item -->
+                            <div class="owl-item listing_slider_item">
+                                <img src="images/listing_slider_1.jpg" alt="https://unsplash.com/@astute">
+                            </div>
+
+                            <!-- Listing Slider Item -->
+                            <div class="owl-item listing_slider_item">
+                                <img src="images/listing_slider_1.jpg" alt="https://unsplash.com/@astute">
+                            </div>
+
+                            <!-- Listing Slider Item -->
+                            <div class="owl-item listing_slider_item">
+                                <img src="images/listing_slider_1.jpg" alt="https://unsplash.com/@astute">
+                            </div>
+
+                            <!-- Listing Slider Item -->
+                            <div class="owl-item listing_slider_item">
+                                <img src="images/listing_slider_1.jpg" alt="https://unsplash.com/@astute">
+                            </div>
+
+                            <!-- Listing Slider Item -->
+                            <div class="owl-item listing_slider_item">
+                                <img src="images/listing_slider_1.jpg" alt="https://unsplash.com/@astute">
+                            </div>
+
+                        </div>
+
+                        <div class="listing_slider_nav listing_slider_prev d-flex flex-row align-items-center justify-content-center trans_200">
+                            <img src="images/nav_left.png" alt="">
+                        </div>
+
+                        <div class="listing_slider_nav listing_slider_next d-flex flex-row align-items-center justify-content-center trans_200">
+                            <img src="images/nav_right.png" alt="">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row listing_content_row">
+
+                <!-- Search Sidebar -->
+
+                <div class="col-lg-4 sidebar_col">
+                    <!-- Search Box -->
+
+                    <div class="search_box">
+
+                        <div class="search_box_content">
 
                             <!-- Search Box Title -->
                             <div class="search_box_title text-center">
                                 <div class="search_box_title_inner">
-                                    <div class="search_box_title_icon d-flex flex-column align-items-center justify-content-center"><img src="images/search.png" alt=""></div>
-                                    <span>Find your properties</span>
+                                    <div class="search_box_title_icon d-flex flex-column align-items-center justify-content-center">
+                                        <img src="images/search.png" alt=""></div>
+                                    <span>Menu side bar</span>
                                 </div>
                             </div>
 
 
-                            <!-- Search Form -->
-                            <form class="search_form" action="#">
-                                <div class="search_box_container">
-                                    <ul class="dropdown_row clearfix">
-                                        <li class="dropdown_item dropdown_item_5">
-                                            <div class="dropdown_item_title">Keywords</div>
-                                            <select name="keywords" id="keywords" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Keyword 1</option>
-                                                <option>Keyword 2</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_5">
-                                            <div class="dropdown_item_title">Property ID</div>
-                                            <select name="property_ID" id="property_ID" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>ID 1</option>
-                                                <option>ID 2</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_5">
-                                            <div class="dropdown_item_title">Property Status</div>
-                                            <select name="property_status" id="property_status" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Status 1</option>
-                                                <option>Status 2</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_5">
-                                            <div class="dropdown_item_title">Location</div>
-                                            <select name="property_location" id="property_location" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Location 1</option>
-                                                <option>Location 2</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_5">
-                                            <div class="dropdown_item_title">Property Type</div>
-                                            <select name="property_type" id="property_type" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Type 1</option>
-                                                <option>Type 2</option>
-                                            </select>
-                                        </li>
-                                    </ul>
-                                </div>
+                        </div>
+                    </div>
 
-                                <div class="search_box_container">
-                                    <ul class="dropdown_row clearfix">
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Bedrooms no</div>
-                                            <select name="bedrooms_no" id="bedrooms_no" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Bathrooms no</div>
-                                            <select name="bathrooms_no" id="bathrooms_no" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Min Price</div>
-                                            <select name="min_price" id="min_price" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>$10000</option>
-                                                <option>$20000</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Max Price</div>
-                                            <select name="max_price" id="max_price" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>$1000000</option>
-                                                <option>$2000000</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Min Sq Ft</div>
-                                            <select name="min_sq_ft" id="min_sq_ft" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Any</option>
-                                                <option>Any</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Max Sq Ft</div>
-                                            <select name="max_sq_ft" id="max_sq_ft" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Any</option>
-                                                <option>Any</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item">
-                                            <div class="search_button">
-                                                <input value="search" type="submit" class="search_submit_button">
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="search_features_container">
-                                    <div class="search_features_trigger">
-                                        <a href="#">Specific features</a>
-                                    </div>
-                                    <ul class="search_features clearfix">
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_1" class="search_features_cb">
-                                                <label for="search_features_1">Feature 1</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_2" class="search_features_cb">
-                                                <label for="search_features_2">Feature 2</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_3" class="search_features_cb">
-                                                <label for="search_features_3">Feature 3</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_4" class="search_features_cb">
-                                                <label for="search_features_4">Feature 4</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_5" class="search_features_cb">
-                                                <label for="search_features_5">Feature 5</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_6" class="search_features_cb">
-                                                <label for="search_features_6">Feature 6</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_7" class="search_features_cb">
-                                                <label for="search_features_7">Feature 7</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_8" class="search_features_cb">
-                                                <label for="search_features_8">Feature 8</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_9" class="search_features_cb">
-                                                <label for="search_features_9">Feature 9</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_10" class="search_features_cb">
-                                                <label for="search_features_10">Feature 10</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-
+                    <div class="hello">
+                        <div class="footer_col_title">Message to seller</div>
+                        <div class="footer_contact_form_container">
+                            <form id="hello_contact_form" class="footer_contact_form" action="post">
+                                <input id="hello_contact_form_name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
+                                <input id="hello_contact_form_email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
+                                <textarea id="hello_contact_form_message" class="text_field contact_form_message" name="message" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
+                                <button id="hello_contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">send</button>
                             </form>
                         </div>
                     </div>
-
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Featured Properties -->
+                <!-- Listing -->
 
-    <div class="featured">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="section_title text-center">
-                        <h3>All PROPERTIES</h3>
-                        <span class="section_subtitle">See our best offers</span>
-                    </div>
-                </div>
-            </div>
+                <div class="col-lg-8 listing_col">
 
-            <div class="row featured_row">
-                @for($i = 0; $i < 12; $i++)
-                    <div class="col-lg-4 featured_card_col">
-                        <div class="featured_card_container trans_200">
-                            <div class="card featured_card">
-                                <div class="featured_panel">For sale</div>
-                                <img class="card-img-top" src="images/featured_1.jpg" alt="https://unsplash.com/@breather">
-                                <div class="card-body">
-                                    <div class="card-title"><a href="listings_single.html">House in West California</a></div>
-                                    <div class="listing_content">
-                                        <div class="listing_text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</div>
-                                        <div class="rooms">
+                    <div class="listing_details">
+                        <div class="listing_subtitle">Extra Facilities</div>
+                        <p class="listing_details_text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</p>
+                        <div class="rooms">
 
-                                            <div class="room">
-                                                <span class="room_title">Bedrooms</span>
-                                                <div class="room_content">
-                                                    <div class="room_image"><img src="images/bedroom.png" alt=""></div>
-                                                    <span class="room_number">4</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="room">
-                                                <span class="room_title">Bathrooms</span>
-                                                <div class="room_content">
-                                                    <div class="room_image"><img src="images/shower.png" alt=""></div>
-                                                    <span class="room_number">3</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="room">
-                                                <span class="room_title">Area</span>
-                                                <div class="room_content">
-                                                    <div class="room_image"><img src="images/area.png" alt=""></div>
-                                                    <span class="room_number">7100 Sq Ft</span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
+                            <div class="room">
+                                <span class="room_title">Bedrooms</span>
+                                <div class="room_content">
+                                    <div class="room_image"><img src="images/bedroom.png" alt=""></div>
+                                    <span class="room_number">4</span>
                                 </div>
                             </div>
-                            <div class="featured_card_box d-flex flex-row align-items-center">
-                                <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
-                                <div class="featured_card_box_content">
-                                    <div class="featured_card_price_title">For Sale</div>
-                                    <div class="featured_card_price">$540,000</div>
+
+                            <div class="room">
+                                <span class="room_title">Bathrooms</span>
+                                <div class="room_content">
+                                    <div class="room_image"><img src="images/shower.png" alt=""></div>
+                                    <span class="room_number">3</span>
                                 </div>
+                            </div>
+
+                            <div class="room">
+                                <span class="room_title">Area</span>
+                                <div class="room_content">
+                                    <div class="room_image"><img src="images/area.png" alt=""></div>
+                                    <span class="room_number">7100 Sq Ft</span>
+                                </div>
+                            </div>
+
+                            <div class="room">
+                                <span class="room_title">Patio</span>
+                                <div class="room_content">
+                                    <div class="room_image"><img src="images/patio.png" alt=""></div>
+                                    <span class="room_number">1</span>
+                                </div>
+                            </div>
+
+                            <div class="room">
+                                <span class="room_title">Garage</span>
+                                <div class="room_content">
+                                    <div class="room_image"><img src="images/garage.png" alt=""></div>
+                                    <span class="room_number">2</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Listing Description -->
+                    <div class="listing_description">
+                        <div class="listing_subtitle">Description</div>
+                        <p class="listing_description_text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.Sed lectus urna, ultricies sit amet risus eget, euismod imperdiet augue. Duis imperdiet, purus a pellentesque sodales, sapien mauris rhoncus eros, ac blandit elit leo ac diam. Sed lectus urna, ultricies sit amet risus eget, euismod imperdiet augue. Duis imperdiet, purus a pellentesque sodales, sapien mauris rhoncus eros, ac blandit elit leo ac diam</p>
+                    </div>
+
+                    <!-- Listing Additional Details -->
+                    <div class="listing_additional_details">
+                        <div class="listing_subtitle">Additional Details</div>
+                        <ul class="additional_details_list">
+                            <li class="additional_detail"><span>bedroom features:</span> Main Floor Master Bedroom, Walk-In Closet</li>
+                            <li class="additional_detail"><span>dining area:</span> Breakfast Counter/Bar, Living/Dining Combo</li>
+                            <li class="additional_detail"><span>doors & windows:</span> Bay Window</li>
+                            <li class="additional_detail"><span>entry location:</span> Mid Level</li>
+                            <li class="additional_detail"><span>floors:</span> Raised Foundation, Vinyl Tile, Wall-to-Wall Carpet, Wood</li>
+                        </ul>
+                    </div>
+
+                    <!-- Listing Video -->
+                    <div class="listing_video">
+                        <div class="listing_subtitle">Property Video</div>
+                        <div class="listing_video_link">
+                            <a class="video" href="https://vimeo.com/99340873" title=""><img src="images/listing_video.jpg" alt="https://www.pexels.com/u/binyaminmellish/"></a>
+                            <div class="video_play"><img src="images/play.svg" alt=""></div>
+                        </div>
+                    </div>
+
+                    <!-- Listing Map -->
+                    <div class="listing_map">
+                        <div class="listing_subtitle">Property on map</div>
+                        <div id="google_map">
+                            <div class="map_container">
+                                <div id="map"></div>
                             </div>
                         </div>
                     </div>
-                @endfor
-            </div>
-            <!-- Buttons -->
-            <div class="elements_section buttons_section">
-                <div class="buttons_section_content">
-                    <div class="button elements_button_1"><a href="#">View more</a></div>
+
                 </div>
+
             </div>
         </div>
     </div>
 
-    <!-- Call to Action -->
-
-    <div class="cta_1">
-        <div class="cta_1_background" style="background-image:url(images/cta_1.jpg)"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-
-                    <div class="cta_1_content d-flex flex-lg-row flex-column align-items-center justify-content-start">
-                        <h3 class="cta_1_text text-lg-left text-center">Do you want to talk with one of our <span>real estate experts?</span></h3>
-                        <div class="cta_1_phone">Call now:   +885 23 999 888</div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
 
 @endsection

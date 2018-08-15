@@ -219,7 +219,7 @@
                             </div>
                         </div>
                         <div class="listing_content">
-                            <div class="listing_title"><a href="listings_single.html">House in West California</a></div>
+                            <div class="listing_title"><a href="{{ route('property.index') }}">House in West California</a></div>
                             <div class="listing_text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</div>
                             <div class="rooms">
 

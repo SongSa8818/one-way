@@ -2,24 +2,12 @@
 @section('title','Contact')
 @section('content')
 
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="The Estate Teplate">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-	<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-	<link rel="stylesheet" type="text/css" href="styles/contact_styles.css">
-	<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
-
 <div class="listings">
     <div class="container">
         <!-- Contact -->
         <div class="contact">
             <div class="row">
-                <div class="col-lg-6 contact_col">
+                <div class="col-lg-7 contact_col">
                     <div class="estate_contact_form">
                         <div class="contact_title">say hello to One Way Realty</div>
                         <div class="estate_contact_form_container">
@@ -34,7 +22,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 contact_col">
+                <div class="col-lg-5 contact_col">
                     <div class="contact_title">contact info</div>
                     <ul class="contact_info_list estate_contact">
                         <li class="contact_info_item d-flex flex-row">
@@ -64,34 +52,9 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="col-lg-3 contact_col">
-                    <div class="contact_title">about</div>
-                    <div class="estate_about_text">
-                        <p>Lorem ipsum dolor sit amet, cons ectetur  quis ferme adipiscing elit. Suspen dis se tellus eros, placerat quis ferme ntum et, adipiscingvive rra sit ipsum amet lacus. </p>
-                        <p>Nam gravida quis placerat quis fe rme ntum et ferme sadipiscinge te llus semper augue.</p>
-                    </div>
-                </div>
             </div>
-        </div>
-        <!-- Google Map -->
-
-        <div class="estate_map">
-            <!--<div id="google_map" class="google_map">
-                <div class="map_container">
-                    <div id="map"></div>
-                </div>
-            </div>-->
         </div>
     </div>
 </div>
-
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
-<script src="js/contact_custom.js"></script>
 
 @endsection
