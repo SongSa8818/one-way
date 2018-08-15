@@ -21,18 +21,14 @@
                 <nav class="main_nav">
                     <ul class="main_nav_list">
                         @foreach ($menus as $key => $value)
-                            <li class="main_nav_item"><a href="{!! url($key); !!}">{{$value}}</a></li>
+                            <li class="main_nav_item"><a href="{{ route($key) }}">{{$value}}</a></li>
                         @endforeach
                     </ul>
                 </nav>
 
 
                 <!-- Phone Home -->
-                @if(!Auth::check())
-                <div class="phone_home text-center">
-                    <span>Call now : 010 873 132</span>
-                </div>
-                @else
+                @if(Auth::check())
                 <nav class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -74,7 +70,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <a href="{!! url($key); !!}">{{ $value }}</a>
+                            <a href="{{ route($key) }}">{{ $value }}</a>
                         </div>
                     </div>
                 </div>
