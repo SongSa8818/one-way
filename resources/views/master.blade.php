@@ -11,19 +11,32 @@
     <link rel="shortcut icon" href="{{asset('images/logo.png')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('styles/bootstrap4/bootstrap.min.css')}}">
     <link href="{{asset('plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_styles.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_responsive.css')}}">
-
-    @if (Route::getCurrentRoute()->uri() == '/')
-        <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}">
+    <?php $uri = Route::getCurrentRoute()->uri() ?>
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}">
+    @if ($uri == '/')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
-    @elseif(Route::getCurrentRoute()->uri() == 'exclusive')
+    @elseif($uri == 'exclusive' || $uri == 'showing')
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_styles.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_responsive.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_responsive.css')}}">
+    @elseif($uri == 'about')
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/about_styles.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/about_responsive.css')}}">
+    @elseif($uri == 'contact')
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_styles.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_responsive.css')}}">
+    @elseif($uri == 'contact')
+        <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_responsive.css')}}">
+    @elseif($uri == 'property')
+        <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_responsive.css')}}">
     @endif
     <link rel="stylesheet" type="text/css" href="{{asset('css/customize.css')}}">
 
@@ -39,7 +52,11 @@
         @endif
         <!-- Header -->
         <header class="header trans_300">
+<<<<<<< HEAD
             @include('layouts.menu', ['menus' => array("/" => "Home", "exclusive" => "Exclusive","property" => "Property","request" =>"Request","contact" =>"Contact","about" => "About Us")])
+=======
+            @include('layouts.menu', ['menus' => array("home" => "Home", "exclusive.index" => "Exclusive", "showing.index" => "Showing", "contact.index" =>"Contact", "about.index" => "About Us")])
+>>>>>>> master
         </header>
 
         @yield('content')
@@ -47,6 +64,7 @@
         @include('layouts.footer')
 
     </div>
+
 
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('styles/bootstrap4/popper.js')}}"></script>
@@ -60,5 +78,62 @@
     <script src="{{asset('plugins/scrollTo/jquery.scrollTo.min.js')}}"></script>
     <script src="{{asset('plugins/easing/easing.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
+    @if($uri == 'about')
+        <script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
+        <script src="{{asset('js/about_custom.js')}}"></script>
+    @elseif($uri == 'contact')
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+        <script src="{{asset('js/contact_custom.js')}}"></script>
+    @elseif($uri == 'property')
+        <script src="{{asset('plugins/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA4Ukxfg33boz0seOAO87i9eZYJvyffDk&callback=initMap&libraries=places"></script>
+        <script src="{{asset('js/listings_single_custom.js')}}"></script>
+
+        <script>
+
+            // This example displays a marker at the center of Australia.
+            // When the user clicks the marker, an info window opens.
+
+            function initMap() {
+                var uluru = {lat: 11.586696, lng: 104.902523};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 18,
+                    center: uluru
+                });
+
+                var contentString = '<div id="content">'+
+                    '<div id="siteNotice">'+
+                    '</div>'+
+                    '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Gingerbread_House_Essex_CT.jpg/220px-Gingerbread_House_Essex_CT.jpg" />'+
+                    '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+                    '<div id="bodyContent">'+
+                    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+                    'sandstone rock formation in the southern part of the '+
+                    'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+                    'south west of the nearest large town, Alice Springs; 450&#160;km '+
+                    '(280&#160;mi) by road.</p>'+
+                    '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+                    'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+                    '(last visited June 22, 2009).</p>'+
+                    '</div>'+
+                    '</div>';
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    maxWidth: 500
+                });
+
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map,
+                    title: 'Property title'
+                });
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+            }
+        </script>
+    @endif
+
 </body>
 </html>

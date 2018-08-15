@@ -47,6 +47,16 @@
     margin-top: 0px;
     margin-bottom: 30px;
 }
+.img-agent-booked {
+    width: 50px;
+}
+.room_title {
+    font-weight: bold;
+}
+
+
+
+
 @media only screen and (max-width: 991px)
 {
     .navbar-right { display: none; }

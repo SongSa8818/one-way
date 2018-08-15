@@ -22,3 +22,11 @@ Route::get('/about', 'AboutController@index');
 Route::get('/contact', 'ContactController@index');
 Route::get('/property', 'PropertyController@index');
 Route::get('/request', 'RequestController@index');
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::resource('/exclusive', 'ExclusiveController');
+Route::resource('/showing', 'ShowingController');
+Route::resource('/about', 'AboutController');
+Route::resource('/contact', 'ContactController');
+Route::resource('/property', 'PropertyController');
+
