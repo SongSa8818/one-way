@@ -21,3 +21,4 @@ Route::resource('/about', 'AboutController');
 Route::resource('/contact', 'ContactController');
 Route::resource('/property', 'PropertyController');
 Route::resource('/request', 'RequestController');
+Route::resource('/offer', 'OfferController');

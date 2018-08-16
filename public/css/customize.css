@@ -53,6 +53,17 @@
 .room_title {
     font-weight: bold;
 }
+.customer_tag a {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 13px;
+}
+p {
+    color: #070f21;
+}
+.button, .btn {
+    cursor: pointer;
+}
 
 
 
