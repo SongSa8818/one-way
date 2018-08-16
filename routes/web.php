@@ -20,3 +20,4 @@ Route::resource('/showing', 'ShowingController');
 Route::resource('/about', 'AboutController');
 Route::resource('/contact', 'ContactController');
 Route::resource('/property', 'PropertyController');
+Route::resource('/offer', 'OfferController');

@@ -18,7 +18,7 @@
     @if ($uri == '/')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
-    @elseif($uri == 'exclusive' || $uri == 'showing')
+    @elseif($uri == 'exclusive' || $uri == 'showing' || $uri == 'offer')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_responsive.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">
@@ -29,10 +29,6 @@
     @elseif($uri == 'contact')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_responsive.css')}}">
-    @elseif($uri == 'contact')
-        <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_responsive.css')}}">
     @elseif($uri == 'property')
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
@@ -52,13 +48,28 @@
         @endif
         <!-- Header -->
         <header class="header trans_300">
-            @include('layouts.menu', ['menus' => array("home" => "Home", "exclusive.index" => "Exclusive", "showing.index" => "Showing", "contact.index" =>"Contact", "about.index" => "About Us")])
+            @include('layouts.menu', ['menus' => array("home" => "Home", "exclusive.index" => "Exclusive", "showing.index" => "Showing", "offer.index" => "Offer", "contact.index" =>"Contact", "about.index" => "About Us")])
         </header>
 
         @yield('content')
 
         @include('layouts.footer')
 
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmPop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3></h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary w-100 btn-lg" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary w-100 btn-lg">Yes</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -86,7 +97,6 @@
         <script src="{{asset('js/listings_single_custom.js')}}"></script>
 
         <script>
-
             // This example displays a marker at the center of Australia.
             // When the user clicks the marker, an info window opens.
 
@@ -130,6 +140,13 @@
             }
         </script>
     @endif
+
+    <script>
+        function initConfirmModal($message) {
+            $('#confirmPop').modal('show');
+            $('#confirmPop .modal-content h3').text($message);
+        }
+    </script>
 
 </body>
 </html>
