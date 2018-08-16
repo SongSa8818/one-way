@@ -37,6 +37,9 @@
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_responsive.css')}}">
+    @elseif($uri == 'request')
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_responsive.css')}}">
     @endif
     <link rel="stylesheet" type="text/css" href="{{asset('css/customize.css')}}">
 
@@ -52,7 +55,7 @@
         @endif
         <!-- Header -->
         <header class="header trans_300">
-            @include('layouts.menu', ['menus' => array("home" => "Home", "exclusive.index" => "Exclusive", "showing.index" => "Showing", "contact.index" =>"Contact", "about.index" => "About Us")])
+            @include('layouts.menu', ['menus' => array("home" => "Home", "exclusive.index" => "Exclusive", "showing.index" => "Showing", "request.index" =>"Request","contact.index" =>"Contact", "about.index" => "About Us")])
         </header>
 
         @yield('content')
