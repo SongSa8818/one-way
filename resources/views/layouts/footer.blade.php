@@ -87,6 +87,7 @@
             </div>
 
             <!-- Footer Contact Form -->
+            <!--
             <div class="col-lg-3 footer_col">
                 <div class="footer_col_title">say hello</div>
                 <div class="footer_contact_form_container">
@@ -98,7 +99,7 @@
                     </form>
                 </div>
             </div>
-
+            -->
             <!-- Footer Contact Info -->
 
             <div class="col-lg-3 footer_col">

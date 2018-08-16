@@ -29,6 +29,7 @@
     @elseif($uri == 'contact')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_responsive.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">
     @elseif($uri == 'contact')
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
