@@ -18,7 +18,7 @@
     @if ($uri == '/')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
-    @elseif($uri == 'exclusive' || $uri == 'showing' || $uri == 'offer')
+    @elseif($uri == 'exclusive' || $uri == 'showing' || $uri == 'request' || $uri == 'offer')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_responsive.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">
@@ -48,7 +48,7 @@
         @endif
         <!-- Header -->
         <header class="header trans_300">
-            @include('layouts.menu', ['menus' => array("home" => "Home", "exclusive.index" => "Exclusive", "showing.index" => "Showing", "offer.index" => "Offer", "contact.index" =>"Contact", "about.index" => "About Us")])
+            @include('layouts.menu', ['menus' => array("home" => "Home", "exclusive.index" => "Exclusive", "showing.index" => "Showing", "offer.index" => "Offer", "request.index" =>"Request","contact.index" =>"Contact", "about.index" => "About Us")])
         </header>
 
         @yield('content')
