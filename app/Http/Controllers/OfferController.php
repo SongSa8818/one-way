@@ -81,4 +81,11 @@ class OfferController extends Controller
     {
         //
     }
+
+    public function acceptOffer(Request $request) {
+      if($request->ajax()){
+        return "AJAX";
+      }
+      return "HTTP";
+    }
 }

@@ -248,8 +248,8 @@
                                 </div>
                             </div>
                             <div class="room_tags">
-                                <div class="button btn-success"><a onclick="initConfirmModal('Are you sure to accept this offer?')">Accept</a></div>
-                                <div class="button elements_button_2"><a onclick="initConfirmModal('Are you sure to reject this offer?')">Reject</a></div>
+                                <div class="button btn-success"><a onclick="initConfirmModal('Are you sure to accept this offer?','acceptOffer')">Accept</a></div>
+                                <div class="button elements_button_2"><a onclick="initConfirmModal('Are you sure to reject this offer?','rejectOffer')">Reject</a></div>
                             </div>
                         </div>
                     </div>

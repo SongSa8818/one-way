@@ -65,8 +65,8 @@
                     <h3></h3>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary w-100 btn-lg" data-dismiss="modal">No</button>
-                    <button type="button" class="btn btn-primary w-100 btn-lg">Yes</button>
+                    <button type="button" id="buttonNo" class="btn btn-secondary w-100 btn-lg" data-dismiss="modal">No</button>
+                    <button type="button" id="buttonYes" class="btn btn-primary w-100 btn-lg">Yes</button>
                 </div>
             </div>
         </div>
@@ -142,9 +142,20 @@
     @endif
 
     <script>
-        function initConfirmModal($message) {
+        var token = '{{ \Illuminate\Support\Facades\Session::token() }}';
+        function initConfirmModal(message, action) {
             $('#confirmPop').modal('show');
-            $('#confirmPop .modal-content h3').text($message);
+            $('#confirmPop .modal-content h3').text(message);
+            $('#confirmPop #buttonYes').click(function (e) {
+                $.ajax({
+                    type: "POST",
+                    url: action,
+                    data: { id: 7, _token: token },
+                    cache: false,
+                }).done(function( msg ) {
+                    $('#confirmPop').modal('hide');
+                });
+            });
         }
     </script>
 
