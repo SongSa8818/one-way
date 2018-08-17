@@ -143,13 +143,15 @@
 
     <script>
         var token = '{{ \Illuminate\Support\Facades\Session::token() }}';
+        var url = '';
         function initConfirmModal(message, action) {
             $('#confirmPop').modal('show');
             $('#confirmPop .modal-content h3').text(message);
+            url = action;
             $('#confirmPop #buttonYes').click(function (e) {
                 $.ajax({
                     type: "POST",
-                    url: action,
+                    url: url,
                     data: { id: 7, _token: token },
                     cache: false,
                 }).done(function( msg ) {

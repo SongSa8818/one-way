@@ -84,7 +84,7 @@ class OfferController extends Controller
 
     public function acceptOffer(Request $request) {
       if($request->ajax()){
-        return "AJAX";
+        return response()->json(['success'=>'Data is successfully added']);
       }
       return "HTTP";
     }
