@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @if ($uri == '/')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
@@ -29,14 +30,11 @@
     @elseif($uri == 'contact')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_responsive.css')}}">
-<<<<<<< HEAD
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">
     @elseif($uri == 'contact')
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_responsive.css')}}">
-=======
->>>>>>> master
     @elseif($uri == 'property')
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">

@@ -1423,8 +1423,8 @@ readers do not read off random characters that represent icons */
 .fa-linkedin:before {
   content: "\f08c"; }
 
-fa-messenger:before {
-  content: "\f08c"; }
+.fa-wechat:before {
+  content: "\f0e1"; }
 
 .fa-linkedin-in:before {
   content: "\f0e1"; }
