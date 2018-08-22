@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Property;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -13,6 +14,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
+        Property::all();
         return view('pages.property');
     }
 
