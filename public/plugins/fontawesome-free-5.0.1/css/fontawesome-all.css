@@ -1423,6 +1423,9 @@ readers do not read off random characters that represent icons */
 .fa-linkedin:before {
   content: "\f08c"; }
 
+fa-messenger:before {
+  content: "\f08c"; }
+
 .fa-linkedin-in:before {
   content: "\f0e1"; }
 

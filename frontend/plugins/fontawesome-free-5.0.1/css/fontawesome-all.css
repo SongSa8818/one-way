@@ -1645,6 +1645,15 @@ readers do not read off random characters that represent icons */
 .fa-openid:before {
   content: "\f19b"; }
 
+.fa-linkedin:before {
+  content: "\f19b"; }
+
+.fa-youtube:before {
+  content: "\f19b"; }
+
+.fa-wechat:before {
+  content: "\f19b"; }
+
 .fa-opera:before {
   content: "\f26a"; }
 
