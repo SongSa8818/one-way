@@ -18,19 +18,19 @@
                         <div class="row">
                             <div class="form-group col-6">
                                 <label for="frist_name">First Name</label>
-                                <input id="frist_name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="frist_name" value="{{ old('name') }}" autofocus>
-                                @if ($errors->has('name'))
+                                <input id="frist_name" type="text" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}" name="first_name" value="{{ old('first_name') }}" autofocus>
+                                @if ($errors->has('first_name'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('first_name') }}</strong>
                                     </span>
                                 @endif
                             </div>
                             <div class="form-group col-6">
                                 <label for="last_name">Last Name</label>
-                                <input id="last_name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" name="last_name">
-                                @if ($errors->has('name'))
+                                <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" value="{{ old('last_name') }}" name="last_name">
+                                @if ($errors->has('last_name'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('last_name') }}</strong>
                                     </span>
                                 @endif
                             </div>

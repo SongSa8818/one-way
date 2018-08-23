@@ -14,7 +14,6 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        Property::all();
         return view('pages.property');
     }
 

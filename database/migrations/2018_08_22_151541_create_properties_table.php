@@ -15,10 +15,15 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->string('title');
             $table->string('description');
             $table->decimal('price', 8, 2);
             $table->string('video_url');
+            $table->enum('status', ['active', 'inactive']);
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
