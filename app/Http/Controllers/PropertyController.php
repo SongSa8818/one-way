@@ -17,6 +17,11 @@ class PropertyController extends Controller
         return view('pages.property');
     }
 
+    public function list()
+    {
+      return view('admin.properties.list');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
