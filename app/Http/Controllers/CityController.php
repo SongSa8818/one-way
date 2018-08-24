@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Property;
+use App\City;
 use Illuminate\Http\Request;
 
-class PropertyController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        return view('pages.property');
-    }
-
-    public function list()
-    {
-      $properties = Property::paginate(10);
-      return view('admin.properties.list')->with('properties', $properties);
+        return view('admin.parameters.city');
     }
 
     /**
@@ -30,7 +24,7 @@ class PropertyController extends Controller
      */
     public function create()
     {
-      return view('admin.properties.form');
+        //
     }
 
     /**
@@ -47,10 +41,10 @@ class PropertyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(City $city)
     {
         //
     }
@@ -58,10 +52,10 @@ class PropertyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(City $city)
     {
         //
     }
@@ -70,10 +64,10 @@ class PropertyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, City $city)
     {
         //
     }
@@ -81,10 +75,10 @@ class PropertyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(City $city)
     {
         //
     }
