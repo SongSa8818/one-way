@@ -80,7 +80,7 @@
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
                             <i class="ion ion-android-person d-lg-none"></i>
-                            <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }}</div></a>
+                            <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->last_name }}</div></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="profile.html" class="dropdown-item has-icon">
                                 <i class="ion ion-android-person"></i> Profile
@@ -116,9 +116,11 @@
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
                         <li class="active">
-                            <a href="index.html"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
+                            <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
                         </li>
-
+                        <li>
+                            <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
+                        </li>
                         <li class="menu-header">Components</li>
                         <li>
                             <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Components</span></a>
