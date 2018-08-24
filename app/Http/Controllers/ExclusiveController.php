@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Property;
 use Illuminate\Http\Request;
 
 class ExclusiveController extends Controller
@@ -13,7 +14,8 @@ class ExclusiveController extends Controller
      */
     public function index()
     {
-        return view('pages.exclusive');
+      $properties = Property::paginate(2);
+      return view('pages.exclusive')->with('properties', $properties);
     }
 
     /**

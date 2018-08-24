@@ -28,3 +28,4 @@ Route::resource('/offer', 'OfferController');
 Route::post('/acceptOffer', 'OfferController@acceptOffer')->name('acceptOffer');
 
 Route::resource('/dashboard', 'DashboardController');
+Route::resource('/city', 'CityController');

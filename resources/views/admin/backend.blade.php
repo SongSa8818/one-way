@@ -97,6 +97,8 @@
                     </li>
                 </ul>
             </nav>
+            <?php  $uri = Route::getCurrentRoute()->uri() ?>
+
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
@@ -115,11 +117,19 @@
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
-                        <li class="active">
+                        <li class="{{ $uri == 'dashboard'?'active':'' }}">
                             <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
                         </li>
-                        <li>
+                        <li class="{{ $uri == 'property-list'?'active':'' }}">
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="has-dropdown"><i class="ion ion-location"></i><span>Parameters</span></a>
+                            <ul class="menu-dropdown">
+                                <li><a href="{{ route('city.index') }}"><i class="ion ion-ios-location-outline"></i> City</a></li>
+                                <li><a href="fontawesome.html"><i class="ion ion-ios-location-outline"></i> Khan</a></li>
+                                <li><a href="flag.html"><i class="ion ion-ios-location-outline"></i> Sangkat</a></li>
+                            </ul>
                         </li>
                         <li class="menu-header">Components</li>
                         <li>
