@@ -21,18 +21,23 @@
                                     <th>Name</th>
                                     <th>Action</th>
                                 </tr>
+                                @foreach($cities as $city)
                                 <tr>
-                                        <td></td>
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </td>
-                                    </tr>
+                                    <td>{{ $city->name }}</td>
+                                    <td>
+                                        <a href="{{ route('city.edit', $city->id) }}" class="btn btn-sm btn-primary pull-left mr-3">Edit</a>
+                                        {{ Form::open(array('route' => array('city.destroy', @$city->id), 'method' => 'DELETE')) }}
+                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                        {{ Form::close() }}
+                                    </td>
+                                </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>
                     <div class="card-footer text-right">
                         <nav class="d-inline-block">
+                            {{ $cities->links() }}
                         </nav>
                     </div>
                 </div>
