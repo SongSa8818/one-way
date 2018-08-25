@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('dist/modules/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/demo.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/custom.css')}}">
 </head>
 
 <body>
