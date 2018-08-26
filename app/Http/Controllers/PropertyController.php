@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
+use App\Khan;
 use App\Property;
+use App\PropertyTypes;
+use App\Sangkat;
+use App\Village;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -30,7 +35,12 @@ class PropertyController extends Controller
      */
     public function create()
     {
-      return view('admin.properties.form');
+      $city = City::pluck('name', 'id');
+      $khan = Khan::pluck('name', 'id');
+      $sangkat = Sangkat::pluck('name', 'id');
+      $village = Village::pluck('name', 'id');
+      $propertyTypes = PropertyTypes::getKeys();
+      return view('admin.properties.form')->with(array('propertyTypes'=>$propertyTypes, 'cities'=>$city, 'khans'=>$khan, 'sangkats'=>$sangkat, 'villages'=>$village));
     }
 
     /**
