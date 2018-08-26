@@ -64,6 +64,24 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group col-6">
+                                {{ Form::label('street_name', 'Street ame') }}
+                                {{ Form::text('street_name', @$village->street_name, array('class' => "form-control", 'autofocus')) }}
+                                @if ($errors->has('street_name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('street_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="form-group col-6">
+                                {{ Form::label('street_number', 'Street Number') }}
+                                {{ Form::text('street_number', @$village->street_number, array('class' => "form-control", 'autofocus')) }}
+                                @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('street_number') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Content</label>

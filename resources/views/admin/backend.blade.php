@@ -121,7 +121,7 @@
                         <li class="{{ $uri == 'dashboard'?'active':'' }}">
                             <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
                         </li>
-                        <li class="{{ $uri == 'property-list'?'active':'' }}">
+                        <li class="{{ in_array($uri, array('property-list','property'))?'active':'' }}">
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
                         </li>
                         <li class="{{ in_array($uri,array('city','khan','sangkat','village'))?'active':'' }}">
