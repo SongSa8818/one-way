@@ -124,12 +124,13 @@
                         <li class="{{ $uri == 'property-list'?'active':'' }}">
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
                         </li>
-                        <li>
+                        <li class="{{ in_array($uri,array('city','khan','village'))?'active':'' }}">
                             <a href="#" class="has-dropdown"><i class="ion ion-location"></i><span>Parameters</span></a>
                             <ul class="menu-dropdown">
-                                <li><a href="{{ route('city.index') }}"><i class="ion ion-ios-location-outline"></i> City</a></li>
-                                <li><a href="fontawesome.html"><i class="ion ion-ios-location-outline"></i> Khan</a></li>
+                                <li class="{{ $uri == 'city'?'active':'' }}"><a href="{{ route('city.index') }}"><i class="ion ion-ios-location-outline"></i> City</a></li>
+                                <li class="{{ $uri == 'khan'?'active':'' }}"><a href="{{ route('khan.index') }}"><i class="ion ion-ios-location-outline"></i> Khan</a></li>
                                 <li><a href="flag.html"><i class="ion ion-ios-location-outline"></i> Sangkat</a></li>
+                                <li><a href="flag.html"><i class="ion ion-ios-location-outline"></i> Village</a></li>
                             </ul>
                         </li>
                         <li class="menu-header">Components</li>
