@@ -130,7 +130,7 @@
                                 <li class="{{ $uri == 'city'?'active':'' }}"><a href="{{ route('city.index') }}"><i class="ion ion-ios-location-outline"></i> City</a></li>
                                 <li class="{{ $uri == 'khan'?'active':'' }}"><a href="{{ route('khan.index') }}"><i class="ion ion-ios-location-outline"></i> Khan</a></li>
                                 <li class="{{ $uri == 'sangkat'?'active':'' }}"><a href="{{ route('sangkat.index') }}"><i class="ion ion-ios-location-outline"></i> Sangkat</a></li>
-                                <li><a href="flag.html"><i class="ion ion-ios-location-outline"></i> Village</a></li>
+                                <li class="{{ $uri == 'village'?'active':'' }}"><a href="{{ route('village.index') }}"><i class="ion ion-ios-location-outline"></i> Village</a></li>
                             </ul>
                         </li>
                         <li class="menu-header">Components</li>
