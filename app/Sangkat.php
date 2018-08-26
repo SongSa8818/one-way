@@ -18,4 +18,8 @@ class Sangkat extends Model
   public function khan(){
     return $this->belongsTo('App\Khan');
   }
+
+  public function village(){
+    return $this->hasMany('App\Village');
+  }
 }

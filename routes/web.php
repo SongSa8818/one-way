@@ -33,3 +33,4 @@ Route::resource('/dashboard', 'DashboardController');
 Route::resource('/city', 'CityController');
 Route::resource('/khan', 'KhanController');
 Route::resource('/sangkat', 'SangkatController');
+Route::resource('/village', 'VillageController');
