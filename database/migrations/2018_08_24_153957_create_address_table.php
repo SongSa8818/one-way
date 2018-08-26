@@ -19,7 +19,7 @@ class CreateAddressTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('khan', function (Blueprint $table) {
+        Schema::create('khans', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name');
           $table->integer('city_id')->unsigned();
@@ -27,19 +27,19 @@ class CreateAddressTable extends Migration
           $table->timestamps();
         });
 
-        Schema::create('sangkat', function (Blueprint $table) {
+        Schema::create('sangkats', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name');
           $table->integer('khan_id')->unsigned();
-          $table->foreign('khan_id')->references('id')->on('khan')->onDelete('cascade');
+          $table->foreign('khan_id')->references('id')->on('khans')->onDelete('cascade');
           $table->timestamps();
         });
 
-        Schema::create('village', function (Blueprint $table) {
+        Schema::create('villages', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name');
           $table->integer('sangkat_id')->unsigned();
-          $table->foreign('sangkat_id')->references('id')->on('village')->onDelete('cascade');
+          $table->foreign('sangkat_id')->references('id')->on('sangkats')->onDelete('cascade');
           $table->timestamps();
         });
     }
