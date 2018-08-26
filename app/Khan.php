@@ -18,4 +18,8 @@ class Khan extends Model
   public function city(){
     return $this->belongsTo('App\City');
   }
+
+  public function sangkats(){
+    return $this->hasMany('App\Sangkat');
+  }
 }
