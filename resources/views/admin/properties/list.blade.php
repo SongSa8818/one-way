@@ -19,17 +19,19 @@
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <tr>
+                                    <th>ID</th>
                                     <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Description</th>
+                                    <th>Price($)</th>
+                                    <th>Type</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             @foreach($properties as $property)
                                 <tr>
+                                    <td>{{ $property->property_number }}</td>
                                     <td>{{ $property->title }}</td>
                                     <td>{{ $property->price }}</td>
-                                    <td>{{ $property->description }}</td>
+                                    <td>{{ $property->type }}</td>
                                     <td><div class="text-uppercase badge badge-{{ $property->status == 'active'?'success':'danger' }}">{{ $property->status }}</div></td>
                                     <td>
                                         <a href="#" class="btn btn-sm btn-primary">Edit</a>

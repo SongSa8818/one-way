@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
+use App\Khan;
 use App\Property;
+use App\PropertyTypes;
+use App\Active;
+use App\Sangkat;
+use App\Village;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PropertyController extends Controller
 {
@@ -30,7 +37,12 @@ class PropertyController extends Controller
      */
     public function create()
     {
-      return view('admin.properties.form');
+      $city = City::pluck('name', 'id');
+      $khan = Khan::pluck('name', 'id');
+      $sangkat = Sangkat::pluck('name', 'id');
+      $village = Village::pluck('name', 'id');
+      $propertyTypes = PropertyTypes::getKeys();
+      return view('admin.properties.form')->with(array('propertyTypes'=>$propertyTypes, 'cities'=>$city, 'khans'=>$khan, 'sangkats'=>$sangkat, 'villages'=>$village));
     }
 
     /**
@@ -41,7 +53,23 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $property = new Property();
+        $property->title = $request->title;
+        $property->price = $request->price;
+        $property->description = $request->description;
+        $property->video_url = $request->video_url;
+        $property->type = $request->type;
+        $property->property_number = $request->property_number;
+        $property->city_id = $request->city_id;
+        $property->khan_id = $request->khan_id;
+        $property->sangkat_id = $request->sangkat_id;
+        $property->village_id = $request->village_id;
+        $property->street_name = $request->street_name;
+        $property->street_number = $request->street_number;
+        $property->status = $request->status;
+        $property->user_id = Auth::user()->getAuthIdentifier();
+        $property->save();
+        return redirect(route('property.list'));
     }
 
     /**

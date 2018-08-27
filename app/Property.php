@@ -8,9 +8,7 @@ class Property extends Model
 {
     protected $table = 'properties';
     protected $primaryKey = 'id';
-    protected $fillable = [
-      'title', 'description', 'price', 'video_url', 'status'
-    ];
+
 
     public function scopeActive($query){
       return $query->orderBy('id', 'DESC')

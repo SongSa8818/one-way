@@ -81,7 +81,7 @@
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
                             <i class="ion ion-android-person d-lg-none"></i>
-                            <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->last_name }}</div></a>
+                            <div class="d-sm-none d-lg-inline-block">Hi, {{ @Auth::user()->last_name }}</div></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="profile.html" class="dropdown-item has-icon">
                                 <i class="ion ion-android-person"></i> Profile
@@ -103,7 +103,7 @@
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html">Stisla Lite</a>
+                        <a href="index.html">One Way Realty</a>
                     </div>
                     <div class="sidebar-user">
                         <div class="sidebar-user-picture">
@@ -121,7 +121,7 @@
                         <li class="{{ $uri == 'dashboard'?'active':'' }}">
                             <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
                         </li>
-                        <li class="{{ $uri == 'property-list'?'active':'' }}">
+                        <li class="{{ in_array($uri, array('property-list','property'))?'active':'' }}">
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
                         </li>
                         <li class="{{ in_array($uri,array('city','khan','sangkat','village'))?'active':'' }}">
