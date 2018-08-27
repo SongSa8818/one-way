@@ -17,15 +17,33 @@ class CreatePropertiesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('title');
-            $table->string('description');
             $table->decimal('price', 8, 2);
+            $table->string('description');
             $table->string('video_url');
-            $table->enum('status', ['active', 'inactive']);
+            $table->string('type','100');
+            $table->string('property_number');
+            $table->integer('city_id');
+            $table->integer('khan_id');
+            $table->integer('sangkat_id');
+            $table->integer('village_id');
+            $table->string('street_name');
+            $table->string('street_number');
+            $table->string('status');
             $table->foreign('user_id')
                   ->references('id')->on('users')
                   ->onDelete('cascade');
             $table->timestamps();
         });
+
+      Schema::create('property_images', function (Blueprint $table) {
+        $table->increments('id');
+        $table->unsignedInteger('property_id');
+        $table->string('img');
+        $table->foreign('property_id')
+          ->references('id')->on('properties')
+          ->onDelete('cascade');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -35,6 +53,7 @@ class CreatePropertiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('properties');
+      Schema::dropIfExists('property_images');
+      Schema::dropIfExists('properties');
     }
 }

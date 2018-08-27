@@ -87,6 +87,25 @@
                             <label>Content</label>
                             <textarea class="summernote-simple" style="display: none;"></textarea>
                         </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                {{ Form::label('video_url', 'YouTube Video ID') }}
+                                {{ Form::text('video_url', @$video_url->video_url, array('class' => "form-control", 'autofocus','placeholder'=>'')) }}
+                                @if ($errors->has('video_url'))
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('video_url') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                            <div class="form-group col-6">
+                                {!! Form::Label('status', 'Active / Inactive') !!}
+                                <select class="form-control" name="status">
+                                    @foreach(\App\Active::getKeys() as $value)
+                                        <option value="{{$value}}">{{$value}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-primary">Save Draft</button>

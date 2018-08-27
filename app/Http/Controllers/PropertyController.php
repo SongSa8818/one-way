@@ -6,6 +6,7 @@ use App\City;
 use App\Khan;
 use App\Property;
 use App\PropertyTypes;
+use App\Active;
 use App\Sangkat;
 use App\Village;
 use Illuminate\Http\Request;
