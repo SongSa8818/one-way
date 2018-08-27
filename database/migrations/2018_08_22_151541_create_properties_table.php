@@ -18,7 +18,7 @@ class CreatePropertiesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->decimal('price', 8, 2);
-            $table->string('description');
+            $table->text('description');
             $table->string('video_url');
             $table->string('type','100');
             $table->string('property_number');
