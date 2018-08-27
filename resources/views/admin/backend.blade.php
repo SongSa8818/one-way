@@ -121,6 +121,9 @@
                         <li>
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
                         </li>
+                        <li>
+                            <a href="{{ route('about.show') }}"><i class="ion ion-clipboard"></i><span>About</span></a>
+                        </li>
                         <li class="menu-header">Components</li>
                         <li>
                             <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Components</span></a>

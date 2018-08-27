@@ -14,7 +14,7 @@
 				</div>
 				<div class="col-lg-5 order-lg-2 order-1">
 					<div class="intro_image">
-						<img src="images/intro.png" alt="">
+						<img src="/images/intro.png" alt="">
 					</div>
 				</div>
 			</div>
