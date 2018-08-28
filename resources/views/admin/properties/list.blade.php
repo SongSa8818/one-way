@@ -34,7 +34,7 @@
                                     <td>{{ $property->type }}</td>
                                     <td><div class="text-uppercase badge badge-{{ $property->status == 'active'?'success':'danger' }}">{{ $property->status }}</div></td>
                                     <td>
-                                        <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="{{ route('property.edit', $property->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                         <a href="#" class="btn btn-sm btn-danger">Delete</a>
                                     </td>
                                 </tr>
