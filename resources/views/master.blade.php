@@ -19,7 +19,7 @@
     @if ($uri == '/')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
-    @elseif($uri == 'exclusive' || $uri == 'showing' || $uri == 'request' || $uri == 'offer')
+    @elseif(in_array($uri,array('exclusive','showing','offer')))
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_responsive.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('dist/modules/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/demo.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/css/custom.css')}}">
 </head>
 
 <body>
@@ -80,7 +81,7 @@
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
                             <i class="ion ion-android-person d-lg-none"></i>
-                            <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->last_name }}</div></a>
+                            <div class="d-sm-none d-lg-inline-block">Hi, {{ @Auth::user()->last_name }}</div></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="profile.html" class="dropdown-item has-icon">
                                 <i class="ion ion-android-person"></i> Profile
@@ -97,10 +98,12 @@
                     </li>
                 </ul>
             </nav>
+            <?php  $uri = Route::getCurrentRoute()->uri() ?>
+
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html">Stisla Lite</a>
+                        <a href="index.html">One Way Realty</a>
                     </div>
                     <div class="sidebar-user">
                         <div class="sidebar-user-picture">
@@ -115,14 +118,22 @@
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
-                        <li class="active">
+                        <li class="{{ $uri == 'dashboard'?'active':'' }}">
                             <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
                         </li>
-                        <li>
+                        <li class="{{ in_array($uri, array('property-list','property'))?'active':'' }}">
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
                         </li>
                         <li>
                             <a href="{{ route('about.show') }}"><i class="ion ion-clipboard"></i><span>About</span></a>
+                        <li class="{{ in_array($uri,array('city','khan','sangkat','village'))?'active':'' }}">
+                            <a href="#" class="has-dropdown"><i class="ion ion-location"></i><span>Parameters</span></a>
+                            <ul class="menu-dropdown">
+                                <li class="{{ $uri == 'city'?'active':'' }}"><a href="{{ route('city.index') }}"><i class="ion ion-ios-location-outline"></i> City</a></li>
+                                <li class="{{ $uri == 'khan'?'active':'' }}"><a href="{{ route('khan.index') }}"><i class="ion ion-ios-location-outline"></i> Khan</a></li>
+                                <li class="{{ $uri == 'sangkat'?'active':'' }}"><a href="{{ route('sangkat.index') }}"><i class="ion ion-ios-location-outline"></i> Sangkat</a></li>
+                                <li class="{{ $uri == 'village'?'active':'' }}"><a href="{{ route('village.index') }}"><i class="ion ion-ios-location-outline"></i> Village</a></li>
+                            </ul>
                         </li>
                         <li class="menu-header">Components</li>
                         <li>

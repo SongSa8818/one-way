@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Property;
+use App\Khan;
+use App\Sangkat;
 use Illuminate\Http\Request;
 
-class ExclusiveController extends Controller
+class SangkatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class ExclusiveController extends Controller
      */
     public function index()
     {
-      $properties = Property::paginate(2);
-      return view('pages.exclusive')->with('properties', $properties);
+      $sangkat = Sangkat::SangkatKhan();
+      return view('admin.parameters.sangkat')->with('sangkats', $sangkat);
     }
 
     /**
@@ -25,7 +26,8 @@ class ExclusiveController extends Controller
      */
     public function create()
     {
-        //
+      $khan = Khan::pluck('name', 'id');
+      return view('admin.parameters.formSangkat')->with('khans', $khan);
     }
 
     /**
@@ -36,16 +38,20 @@ class ExclusiveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $sangkat = new Sangkat();
+      $sangkat->name = $request->name;
+      $sangkat->khan_id = $request->khan_id;
+      $sangkat->save();
+      return redirect('sangkat');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Sangkat  $sangkat
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Sangkat $sangkat)
     {
         //
     }
@@ -53,34 +59,41 @@ class ExclusiveController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Sangkat  $sangkat
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+      $sangkat = Sangkat::findOrFail($id);
+      $khan = Khan::pluck('name', 'id');
+      return view('admin.parameters.formSangkat')->with(array('sangkat' => $sangkat, 'khans' => $khan));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Sangkat  $sangkat
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+      $sangkat = Sangkat::findOrFail($id);
+      $sangkat->name = $request->name;
+      $sangkat->khan_id = $request->khan_id;
+      $sangkat->save();
+      return redirect('sangkat');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Sangkat  $sangkat
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+      Sangkat::destroy($id);
+      return redirect('sangkat');
     }
 }

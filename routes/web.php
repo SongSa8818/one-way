@@ -33,3 +33,9 @@ Route::resource('/offer', 'OfferController');
 Route::post('/acceptOffer', 'OfferController@acceptOffer')->name('acceptOffer');
 
 Route::resource('/dashboard', 'DashboardController');
+
+/* Parameter */
+Route::resource('/city', 'CityController');
+Route::resource('/khan', 'KhanController');
+Route::resource('/sangkat', 'SangkatController');
+Route::resource('/village', 'VillageController');

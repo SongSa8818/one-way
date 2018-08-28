@@ -12,45 +12,39 @@
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Simple Table</h4>
+                        <div class="float-right"><a href="{{ route('property.create') }}" class="btn btn-lg btn-primary"><span class="fa fa-plus"></span> Add</a></div>
+                        <h4>Properties Table</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <tr>
-                                    <th>#</th>
+                                    <th>ID</th>
                                     <th>Name</th>
-                                    <th>Created At</th>
+                                    <th>Price($)</th>
+                                    <th>Type</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
-
+                            @foreach($properties as $property)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Irwansyah Saputra</td>
-                                    <td>2017-01-09</td>
-                                    <td><div class="badge badge-success">Active</div></td>
-                                    <td><a href="#" class="btn btn-action btn-secondary">Detail</a></td>
+                                    <td>{{ $property->property_number }}</td>
+                                    <td>{{ $property->title }}</td>
+                                    <td>{{ $property->price }}</td>
+                                    <td>{{ $property->type }}</td>
+                                    <td><div class="text-uppercase badge badge-{{ $property->status == 'active'?'success':'danger' }}">{{ $property->status }}</div></td>
+                                    <td>
+                                        <a href="{{ route('property.edit', $property->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                    </td>
                                 </tr>
-
+                            @endforeach
                             </table>
                         </div>
                     </div>
                     <div class="card-footer text-right">
                         <nav class="d-inline-block">
-                            <ul class="pagination mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1"><i class="ion ion-chevron-left"></i></a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="ion ion-chevron-right"></i></a>
-                                </li>
-                            </ul>
+                            {{ $properties->links() }}
                         </nav>
                     </div>
                 </div>

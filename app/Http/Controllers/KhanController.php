@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Property;
+use App\City;
+use App\Khan;
 use Illuminate\Http\Request;
 
-class ExclusiveController extends Controller
+class KhanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class ExclusiveController extends Controller
      */
     public function index()
     {
-      $properties = Property::paginate(2);
-      return view('pages.exclusive')->with('properties', $properties);
+      $khan = Khan::KhansByCity();
+      return view('admin.parameters.khan')->with('khans', $khan);
     }
 
     /**
@@ -25,7 +26,8 @@ class ExclusiveController extends Controller
      */
     public function create()
     {
-        //
+      $city = City::pluck('name', 'id');
+      return view('admin.parameters.formKhan')->with('cities', $city);
     }
 
     /**
@@ -36,16 +38,20 @@ class ExclusiveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $khan = new Khan();
+      $khan->name = $request->name;
+      $khan->city_id = $request->city_id;
+      $khan->save();
+      return redirect('khan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Khan  $khan
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Khan $khan)
     {
         //
     }
@@ -53,34 +59,41 @@ class ExclusiveController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Khan  $khan
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+      $khan = Khan::findOrFail($id);
+      $city = City::pluck('name', 'id');
+      return view('admin.parameters.formKhan')->with(array('khan' => $khan, 'cities' => $city));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Khan  $khan
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+      $khan = Khan::findOrFail($id);
+      $khan->name = $request->name;
+      $khan->city_id = $request->city_id;
+      $khan->save();
+      return redirect('khan');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Khan  $khan
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+      Khan::destroy($id);
+      return redirect('khan');
     }
 }
