@@ -32,7 +32,7 @@
         maximumFileSize: 'Maximum file size',
         maximumFileSizeError: 'Maximum file size exceeded.',
         url: 'Irudiaren URL helbidea',
-        remove: 'Remove Image',
+        remove: 'Remove ImageProperty',
         original: 'Original'
       },
       video: {

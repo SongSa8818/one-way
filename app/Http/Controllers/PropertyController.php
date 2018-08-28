@@ -26,7 +26,7 @@ class PropertyController extends Controller
 
     public function list()
     {
-      $properties = Property::paginate(10);
+      $properties = Property::List();
       return view('admin.properties.list')->with('properties', $properties);
     }
 

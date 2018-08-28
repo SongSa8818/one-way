@@ -3192,7 +3192,7 @@ file-image:
   changes:
     - '4.1'
     - 5.0.0
-  label: Image File
+  label: ImageProperty File
   search:
     terms: []
   styles:
@@ -4397,7 +4397,7 @@ image:
   changes:
     - '1'
     - 5.0.0
-  label: Image
+  label: ImageProperty
   search:
     terms:
       - photo

@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col">
 
-                    <!-- Listing Image Slider -->
+                    <!-- Listing ImageProperty Slider -->
 
                     <div class="listing_slider_container">
                         <div class="owl-carousel owl-theme listing_slider">
