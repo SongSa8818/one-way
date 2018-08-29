@@ -14,7 +14,7 @@ class ImageProperty extends Model
     $query = DB::table($this->table)
       ->select('*')
       ->where($this->table.'.property_id', '=', $property_id)
-      ->paginate(10);
+      ->get();
     return $query;
   }
 

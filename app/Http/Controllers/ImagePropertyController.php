@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DeleteImage;
 use App\ImageProperty;
 use App\Property;
 use Faker\Provider\Image;
@@ -96,8 +97,12 @@ class ImagePropertyController extends Controller
      * @param  \App\ImageProperty  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ImageProperty $image)
+    public function destroy($id)
     {
-        //
+      $imageProperty = ImageProperty::findOrFail($id);
+      $deleteFile = new DeleteImage();
+      $deleteFile->deleteImage(public_path('/uploads/'), $imageProperty->img);
+      ImageProperty::destroy($id);
+      return redirect(route('image.edit', $imageProperty->property_id));
     }
 }

@@ -36,7 +36,9 @@
                                     <td>
                                         <a href="{{ route('image.edit', $property->id) }}" class="btn btn-sm btn-info">Image management</a>
                                         <a href="{{ route('property.edit', $property->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                        {{ Form::open(array('route' => array('property.destroy', $property->id), 'method' => 'DELETE')) }}
+                                            <button type="submit" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger">Delete</button>
+                                        {{ Form::close() }}
                                     </td>
                                 </tr>
                             @endforeach
