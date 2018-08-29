@@ -209,7 +209,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => 'Collective\Html\FormFacade',
-        'Html' => 'Collective\Html\HtmlFacade'
+        'Html' => 'Collective\Html\HtmlFacade',
+        'Image'     => Intervention\Image\Facades\Image::class,
 
     ],
 

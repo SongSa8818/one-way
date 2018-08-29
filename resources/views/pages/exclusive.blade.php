@@ -207,7 +207,7 @@
                         <div class="listing_item_inner d-flex flex-md-row flex-column trans_300">
                             <div class="listing_image_container">
                                 <div class="listing_image">
-                                    <!-- Image by: https://unsplash.com/@breather -->
+                                    <!-- ImageProperty by: https://unsplash.com/@breather -->
                                     <div class="listing_background" style="background-image:url(images/listing_1.jpg)"></div>
                                 </div>
                                 <div class="featured_card_box d-flex flex-row align-items-center trans_300">

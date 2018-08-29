@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\DeleteImage;
+use App\ImageProperty;
 use App\Khan;
 use App\Property;
 use App\PropertyTypes;
@@ -26,7 +28,7 @@ class PropertyController extends Controller
 
     public function list()
     {
-      $properties = Property::paginate(10);
+      $properties = Property::List();
       return view('admin.properties.list')->with('properties', $properties);
     }
 
@@ -150,6 +152,16 @@ class PropertyController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $images = ImageProperty::List($id);
+
+      $deleteFile = new DeleteImage();
+      foreach ($images as $img) {
+        $deleteFile->deleteImage(public_path('/uploads/'), $img->img);
+        ImageProperty::destroy($img->id);
+      }
+
+      Property::destroy($id);
+
+      return redirect(route('property.list'));
     }
 }

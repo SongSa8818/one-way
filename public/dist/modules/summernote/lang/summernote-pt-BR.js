@@ -32,7 +32,7 @@
         maximumFileSize: 'Maximum file size',
         maximumFileSizeError: 'Maximum file size exceeded.',
         url: 'URL da imagem',
-        remove: 'Remove Image',
+        remove: 'Remove ImageProperty',
         original: 'Original'
       },
       video: {
