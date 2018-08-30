@@ -24,6 +24,7 @@
                                     <th>Price($)</th>
                                     <th>Type</th>
                                     <th>Status</th>
+                                    <th>View images</th>
                                     <th>Action</th>
                                 </tr>
                             @foreach($properties as $property)
@@ -33,9 +34,15 @@
                                     <td>{{ $property->price }}</td>
                                     <td>{{ $property->type }}</td>
                                     <td><div class="text-uppercase badge badge-{{ $property->status == 'active'?'success':'danger' }}">{{ $property->status }}</div></td>
+                                    <td><a href="{{ route('image.edit', $property->id) }}" class="btn btn-sm btn-info"><span class="ion ion-image"></span>
+                                            Images
+                                        </a>
+                                    </td>
                                     <td>
-                                        <a href="{{ route('property.edit', $property->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                        <a href="{{ route('property.edit', $property->id) }}" class="btn btn-sm btn-primary pull-left mr-3">Edit</a>
+                                        {{ Form::open(array('route' => array('property.destroy', $property->id), 'method' => 'DELETE')) }}
+                                            <button type="submit" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger">Delete</button>
+                                        {{ Form::close() }}
                                     </td>
                                 </tr>
                             @endforeach

@@ -7,7 +7,7 @@
 
             <!-- Home Slider Item -->
             <div class="owl-item home_slider_item">
-                <!-- Image by https://unsplash.com/@aahubs -->
+                <!-- ImageProperty by https://unsplash.com/@aahubs -->
                 <div class="home_slider_background" style="background-image:url(images/home_slider_bcg.jpg)"></div>
                 <div class="home_slider_content_container text-center">
                     <div class="home_slider_content">
@@ -18,7 +18,7 @@
 
             <!-- Home Slider Item -->
             <div class="owl-item home_slider_item">
-                <!-- Image by https://unsplash.com/@aahubs -->
+                <!-- ImageProperty by https://unsplash.com/@aahubs -->
                 <div class="home_slider_background" style="background-image:url(images/home_slider_bcg.jpg)"></div>
                 <div class="home_slider_content_container text-center">
                     <div class="home_slider_content">
@@ -29,7 +29,7 @@
 
             <!-- Home Slider Item -->
             <div class="owl-item home_slider_item">
-                <!-- Image by https://unsplash.com/@aahubs -->
+                <!-- ImageProperty by https://unsplash.com/@aahubs -->
                 <div class="home_slider_background" style="background-image:url(images/home_slider_bcg.jpg)"></div>
                 <div class="home_slider_content_container text-center">
                     <div class="home_slider_content">

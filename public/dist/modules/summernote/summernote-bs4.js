@@ -1714,7 +1714,7 @@ $$1.extend($$1.summernote.lang, {
         },
         image: {
             image: 'Picture',
-            insert: 'Insert Image',
+            insert: 'Insert ImageProperty',
             resizeFull: 'Resize Full',
             resizeHalf: 'Resize Half',
             resizeQuarter: 'Resize Quarter',
@@ -1730,8 +1730,8 @@ $$1.extend($$1.summernote.lang, {
             selectFromFiles: 'Select from files',
             maximumFileSize: 'Maximum file size',
             maximumFileSizeError: 'Maximum file size exceeded.',
-            url: 'Image URL',
-            remove: 'Remove Image',
+            url: 'ImageProperty URL',
+            remove: 'Remove ImageProperty',
             original: 'Original'
         },
         video: {
@@ -4268,7 +4268,7 @@ var Editor = /** @class */ (function () {
         // If onImageUpload this.options setted
         if (callbacks.onImageUpload) {
             this.context.triggerEvent('image.upload', files);
-            // else insert Image as dataURL
+            // else insert ImageProperty as dataURL
         }
         else {
             this.insertImages(files);
@@ -5484,7 +5484,7 @@ var Buttons = /** @class */ (function () {
      */
     Buttons.prototype.addImagePopoverButtons = function () {
         var _this = this;
-        // Image Size Buttons
+        // ImageProperty Size Buttons
         this.context.memo('button.imageSize100', function () {
             return _this.button({
                 contents: '<span class="note-fontsize-10">100%</span>',
@@ -6181,7 +6181,7 @@ var ImageDialog = /** @class */ (function () {
 }());
 
 /**
- * Image popover module
+ * ImageProperty popover module
  *  mouse events that show/hide popover will be handled by Handle.js.
  *  Handle.js will receive the events and invoke 'imagePopover.update'.
  */

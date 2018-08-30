@@ -24,6 +24,7 @@ Route::resource('/contact', 'ContactController');
 
 Route::resource('/property', 'PropertyController');
 Route::get('/property-list', 'PropertyController@list')->name('property.list');
+Route::resource('/image', 'ImagePropertyController');
 
 Route::resource('/request', 'RequestController');
 Route::resource('/offer', 'OfferController');
