@@ -28,6 +28,9 @@ class CreatePropertiesTable extends Migration
             $table->integer('village_id');
             $table->string('street_name');
             $table->string('street_number');
+            $table->string('pro_lat');
+            $table->string('pro_lon');
+
             $table->string('status');
             $table->foreign('user_id')
                   ->references('id')->on('users')

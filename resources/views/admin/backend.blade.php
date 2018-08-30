@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('dist/css/demo.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('dist/css/custom.css')}}">
+
 </head>
 
 <body>
@@ -230,5 +231,25 @@
     <script src="{{asset('dist/js/scripts.js')}}"></script>
     <script src="{{asset('dist/js/custom.js')}}"></script>
     <script src="{{asset('dist/js/demo.js')}}"></script>
+
+    <!-- Location picker -->
+    <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+    <script src="http://rawgit.com/Logicify/jquery-locationpicker-plugin/master/dist/locationpicker.jquery.js"></script>
+
+    <script>
+        $('#mapsProperty').locationpicker({
+            location: {
+                latitude: 11.562859,
+                longitude: 104.915590
+            },
+            inputBinding: {
+                latitudeInput: $('#pro-lat'),
+                longitudeInput: $('#pro-lon'),
+                locationNameInput: $('#pro-address')
+            },
+            enableAutocomplete: true
+        });
+    </script>
+
 </body>
 </html>

@@ -95,6 +95,26 @@
                                 </select>
                             </div>
                         </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    {!! Form::Label('pro-address', 'Search address') !!}
+                                    <input type="text" class="form-control" id="pro-address"/>
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::Label('pro-lat', 'Latitude') !!}
+                                    <input type="text" name="pro_lat" class="form-control" value="{{ @$property->pro_lat }}" id="pro-lat"/>
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::Label('pro-lon', 'Longitude') !!}
+                                    <input type="text" name="pro_lon" class="form-control" value="{{ @$property->pro_lon }}" id="pro-lon"/>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div id="mapsProperty" style="width: 100%; height: 500px;"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-lg mr-3">Save</button>
