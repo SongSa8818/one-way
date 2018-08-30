@@ -16,7 +16,7 @@ class CreatePagesTable extends Migration
         Schema::create('abouts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('company_slogan');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
         });
     }

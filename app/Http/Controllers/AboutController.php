@@ -11,7 +11,8 @@ class AboutController extends Controller
 
     public function index()
     {
-        return view('pages.about');
+        $about = About::findOrFail(1);
+        return view('pages.about')->with('about', $about);
     }
 
     /**
@@ -35,7 +36,7 @@ class AboutController extends Controller
         $about = new About();
         $about->company_slogan = $request->company_slogan;
         $about->description = $request->description;
-        dd($about);
+        //dd($about);
         $about->save();
         return redirect('about');
     }
@@ -62,7 +63,7 @@ class AboutController extends Controller
     public function edit($id)
     {
         $about = About::findOrFail($id);
-        return view('admin.about.show')->with(array('about' => $about));
+        return view('admin.about.create')->with(array('about' => $about));
     }
 
     /**
@@ -75,8 +76,7 @@ class AboutController extends Controller
     public function update(Request $request, $id)
     {
         $about = About::findOrFail($id);
-        $about->title = $request->title;
-        $about->sub_title = $request->sub_title;
+        $about->company_slogan = $request->company_slogan;
         $about->description = $request->description;
         $about->save();
         return redirect('about');
