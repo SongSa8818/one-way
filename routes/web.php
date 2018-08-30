@@ -19,9 +19,6 @@ Route::resource('/exclusive', 'ExclusiveController');
 Route::resource('/showing', 'ShowingController');
 
 Route::resource('/about', 'AboutController');
-Route::get('/about-list', 'AboutController@list')->name('about.list');
-Route::get('/about/show', 'AboutController@show')->name('about.show');
-Route::get('/about/create', 'AboutController@create')->name('about.create');
 
 Route::resource('/contact', 'ContactController');
 
