@@ -75,6 +75,8 @@ class PropertyController extends Controller
         $property->village_id = $request->village_id;
         $property->street_name = $request->street_name;
         $property->street_number = $request->street_number;
+        $property->pro_lat = $request->pro_lat;
+        $property->pro_lon = $request->pro_lon;
         $property->status = $request->status;
         $property->user_id = Auth::user()->getAuthIdentifier();
         $property->save();
@@ -138,6 +140,8 @@ class PropertyController extends Controller
       $property->village_id = $request->village_id;
       $property->street_name = $request->street_name;
       $property->street_number = $request->street_number;
+      $property->pro_lat = $request->pro_lat;
+      $property->pro_lon = $request->pro_lon;
       $property->status = $request->status;
       $property->user_id = Auth::user()->getAuthIdentifier();
       $property->save();
