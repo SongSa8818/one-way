@@ -6,6 +6,19 @@
             <div>Form {{ @$about != null? 'update': 'add' }} about</div>
         </h1>
         <div class="section-body">
+
+            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                @if(Session::has('alert-' . $msg))
+                <div class="alert alert-{{$msg}} alert-dismissible fade show" role="alert">
+                    {{ Session::get('alert-' . $msg) }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
+            @endforeach
+
+
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
                     @if(@$about != null)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\About;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AboutController extends Controller
 {
@@ -38,7 +39,7 @@ class AboutController extends Controller
         $about->description = $request->description;
         //dd($about);
         $about->save();
-        return redirect('about');
+        return redirect(route('about.edit', $about->id));
     }
 
     /**
@@ -62,8 +63,12 @@ class AboutController extends Controller
      */
     public function edit($id)
     {
-        $about = About::findOrFail($id);
-        return view('admin.about.create')->with(array('about' => $about));
+        if (!About::all()->isEmpty()) {
+          $about = About::findOrFail($id);
+          return view('admin.about.create')->with(array('about' => $about));
+        } else {
+          return redirect(route('about.create'));
+        }
     }
 
     /**
@@ -79,7 +84,10 @@ class AboutController extends Controller
         $about->company_slogan = $request->company_slogan;
         $about->description = $request->description;
         $about->save();
-        return redirect('about');
+
+        Session::flash('alert-success', 'Successfully saved');
+
+      return redirect(route('about.edit', $about->id));
     }
 
     /**
