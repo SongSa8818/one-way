@@ -19,6 +19,7 @@ Route::resource('/exclusive', 'ExclusiveController');
 Route::resource('/showing', 'ShowingController');
 Route::resource('/about', 'AboutController');
 Route::resource('/contact', 'ContactController');
+Route::get('/contact-list', 'ContactController@list')->name('contact.list');
 
 Route::resource('/property', 'PropertyController');
 Route::get('/property-list', 'PropertyController@list')->name('property.list');

@@ -8,15 +8,29 @@
         <div class="contact">
             <div class="row">
                 <div class="col-lg-7 contact_col">
+                    @if(@$about != null)
+                        {{ Form::model(@$contact, array('route' => array('contact.update', @$about->id), 'class' => '', 'method' => 'put')) }}
+                    @else
+                        {{ Form::model(@$contact, array('route' => array('contact.store'), 'class' => '')) }}
+                    @endif
                     <div class="estate_contact_form">
                         <div class="contact_title">say hello to One Way Realty</div>
                         <div class="estate_contact_form_container">
                             <form id="estate_contact_form" class="estate_contact_form" action="post">
-                                <input id="estate_contact_form_name" class="estate_input_field estate_contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
-                                <input id="estate_contact_form_email" class="estate_input_field estate_contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
-                                <input id="estate_contact_form_subject" class="estate_input_field estate_contact_form_subject" type="email" placeholder="Subject" required="required" data-error="Subject is required.">
-                                <textarea id="estate_contact_form_message" class="estate_text_field estate_contact_form_message" name="message" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
+                                <div class="form-group">
+                                    {{ Form::text('name', @$contact->name, array('id' => "estate_contact_form_name",'class' => "estate_input_field estate_contact_form_name", 'placeholder' => "Name", 'required' => "required", 'data-error' => "Name is required.", 'autofocus')) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::email('email', @$contact->email, array('id' => "estate_contact_form_email",'placeholder' => 'E-mail','class' => "estate_input_field estate_contact_form_email",'required' => "required",'data-error' =>"Valid email is required.", 'autofocus')) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::text('subject', @$contact->subject, array('id' => "estate_contact_form_subject",'class' => "estate_input_field estate_contact_form_subject", 'placeholder' => "Subject", 'required' => "required", 'data-error' => "Subject is required.", 'autofocus')) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::textarea('message', @$contact->message, array('id' => "estate_contact_form_message",'class' => "estate_text_field estate_contact_form_message", 'placeholder' => "Message", 'required' => "required", 'data-error' => "Message is required.", 'autofocus')) }}
+                                </div>
                                 <button id="estate_contact_send_btn" type="submit" class="estate_contact_send_btn trans_200" value="Submit">send</button>
+
                             </form>
                         </div>
                     </div>
