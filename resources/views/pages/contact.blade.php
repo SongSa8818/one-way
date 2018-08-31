@@ -14,7 +14,7 @@
                         {{ Form::model(@$contact, array('route' => array('contact.store'), 'class' => '')) }}
                     @endif
                     <div class="estate_contact_form">
-                        <div class="contact_title">say hello to One Way Realty</div>
+                        <div class="contact_title">What can we help you? </div>
                         <div class="estate_contact_form_container">
                             <form id="estate_contact_form" class="estate_contact_form" action="post">
                                 <div class="form-group">
