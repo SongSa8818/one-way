@@ -125,6 +125,9 @@
                         <li class="{{ in_array($uri, array('property-list','property'))?'active':'' }}">
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
                         </li>
+                        <li>
+                            <a href="{{ route('about.edit', 1) }}"><i class="ion ion-clipboard"></i><span>About</span></a>
+                        </li>
                         <li class="{{ in_array($uri,array('city','khan','sangkat','village'))?'active':'' }}">
                             <a href="#" class="has-dropdown"><i class="ion ion-location"></i><span>Parameters</span></a>
                             <ul class="menu-dropdown">
