@@ -1,7 +1,7 @@
 <!-- Home -->
 <div class="home">
     <!-- ImageProperty by: https://unsplash.com/@jbriscoe -->
-    <div class="home_background" style="background-image:url(images/listings.jpg)"></div>
+    <div class="home_background" style="background-image:url(../images/listings.jpg)"></div>
 
     <div class="container">
         <div class="row">
