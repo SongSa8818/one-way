@@ -219,7 +219,7 @@
                                 </div>
                             </div>
                             <div class="listing_content">
-                                <div class="listing_title"><a href="{{ route('property.index') }}">{{ $property->title }}</a></div>
+                                <div class="listing_title"><a href="{{ route('property.show', $property->id) }}">{{ $property->title }}</a></div>
                                 <div class="listing_text">{{ $property->description }}</div>
                                 <div class="rooms">
 
