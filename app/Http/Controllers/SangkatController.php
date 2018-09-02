@@ -19,6 +19,10 @@ class SangkatController extends Controller
       return view('admin.parameters.sangkat')->with('sangkats', $sangkat);
     }
 
+    public function getSangkats(Request $request){
+      return Sangkat::FindSangkatsByKhan($request->khan_id);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

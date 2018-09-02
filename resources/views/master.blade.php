@@ -47,7 +47,7 @@
 <body>
 
     <div class="super_container">
-        @if (Route::getCurrentRoute()->uri() == '/')
+        @if ($uri == 'home')
             <!-- Home -->
             @include('layouts.slider')
         @else

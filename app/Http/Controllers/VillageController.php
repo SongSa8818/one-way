@@ -15,8 +15,12 @@ class VillageController extends Controller
      */
     public function index()
     {
-      $village = village::Villagesangkat();
+      $village = village::VillageSangkat();
       return view('admin.parameters.village')->with('villages', $village);
+    }
+
+    public function getVillages(Request $request){
+      return Village::FindVillagesBySangkat($request->sangkat_id);
     }
 
     /**

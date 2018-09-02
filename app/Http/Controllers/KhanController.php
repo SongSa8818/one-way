@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\City;
 use App\Khan;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class KhanController extends Controller
 {
@@ -43,6 +44,11 @@ class KhanController extends Controller
       $khan->city_id = $request->city_id;
       $khan->save();
       return redirect('khan');
+    }
+
+    public function getKhans(Request $request)
+    {
+      return Khan::FindKhansByCity($request->city_id);
     }
 
     /**
