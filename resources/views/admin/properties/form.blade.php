@@ -38,15 +38,16 @@
                             </div>
                             <div class="form-group col-6">
                                 {!! Form::Label('city_id', 'City') !!}
-                                <select class="form-control" name="city_id">
+                                <select class="form-control" name="city_id" id="city_id" required>
                                     @foreach($cities as $key => $value)
                                         <option value="{{$key}}" {{ $key == @$property->city_id? 'selected': '' }}>{{$value}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-6">
-                                {!! Form::Label('khan_id', 'Khan') !!}
-                                <select class="form-control" name="khan_id">
+                                {!! Form::Label('khan_id', 'Khan/District') !!}
+                                <select class="form-control" name="khan_id" id="khan_id" disabled required>
+                                    <option value=""></option>
                                     @foreach($khans as $key => $value)
                                         <option value="{{$key}}" {{ $key == @$property->khan_id? 'selected': '' }}>{{$value}}</option>
                                     @endforeach
@@ -54,7 +55,8 @@
                             </div>
                             <div class="form-group col-6">
                                 {!! Form::Label('sangkat_id', 'Sangkat') !!}
-                                <select class="form-control" name="sangkat_id">
+                                <select class="form-control" name="sangkat_id" id="sangkat_id" disabled required>
+                                    <option value=""></option>
                                     @foreach($sangkats as $key => $value)
                                         <option value="{{$key}}" {{ $key == @$property->sangkat_id? 'selected': '' }}>{{$value}}</option>
                                     @endforeach
@@ -62,7 +64,8 @@
                             </div>
                             <div class="form-group col-6">
                                 {!! Form::Label('village_id', 'Village') !!}
-                                <select class="form-control" name="village_id">
+                                <select class="form-control" name="village_id" id="village_id" disabled required>
+                                    <option value=""></option>
                                     @foreach($villages as $key => $value)
                                         <option value="{{$key}}" {{ $key == @$property->village_id? 'selected': '' }}>{{$value}}</option>
                                     @endforeach

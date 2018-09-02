@@ -15,6 +15,14 @@ class Sangkat extends Model
     return $query;
   }
 
+  public function scopeFindSangkatsByKhan($query, $khan_id) {
+    $query = DB::table('sangkats')
+      ->select('sangkats.id','sangkats.name')
+      ->where('sangkats.khan_id', '=', $khan_id)
+      ->get();
+    return $query;
+  }
+
   public function khan(){
     return $this->belongsTo('App\Khan');
   }

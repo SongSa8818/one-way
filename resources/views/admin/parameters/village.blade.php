@@ -19,7 +19,7 @@
                             <table class="table table-bordered">
                                 <tr>
                                     <th>Name</th>
-                                    <th>Khan</th>
+                                    <th>Sangkat</th>
                                     <th>Action</th>
                                 </tr>
                                 @foreach($villages as $village)

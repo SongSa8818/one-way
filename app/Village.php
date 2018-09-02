@@ -15,6 +15,15 @@ class Village extends Model
     return $query;
   }
 
+  public function scopeFindVillagesBySangkat($query, $sangkat_id) {
+    $query = DB::table('villages')
+      ->select('villages.id','villages.name')
+      ->where('villages.sangkat_id', '=', $sangkat_id)
+      ->get();
+    return $query;
+  }
+
+
   public function sangkat(){
     return $this->belongsTo('App\Sangkat');
   }
