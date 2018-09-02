@@ -11,31 +11,32 @@
     <link rel="shortcut icon" href="{{asset('images/logo.png')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('styles/bootstrap4/bootstrap.min.css')}}">
     <link href="{{asset('plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}" rel="stylesheet" type="text/css">
-    <?php $uri = Route::getCurrentRoute()->uri() ?>
+    <?php $uri = Route::currentRouteName() ?>
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    @if ($uri == '/')
+
+    @if ($uri == 'home')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
-    @elseif(in_array($uri,array('exclusive','showing','offer')))
+    @elseif(in_array($uri,array('exclusive.index','showing.index','offer.index')))
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_responsive.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_responsive.css')}}">
-    @elseif($uri == 'about')
+    @elseif($uri == 'about.index')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/about_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/about_responsive.css')}}">
-    @elseif($uri == 'contact')
+    @elseif($uri == 'contact.index')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_responsive.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">
-    @elseif($uri == 'contact')
+    @elseif($uri == 'contact.index')
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_responsive.css')}}">
-    @elseif(in_array($uri, array('property','request')))
+    @elseif(in_array($uri, array('property.show','request.index')))
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_responsive.css')}}">
@@ -91,23 +92,22 @@
     <script src="{{asset('plugins/scrollTo/jquery.scrollTo.min.js')}}"></script>
     <script src="{{asset('plugins/easing/easing.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
-    @if($uri == 'about')
+    @if($uri == 'about.index')
         <script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
         <script src="{{asset('js/about_custom.js')}}"></script>
-    @elseif($uri == 'contact')
+    @elseif($uri == 'contact.index')
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
         <script src="{{asset('js/contact_custom.js')}}"></script>
-    @elseif($uri == 'property')
+    @elseif(in_array($uri, array('property.show')))
         <script src="{{asset('plugins/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA4Ukxfg33boz0seOAO87i9eZYJvyffDk&callback=initMap&libraries=places"></script>
         <script src="{{asset('js/listings_single_custom.js')}}"></script>
 
         <script>
-            // This example displays a marker at the center of Australia.
-            // When the user clicks the marker, an info window opens.
 
             function initMap() {
-                var uluru = {lat: 11.586696, lng: 104.902523};
+                var uluru = {lat: {{ @$property->pro_lat }}, lng: {{ @$property->pro_lon }}};
+                var img = '{{ url('/uploads/'.@$images[0]->img) }}';
                 var map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 18,
                     center: uluru
@@ -116,17 +116,10 @@
                 var contentString = '<div id="content">'+
                     '<div id="siteNotice">'+
                     '</div>'+
-                    '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Gingerbread_House_Essex_CT.jpg/220px-Gingerbread_House_Essex_CT.jpg" />'+
-                    '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+                    '<img src="'+ img +'" />'+
+                    '<h1 id="firstHeading" class="firstHeading">{{ @$property->title }}</h1>'+
                     '<div id="bodyContent">'+
-                    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-                    'sandstone rock formation in the southern part of the '+
-                    'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-                    'south west of the nearest large town, Alice Springs; 450&#160;km '+
-                    '(280&#160;mi) by road.</p>'+
-                    '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-                    'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-                    '(last visited June 22, 2009).</p>'+
+                    '<p> {{ @$property->description }} </p>'+
                     '</div>'+
                     '</div>';
 

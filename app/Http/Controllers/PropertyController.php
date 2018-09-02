@@ -91,7 +91,9 @@ class PropertyController extends Controller
      */
     public function show($id)
     {
-        //
+      $property = Property::SelectById($id);
+      $images = ImageProperty::List($id);
+      return view('pages.property')->with(array('property' => $property, 'images' => $images));
     }
 
     /**

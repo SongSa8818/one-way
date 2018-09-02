@@ -78,8 +78,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Content</label>
-                            <textarea name="description" class="summernote-simple" style="display: none;">{{ @$property->description }}</textarea>
+                            {{ Form::label('description', 'Description') }}
+                            <textarea id="description" name="description" rows="7" class="form-control">{{ @$property->description }}</textarea>
                         </div>
                         <div class="row">
                             <div class="form-group col-6">
