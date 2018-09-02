@@ -1,9 +1,9 @@
 @extends('admin.backend')
-@section('title','Form Contact Us')
+@section('title','ContactInfo create')
 @section('content')
     <section class="section">
         <h1 class="section-header">
-            <div>Form {{ @$about != null? 'update': 'add' }} about</div>
+            <div>Form {{ @$contact_info != null? 'update': 'add' }} contact_info</div>
         </h1>
         <div class="section-body">
 
@@ -22,9 +22,9 @@
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
                     @if(@$about != null)
-                        {{ Form::model(@$about, array('route' => array('about.update', @$about->id), 'class' => '', 'method' => 'put')) }}
+                        {{ Form::model(@$contact_info, array('route' => array('contact.update', @$contact_info->id), 'class' => '', 'method' => 'put')) }}
                     @else
-                        {{ Form::model(@$about, array('route' => array('about.store'), 'class' => '')) }}
+                        {{ Form::model(@$contact_info, array('route' => array('contact.store'), 'class' => '')) }}
                     @endif
                     <div class="card">
                         <div class="card-body">
@@ -32,12 +32,20 @@
                                 <div class="content">
 
                                     <div class="form-group">
-                                        {{ Form::label('company_slogan', 'Sub Title') }}
-                                        {{ Form::text('company_slogan', @$about->company_slogan, array('class' => "form-control", 'autofocus')) }}
+                                        {{ Form::label('address', 'Address') }}
+                                        {{ Form::text('address', @$contact_info->address, array('class' => "form-control", 'autofocus')) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::label('description', 'Description') }}
-                                        {{ Form::textarea('description', @$about->description, array('class' => "form-control")) }}
+                                        {{ Form::label('phone_number', 'Phone Number') }}
+                                        {{ Form::text('phone_number', @$contact_info->phone_number, array('class' => "form-control", 'autofocus')) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('email', 'E-mail') }}
+                                        {{ Form::text('email', @$contact_info->email, array('class' => "form-control", 'autofocus')) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('website', 'website') }}
+                                        {{ Form::text('website', @$contact_info->website, array('class' => "form-control")) }}
                                     </div>
 
                                 </div>
@@ -45,7 +53,7 @@
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary btn-lg mr-3">Save</button>
-                            <a href="{{ route('dashboard.index') }}" class="btn btn-lg btn-info btn-action">Cancel</a>
+                            <a href="{{ route('contact.show-message') }}" class="btn btn-lg btn-info btn-action">Cancel</a>
                         </div>
                     </div>
                     {{ Form::close() }}

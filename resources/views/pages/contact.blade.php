@@ -41,19 +41,19 @@
                     <ul class="contact_info_list estate_contact">
                         <li class="contact_info_item d-flex flex-row">
                             <div><div class="contact_info_icon"><img src="images/placeholder.svg" alt=""></div></div>
-                            <div class="contact_info_text">#2005 No.05 SangKat Kurklaing Khan SenSok phnom Penh City</div>
+                            <div class="contact_info_text">{{ $contact_info->address }}</div>
                         </li>
                         <li class="contact_info_item d-flex flex-row">
                             <div><div class="contact_info_icon"><img src="images/phone-call.svg" alt=""></div></div>
-                            <div class="contact_info_text">+855-010-873-132</div>
+                            <div class="contact_info_text">{{ $contact_info->phone_number }}</div>
                         </li>
                         <li class="contact_info_item d-flex flex-row">
                             <div><div class="contact_info_icon"><img src="images/message.svg" alt=""></div></div>
-                            <div class="contact_info_text"><a href="mailto:onewayrealty@gmail.com?Subject=Hello" target="_top">onewayrealty@gmail.com</a></div>
+                            <div class="contact_info_text">{{ $contact_info->email }}</div>
                         </li>
                         <li class="contact_info_item d-flex flex-row">
                             <div><div class="contact_info_icon"><img src="images/planet-earth.svg" alt=""></div></div>
-                            <div class="contact_info_text"><a href="https://onewayrealty.com">www.onewayrealty.com</a></div>
+                            <div class="contact_info_text">{{ $contact_info->website }}</div>
                         </li>
                     </ul>
                     <div class="estate_social">
