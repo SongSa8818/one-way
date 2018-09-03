@@ -1,9 +1,9 @@
 @extends('admin.backend')
-@section('title','ContactInfo create')
+@section('title','Contact Info create')
 @section('content')
     <section class="section">
         <h1 class="section-header">
-            <div>Form {{ @$contact_info != null? 'update': 'add' }} contact_info</div>
+            <div>Form {{ @$contact_info != null? 'update': 'add' }} Contact Info</div>
         </h1>
         <div class="section-body">
 
@@ -21,7 +21,7 @@
 
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
-                    @if(@$about != null)
+                    @if(@$contact_info != null)
                         {{ Form::model(@$contact_info, array('route' => array('contact.update', @$contact_info->id), 'class' => '', 'method' => 'put')) }}
                     @else
                         {{ Form::model(@$contact_info, array('route' => array('contact.store'), 'class' => '')) }}
@@ -44,7 +44,7 @@
                                         {{ Form::text('email', @$contact_info->email, array('class' => "form-control", 'autofocus')) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ Form::label('website', 'website') }}
+                                        {{ Form::label('website', 'Website') }}
                                         {{ Form::text('website', @$contact_info->website, array('class' => "form-control")) }}
                                     </div>
 
@@ -53,7 +53,7 @@
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary btn-lg mr-3">Save</button>
-                            <a href="{{ route('contact.show-message') }}" class="btn btn-lg btn-info btn-action">Cancel</a>
+                            <a href="{{ route('dashboard.index') }}" class="btn btn-lg btn-info btn-action">Cancel</a>
                         </div>
                     </div>
                     {{ Form::close() }}

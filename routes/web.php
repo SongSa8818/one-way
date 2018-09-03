@@ -22,8 +22,10 @@ Route::resource('/about', 'AboutController');
 
 Route::resource('/contact', 'ContactController');
 Route::get('/contact-show-message', 'ContactController@show')->name('contact.show-message');
-//Route::resource('/contact/list', 'ContactController');
 Route::get('/contact-list', 'ContactController@list')->name('contact.list');
+
+Route::resource('/customer', 'CustomerController');
+Route::get('/customer-list', 'CustomerController@list')->name('customer.list');
 
 Route::resource('/property', 'PropertyController');
 Route::get('/property-list', 'PropertyController@list')->name('property.list');
