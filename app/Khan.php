@@ -15,6 +15,14 @@ class Khan extends Model
     return $query;
   }
 
+  public function scopeFindKhansByCity($query, $city_id) {
+    $query = DB::table('khans')
+      ->select('khans.id','khans.name')
+      ->where('khans.city_id', '=', $city_id)
+      ->get();
+    return $query;
+  }
+
   public function city(){
     return $this->belongsTo('App\City');
   }

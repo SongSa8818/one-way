@@ -246,6 +246,8 @@
     <script src="http://rawgit.com/Logicify/jquery-locationpicker-plugin/master/dist/locationpicker.jquery.js"></script>
 
     <script>
+        var token = '{{ \Illuminate\Support\Facades\Session::token() }}';
+
         $('#mapsProperty').locationpicker({
             location: {
                 latitude: 11.562859,
@@ -257,6 +259,51 @@
                 locationNameInput: $('#pro-address')
             },
             enableAutocomplete: true
+        });
+
+        $(document).ready(function() {
+            $('#city_id').on('change', function() {
+                var data = {
+                    'city_id': $(this).val(),
+                    _token: token
+                };
+                //console.log(data);
+                $.post('{{ route("ajax.khans_select") }}', data, function(resultKhans, textStatus, xhr) {
+                    /*optional stuff to do after success */
+                    //console.log(resultKhans.length);
+                    $('#khan_id option').remove();
+                    resultKhans.length > 0?$('#khan_id').prop('disabled', false):$('#khan_id').prop('disabled', true);
+                    for (i in resultKhans) {
+                        $('#khan_id').append('<option value="'+ resultKhans[i].id +'">'+ resultKhans[i].name +'</option>');
+                    }
+                });
+            });
+            $('#khan_id').on('change', function() {
+                var data = {
+                    'khan_id': $(this).val(),
+                    _token: token
+                };
+                $.post('{{ route("ajax.sangkats_select") }}', data, function(resultSangkats, textStatus, xhr) {
+                    $('#sangkat_id option').remove();
+                    resultSangkats.length > 0 ? $('#sangkat_id').prop('disabled', false) : $('#sangkat_id').prop('disabled', true);
+                    for (i in resultSangkats) {
+                        $('#sangkat_id').append('<option value="'+ resultSangkats[i].id +'">'+ resultSangkats[i].name +'</option>');
+                    }
+                });
+            });
+            $('#sangkat_id').on('change', function() {
+                var data = {
+                    'sangkat_id': $(this).val(),
+                    _token: token
+                };
+                $.post('{{ route("ajax.villages_select") }}', data, function(resultVillages, textStatus, xhr) {
+                    $('#village_id option').remove();
+                    resultVillages.length > 0 ? $('#village_id').prop('disabled', false) : $('#village_id').prop('disabled', true);
+                    for (i in resultVillages) {
+                        $('#village_id').append('<option value="'+ resultVillages[i].id +'">'+ resultVillages[i].name +'</option>');
+                    }
+                });
+            });
         });
     </script>
 

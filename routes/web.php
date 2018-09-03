@@ -42,3 +42,8 @@ Route::resource('/city', 'CityController');
 Route::resource('/khan', 'KhanController');
 Route::resource('/sangkat', 'SangkatController');
 Route::resource('/village', 'VillageController');
+
+/* Ajax */
+Route::post('select_khans', array('as' => 'ajax.khans_select', 'uses' => 'KhanController@getKhans'));
+Route::post('select_sangkats', array('as' => 'ajax.sangkats_select', 'uses' => 'SangkatController@getSangkats'));
+Route::post('select_villages', array('as' => 'ajax.villages_select', 'uses' => 'VillageController@getVillages'));
