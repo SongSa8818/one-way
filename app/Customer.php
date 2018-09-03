@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Customer extends Model
 {
-    public function scopeContact($query){
+    public function scopeCustomer($query){
         $query = DB::table('customers')
             ->select('*')
             ->paginate(10);

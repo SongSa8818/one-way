@@ -19,7 +19,7 @@ class CustomerController extends Controller
     }
         public function list()
     {
-        $customer = Customer::Contact();
+        $customer = Customer::Customer();
         //dd($customer);
         return view('admin.customers.list')->with('customers', $customer);
 
