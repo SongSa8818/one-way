@@ -109,7 +109,7 @@
 
                     <li class="contact_info_item d-flex flex-row">
                         <div><div class="contact_info_icon"><img src="images/phone-call.svg" alt=""></div></div>
-                        <div class="contact_info_text"><a href="#">855-010-873-132</div>
+                        <div class="contact_info_text"><a href="#">855-010-873-132</a></div>
                     </li>
                 </div>
             </div>
