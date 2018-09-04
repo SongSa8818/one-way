@@ -131,19 +131,24 @@
                         <li class="{{ in_array($uri, array('customer.list','customer.edit'))?'active':'' }}">
                             <a href="{{ route('customer.list') }}"><i class="ion ion-ios-person-outline"></i><span>Customers</span></a>
                         </li>
-                        <li class="{{ in_array($uri, array('contact.add','customer.edit'))?'active':'' }}">
+                        <li class="{{ in_array($uri, array('contact.create','contact.edit'))?'active':'' }}">
                             <a href="{{ route('contact.edit', 1) }}"><i class="ion ion-ios-contact-outline"></i><span>Contact Info</span></a>
                         </li>
-                        <li>
+                        <li class="{{ in_array($uri, array('about.create','about.edit'))?'active':'' }}">
                             <a href="{{ route('about.edit', 1) }}"><i class="ion ion-clipboard"></i><span>About</span></a>
                         </li>
-                        <li class="{{ in_array($uri,array('city','khan','sangkat','village'))?'active':'' }}">
+                        <li class="{{ in_array($uri,array(
+                            'city.index','city.create','city.edit',
+                            'khan.index','khan.create','khan.edit',
+                            'sangkat.index','sangkat.create','sangkat.edit',
+                            'village.index','village.create','village.edit'
+                        ))?'active':'' }}">
                             <a href="#" class="has-dropdown"><i class="ion ion-location"></i><span>Parameters</span></a>
                             <ul class="menu-dropdown">
-                                <li class="{{ $uri == 'city'?'active':'' }}"><a href="{{ route('city.index') }}"><i class="ion ion-ios-location-outline"></i> City</a></li>
-                                <li class="{{ $uri == 'khan'?'active':'' }}"><a href="{{ route('khan.index') }}"><i class="ion ion-ios-location-outline"></i> Khan</a></li>
-                                <li class="{{ $uri == 'sangkat'?'active':'' }}"><a href="{{ route('sangkat.index') }}"><i class="ion ion-ios-location-outline"></i> Sangkat</a></li>
-                                <li class="{{ $uri == 'village'?'active':'' }}"><a href="{{ route('village.index') }}"><i class="ion ion-ios-location-outline"></i> Village</a></li>
+                                <li class="{{ in_array($uri,array('city.index','city.create','city.edit'))?'active':'' }}"><a href="{{ route('city.index') }}"><i class="ion ion-ios-location-outline"></i> City</a></li>
+                                <li class="{{ in_array($uri,array('khan.index','khan.create','khan.edit'))?'active':'' }}"><a href="{{ route('khan.index') }}"><i class="ion ion-ios-location-outline"></i> Khan</a></li>
+                                <li class="{{ in_array($uri,array('sangkat.index','sangkat.create','sangkat.edit'))?'active':'' }}"><a href="{{ route('sangkat.index') }}"><i class="ion ion-ios-location-outline"></i> Sangkat</a></li>
+                                <li class="{{ in_array($uri,array('village.index','village.create','village.edit'))?'active':'' }}"><a href="{{ route('village.index') }}"><i class="ion ion-ios-location-outline"></i> Village</a></li>
                             </ul>
                         </li>
                         <li class="menu-header">Components</li>
