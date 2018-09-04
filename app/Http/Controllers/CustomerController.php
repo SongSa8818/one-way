@@ -17,7 +17,8 @@ class CustomerController extends Controller
     {
         return view('admin.customer.list');
     }
-        public function list()
+
+    public function list()
     {
         $customer = Customer::Customer();
         //dd($customer);

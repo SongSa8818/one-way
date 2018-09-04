@@ -5,13 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Contact_info extends Model
+class ContactInfo extends Model
 {
-    public function scopeContact_info($query){
-        $query = DB::table('contact_info')
+    public function scopeContactInfo($query){
+        $query = DB::table('contact_infos')
             ->select('*')
-            ->paginate(10);
+            ->limit(1);
         return $query;
     }
-
 }
