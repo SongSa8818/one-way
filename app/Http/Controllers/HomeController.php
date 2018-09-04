@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact_info;
+use App\ContactInfo;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index()
     {
 
-      $contact_info = Contact_info::findOrFail(1);
+      $contact_info = ContactInfo::findOrFail(1);
       return view('pages.home')->with('contact_info', $contact_info);
 
     }
