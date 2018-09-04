@@ -41,7 +41,7 @@
 
                     <li class="contact_info_item d-flex flex-row">
                         <div><div class="contact_info_icon"><img src="images/phone-call.svg" alt=""></div></div>
-                        <div class="contact_info_text"><a href="#">{{ $contact_info->phone_number }}</a></div>
+                        <div class="contact_info_text"><a href="#">{{ @$contact_info->phone_number }}</a></div>
                     </li>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 <ul class="contact_info_list">
                     <li class="contact_info_item d-flex flex-row">
                         <div><div class="contact_info_icon"><img src="images/message.svg" alt=""></div></div>
-                        <div class="contact_info_text"><a href="mailto:{{ $contact_info->email }}?Subject=Hello" target="_top">{{ $contact_info->email }}</a></div>
+                        <div class="contact_info_text"><a href="mailto:{{ @$contact_info->email }}?Subject=Hello" target="_top">{{ @$contact_info->email }}</a></div>
                     </li>
                 </ul>
             </div>
@@ -64,7 +64,7 @@
                 <ul class="contact_info_list">
                     <li class="contact_info_item d-flex flex-row">
                         <div><div class="contact_info_icon"><img src="images/placeholder.svg" alt=""></div></div>
-                        <div class="contact_info_text"><a href="#">{{ $contact_info->address }}</a></div>
+                        <div class="contact_info_text"><a href="#">{{ @$contact_info->address }}</a></div>
                     </li>
 
                 </ul>
