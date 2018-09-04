@@ -22,6 +22,9 @@ Route::resource('/about', 'AboutController');
 
 Route::resource('/contact', 'ContactController');
 
+Route::resource('/customer', 'CustomerController');
+Route::get('/customer-list', 'CustomerController@list')->name('customer.list');
+
 Route::resource('/property', 'PropertyController');
 Route::get('/property-list', 'PropertyController@list')->name('property.list');
 Route::resource('/image', 'ImagePropertyController');

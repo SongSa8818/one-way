@@ -1,42 +1,3 @@
-<!-- Newslette
-
-<div class="newsletter">
-    <div class="container">
-        <div class="row row-equal-height">
-
-            <div class="col-lg-6">
-                <div class="newsletter_title">
-                    <h3>subscribe to our newsletter</h3>
-                    <span class="newsletter_subtitle">Get the latest offers</span>
-                </div>
-                <div class="newsletter_form_container">
-                    <form action="#">
-                        <div class="newsletter_form_content d-flex flex-row">
-                            <input id="newsletter_email" class="newsletter_email" type="email" placeholder="Your email here" required="required" data-error="Valid email is required.">
-                            <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_200" value="Submit">subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <a href="#">
-                    <div class="weekly_offer">
-                        <div class="weekly_offer_content d-flex flex-row">
-                            <div class="weekly_offer_icon d-flex flex-column align-items-center justify-content-center">
-                                <img src="images/prize.svg" alt="">
-                            </div>
-                            <div class="weekly_offer_text text-center">weekly offer</div>
-                        </div>
-                        <div class="weekly_offer_image" style="background-image:url(images/weekly.jpg)"></div>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-    </div>
-</div>
--->
 <!-- Footer -->
 
 <footer class="footer">
@@ -68,29 +29,8 @@
 
                     </ul>
                 </div>
-               <!--
-                <div class="footer_about">
-                    <p>Please Follow Us On Social Media</p>
-                </div>
-                -->
             </div>
 
-            <!-- Footer Useful Links -->
-            <!--
-            <div class="col-lg-3 footer_col">
-                <div class="footer_col_title">useful links</div>
-                <ul class="footer_useful_links">
-                    <li class="useful_links_item"><a href="#">Listings</a></li>
-                    <li class="useful_links_item"><a href="#">Favorite Cities</a></li>
-                    <li class="useful_links_item"><a href="#">Clients Testimonials</a></li>
-                    <li class="useful_links_item"><a href="#">Featured Listings</a></li>
-                    <li class="useful_links_item"><a href="#">Properties on Offer</a></li>
-                    <li class="useful_links_item"><a href="#">Services</a></li>
-                    <li class="useful_links_item"><a href="#">News</a></li>
-                    <li class="useful_links_item"><a href="#">Our Agents</a></li>
-                </ul>
-            </div>
-            -->
             <!-- Footer Contact -->
 
             <div class="col-lg-3 footer_col">
@@ -98,18 +38,10 @@
                     <hr align="left" width="100%" color="#fffff">
                 </div>
                 <div class="footer_contact_form_container">
-                    <!--
-                    <form id="footer_contact_form" class="footer_contact_form" action="post">
-                        <input id="contact_form_name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
-                        <input id="contact_form_email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
-                        <textarea id="contact_form_message" class="text_field contact_form_message" name="message" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
-                        <button id="contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">send</button>
-                    </form>
-                    -->
 
                     <li class="contact_info_item d-flex flex-row">
                         <div><div class="contact_info_icon"><img src="images/phone-call.svg" alt=""></div></div>
-                        <div class="contact_info_text"><a href="#">855-010-873-132</div>
+                        <div class="contact_info_text"><a href="#">{{ @$contact_info->phone_number }}</a></div>
                     </li>
                 </div>
             </div>
@@ -121,7 +53,7 @@
                 <ul class="contact_info_list">
                     <li class="contact_info_item d-flex flex-row">
                         <div><div class="contact_info_icon"><img src="images/message.svg" alt=""></div></div>
-                        <div class="contact_info_text"><a href="mailto:onewayrealtys@gmail.com?Subject=Hello" target="_top">onewayrealtys@gmail.com</a></div>
+                        <div class="contact_info_text"><a href="mailto:{{ @$contact_info->email }}?Subject=Hello" target="_top">{{ @$contact_info->email }}</a></div>
                     </li>
                 </ul>
             </div>
@@ -132,7 +64,7 @@
                 <ul class="contact_info_list">
                     <li class="contact_info_item d-flex flex-row">
                         <div><div class="contact_info_icon"><img src="images/placeholder.svg" alt=""></div></div>
-                        <div class="contact_info_text"><a href="https://maps.google.com/maps?q=11.567934,104.855687&ll=11.567934,104.855687&z=16">#2005 No.05 SangKat Kurklaing Khan SenSok phnom Penh City</div>
+                        <div class="contact_info_text"><a href="#">{{ @$contact_info->address }}</a></div>
                     </li>
 
                 </ul>

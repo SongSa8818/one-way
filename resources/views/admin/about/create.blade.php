@@ -45,7 +45,7 @@
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary btn-lg mr-3">Save</button>
-                            <a href="{{ route('about.index') }}" class="btn btn-lg btn-info btn-action">Cancel</a>
+                            <a href="{{ route('dashboard.index') }}" class="btn btn-lg btn-info btn-action">Cancel</a>
                         </div>
                     </div>
                     {{ Form::close() }}

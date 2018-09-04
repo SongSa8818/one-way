@@ -48,8 +48,7 @@
 
     <div class="super_container">
         @if ($uri == 'home')
-            <!-- Home -->
-            @include('layouts.slider')
+           @include('layouts.slider')
         @else
             @include('layouts.headersingle')
         @endif
