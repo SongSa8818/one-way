@@ -4,7 +4,7 @@
 
 <section class="section">
     <h1 class="section-header">
-        <div>Form {{ @$khan != null? 'update': 'addd' }} khan</div>
+        <div>Form {{ @$khan != null? 'update': 'add' }} khan</div>
     </h1>
     <div class="section-body">
         <div class="row">

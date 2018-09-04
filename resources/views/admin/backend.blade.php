@@ -125,6 +125,12 @@
                         <li class="{{ in_array($uri, array('property-list','property'))?'active':'' }}">
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
                         </li>
+                        <li class="{{ in_array($uri, array('customer-list','customer'))?'active':'' }}">
+                            <a href="{{ route('customer.list') }}"><i class="ion ion-ios-copy-outline"></i><span>Customers</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('contact.edit', 1) }}"><i class="ion ion-ios-copy-outline"></i><span>Contact Info</span></a>
+                        </li>
                         <li>
                             <a href="{{ route('about.edit', 1) }}"><i class="ion ion-clipboard"></i><span>About</span></a>
                         </li>
