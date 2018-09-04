@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact_info;
-
 use App\ContactInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
