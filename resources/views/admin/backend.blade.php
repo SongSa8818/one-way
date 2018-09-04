@@ -99,7 +99,7 @@
                     </li>
                 </ul>
             </nav>
-            <?php  $uri = Route::getCurrentRoute()->uri() ?>
+            <?php  $uri = Route::currentRouteName() ?>
 
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
@@ -113,17 +113,20 @@
                         <div class="sidebar-user-details">
                             <div class="user-name">Ujang Maman</div>
                             <div class="user-role">
-                                Administrator
+                                {{ $uri }}
                             </div>
                         </div>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
-                        <li class="{{ $uri == 'dashboard'?'active':'' }}">
+                        <li class="{{ $uri == 'dashboard.index'?'active':'' }}">
                             <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
                         </li>
-                        <li class="{{ in_array($uri, array('property-list','property'))?'active':'' }}">
+                        <li class="{{ in_array($uri, array('property.list','property.create','image.edit','image.create'))?'active':'' }}">
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
+                        </li>
+                        <li class="{{ in_array($uri, array('user.index','user.edit'))?'active':'' }}">
+                            <a href="{{ route('user.index') }}"><i class="ion ion-home"></i><span>Users</span></a>
                         </li>
                         <li>
                             <a href="{{ route('about.edit', 1) }}"><i class="ion ion-clipboard"></i><span>About</span></a>
