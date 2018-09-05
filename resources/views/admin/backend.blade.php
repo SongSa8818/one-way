@@ -82,7 +82,7 @@
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
                             <i class="ion ion-android-person d-lg-none"></i>
-                            <div class="d-sm-none d-lg-inline-block">Hi, {{ @Auth::user()->last_name }}</div></a>
+                            <div class="d-sm-none d-lg-inline-block">Hi, {{ @Auth::user()->full_name }}</div></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="profile.html" class="dropdown-item has-icon">
                                 <i class="ion ion-android-person"></i> Profile
@@ -99,7 +99,7 @@
                     </li>
                 </ul>
             </nav>
-            <?php  $uri = Route::getCurrentRoute()->uri() ?>
+            <?php  $uri = Route::currentRouteName() ?>
 
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
@@ -108,39 +108,47 @@
                     </div>
                     <div class="sidebar-user">
                         <div class="sidebar-user-picture">
-                            <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
+                            <img alt="image" src="{{ url('/uploads/profiles/'.@Auth::user()->picture) }}">
                         </div>
                         <div class="sidebar-user-details">
-                            <div class="user-name">Ujang Maman</div>
+                            <div class="user-name">{{ @Auth::user()->full_name }}</div>
                             <div class="user-role">
-                                Administrator
+                                {{ @Auth::user()->role }}
                             </div>
                         </div>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
-                        <li class="{{ $uri == 'dashboard'?'active':'' }}">
+                        <li class="{{ $uri == 'dashboard.index'?'active':'' }}">
                             <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
                         </li>
-                        <li class="{{ in_array($uri, array('property-list','property'))?'active':'' }}">
+                        <li class="{{ in_array($uri, array('property.list','property.create','image.edit','image.create'))?'active':'' }}">
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
+                        </li>
+                        <li class="{{ in_array($uri, array('user.index','user.edit'))?'active':'' }}">
+                            <a href="{{ route('user.index') }}"><i class="ion ion ion-ios-contact-outline"></i><span>Users</span></a>
                         </li>
                         <li class="{{ in_array($uri, array('customer.list','customer.edit'))?'active':'' }}">
                             <a href="{{ route('customer.list') }}"><i class="ion ion-ios-person-outline"></i><span>Customers</span></a>
                         </li>
-                        <li class="{{ in_array($uri, array('contact.add','customer.edit'))?'active':'' }}">
-                            <a href="{{ route('contact.edit', 1) }}"><i class="ion ion-ios-contact-outline"></i><span>Contact Info</span></a>
+                        <li class="{{ in_array($uri, array('contact.create','contact.edit'))?'active':'' }}">
+                            <a href="{{ route('contact.edit', 1) }}"><i class="ion ion-android-phone-portrait"></i><span>Contact Info</span></a>
                         </li>
-                        <li>
+                        <li class="{{ in_array($uri, array('about.create','about.edit'))?'active':'' }}">
                             <a href="{{ route('about.edit', 1) }}"><i class="ion ion-clipboard"></i><span>About</span></a>
                         </li>
-                        <li class="{{ in_array($uri,array('city','khan','sangkat','village'))?'active':'' }}">
+                        <li class="{{ in_array($uri,array(
+                            'city.index','city.create','city.edit',
+                            'khan.index','khan.create','khan.edit',
+                            'sangkat.index','sangkat.create','sangkat.edit',
+                            'village.index','village.create','village.edit'
+                        ))?'active':'' }}">
                             <a href="#" class="has-dropdown"><i class="ion ion-location"></i><span>Parameters</span></a>
                             <ul class="menu-dropdown">
-                                <li class="{{ $uri == 'city'?'active':'' }}"><a href="{{ route('city.index') }}"><i class="ion ion-ios-location-outline"></i> City</a></li>
-                                <li class="{{ $uri == 'khan'?'active':'' }}"><a href="{{ route('khan.index') }}"><i class="ion ion-ios-location-outline"></i> Khan</a></li>
-                                <li class="{{ $uri == 'sangkat'?'active':'' }}"><a href="{{ route('sangkat.index') }}"><i class="ion ion-ios-location-outline"></i> Sangkat</a></li>
-                                <li class="{{ $uri == 'village'?'active':'' }}"><a href="{{ route('village.index') }}"><i class="ion ion-ios-location-outline"></i> Village</a></li>
+                                <li class="{{ in_array($uri,array('city.index','city.create','city.edit'))?'active':'' }}"><a href="{{ route('city.index') }}"><i class="ion ion-ios-location-outline"></i> City</a></li>
+                                <li class="{{ in_array($uri,array('khan.index','khan.create','khan.edit'))?'active':'' }}"><a href="{{ route('khan.index') }}"><i class="ion ion-ios-location-outline"></i> Khan</a></li>
+                                <li class="{{ in_array($uri,array('sangkat.index','sangkat.create','sangkat.edit'))?'active':'' }}"><a href="{{ route('sangkat.index') }}"><i class="ion ion-ios-location-outline"></i> Sangkat</a></li>
+                                <li class="{{ in_array($uri,array('village.index','village.create','village.edit'))?'active':'' }}"><a href="{{ route('village.index') }}"><i class="ion ion-ios-location-outline"></i> Village</a></li>
                             </ul>
                         </li>
                         <li class="menu-header">Components</li>
