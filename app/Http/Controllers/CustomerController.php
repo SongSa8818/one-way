@@ -15,7 +15,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('admin.customer.list');
+        return view('admin.customers.list');
     }
 
     public function list()
