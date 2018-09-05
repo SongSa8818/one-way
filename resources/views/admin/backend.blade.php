@@ -82,7 +82,7 @@
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
                             <i class="ion ion-android-person d-lg-none"></i>
-                            <div class="d-sm-none d-lg-inline-block">Hi, {{ @Auth::user()->last_name }}</div></a>
+                            <div class="d-sm-none d-lg-inline-block">Hi, {{ @Auth::user()->full_name }}</div></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="profile.html" class="dropdown-item has-icon">
                                 <i class="ion ion-android-person"></i> Profile
@@ -108,12 +108,12 @@
                     </div>
                     <div class="sidebar-user">
                         <div class="sidebar-user-picture">
-                            <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
+                            <img alt="image" src="{{ url('/uploads/profiles/'.@Auth::user()->picture) }}">
                         </div>
                         <div class="sidebar-user-details">
-                            <div class="user-name">Ujang Maman</div>
+                            <div class="user-name">{{ @Auth::user()->full_name }}</div>
                             <div class="user-role">
-                                {{ $uri }}
+                                {{ @Auth::user()->role }}
                             </div>
                         </div>
                     </div>
@@ -126,13 +126,13 @@
                             <a href="{{ route('property.list') }}"><i class="ion ion-home"></i><span>Properties</span></a>
                         </li>
                         <li class="{{ in_array($uri, array('user.index','user.edit'))?'active':'' }}">
-                            <a href="{{ route('user.index') }}"><i class="ion ion-home"></i><span>Users</span></a>
+                            <a href="{{ route('user.index') }}"><i class="ion ion ion-ios-contact-outline"></i><span>Users</span></a>
                         </li>
                         <li class="{{ in_array($uri, array('customer.list','customer.edit'))?'active':'' }}">
                             <a href="{{ route('customer.list') }}"><i class="ion ion-ios-person-outline"></i><span>Customers</span></a>
                         </li>
                         <li class="{{ in_array($uri, array('contact.create','contact.edit'))?'active':'' }}">
-                            <a href="{{ route('contact.edit', 1) }}"><i class="ion ion-ios-contact-outline"></i><span>Contact Info</span></a>
+                            <a href="{{ route('contact.edit', 1) }}"><i class="ion ion-android-phone-portrait"></i><span>Contact Info</span></a>
                         </li>
                         <li class="{{ in_array($uri, array('about.create','about.edit'))?'active':'' }}">
                             <a href="{{ route('about.edit', 1) }}"><i class="ion ion-clipboard"></i><span>About</span></a>
