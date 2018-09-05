@@ -66,7 +66,7 @@
 <div class="menu menu_mm">
     <ul class="menu_list">
         @foreach ($menus as $key => $value)
-            <li class="menu_item">
+            <li class="menu_item {{ $key == $uri ? 'menu_item_active' : '' }}">
                 <div class="container">
                     <div class="row">
                         <div class="col">
