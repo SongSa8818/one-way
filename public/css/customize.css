@@ -67,7 +67,12 @@ p {
 .main_nav_item_active a {
     color: #fd784f;
 }
-
+.main_nav {
+    margin-right: 40px;
+}
+.menu_item:hover a, .menu_item_active a {
+    color: #fd784f;
+}
 
 
 @media only screen and (max-width: 991px)

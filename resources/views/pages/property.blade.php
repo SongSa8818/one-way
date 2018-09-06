@@ -123,7 +123,7 @@
                     <div class="listing_subtitle">Property Video</div>
                     <div class="listing_video_link">
                         <a class="video" href="https://www.youtube.com/watch?v={{ $property->video_url }}" title="">
-                            <img src="{{ url('/uploads/'.$image->img) }}" alt="https://www.pexels.com/u/binyaminmellish/"></a>
+                            <img src="https://img.youtube.com/vi/{{ $property->video_url }}/0.jpg" alt=""></a>
                         <div class="video_play"><img src="../images/play.svg" alt=""></div>
                     </div>
                 </div>

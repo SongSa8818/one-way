@@ -31,11 +31,6 @@
     @elseif($uri == 'contact.index')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_responsive.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">
-    @elseif($uri == 'contact.index')
-        <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_responsive.css')}}">
     @elseif(in_array($uri, array('property.show','request.index')))
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
