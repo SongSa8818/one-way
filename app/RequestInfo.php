@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class RequestInfo extends Model
 {
-    public function scopeRequestInfo($query){
+    public function scopeList($query){
         $query = DB::table('request_infos')
             ->select('*')
             ->limit(10);

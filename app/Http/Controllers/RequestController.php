@@ -12,14 +12,14 @@ class RequestController extends Controller
     public function index()
     {
         return view('pages.request');
-    }
+}
 
     public function list()
     {
-
-        $request_info = RequestInfo::RequestInfo();
-        //dd($customer);
-        return view('admin.requests.list')->with('request_info', $request_info);
+        $request_info = RequestInfo::findOrFail(1);
+       // $request_info = RequestInfo::list();
+        //dd($request_info);
+        return view('admin.requests.list')->with('request_infos', $request_info);
 
     }
 
@@ -48,6 +48,13 @@ class RequestController extends Controller
     {
 
     }
+
+    public function show($id)
+    {
+        $request_info = RequestInfo::findOrFail($id);
+        return view('admin.requests.show')->with(array('request_infos' => $request_info));
+    }
+
 
     public function update(Request $request, $id)
     {

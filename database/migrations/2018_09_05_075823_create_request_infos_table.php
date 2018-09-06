@@ -13,9 +13,8 @@ class CreateRequestInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('requests', function (Blueprint $table) {
+        Schema::create('request_infos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('customer_id');
             $table->unsignedInteger('customer_id');
             $table->string('service_type');
             $table->string('property_type');
