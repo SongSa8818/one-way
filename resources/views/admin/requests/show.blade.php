@@ -1,45 +1,97 @@
 @extends('admin.backend')
-@section('title','Request Info')
+@section('title','Request Form')
 @section('content')
 
     <section class="section">
         <h1 class="section-header">
-            <div>Request Info</div>
+            <div>Request Form</div>
         </h1>
         <div class="section-body">
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
 
-                    <form>
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Customer Id:</label>
-                            <div class="col-sm-10">
-                                <label class="col-sm-2 col-form-label">{{ $request_infos->customer_id }}</label>
-                            </div>
-                        </div>
-
-                    </form>
-
-
                     <div class="card">
                         <div class="card-body">
                             <div class="content">
                                 <div class="body">
-                                    <div class="row">
-                                        <div class="form-group col-6">Customer Id: {{ $request_infos->customer_id }}</div>
-                                        <div class="form-group col-6">Service Type: {{ $request_infos->service_type }}</div>
-                                        <div class="form-group col-6">Property Type: {{ $request_infos->property_type }}</div>
-                                        <div class="form-group col-6">Business Purpose: {{ $request_infos->business_purpose }}</div>
-                                        <div class="form-group col-6">Location: {{ $request_infos->location }}</div>
-                                        <div class="form-group col-6">Zone: {{ $request_infos->zone }}</div>
-                                        <div class="form-group col-6">Min Size Area: {{ $request_infos->minsize_area }}</div>
-                                        <div class="form-group col-6">Max Siz Area: {{ $request_infos->maxsize_area }}</div>
-                                        <div class="form-group col-6">Min Budget: {{ $request_infos->min_budget }}</div>
-                                        <div class="form-group col-6">Max Budget: {{ $request_infos->max_budget }}</div>
-                                        <div class="form-group col-6">Bank Loan Service: {{ $request_infos->bank_loan_service }}</div>
-                                        <div class="form-group col-6">Bank Statement: {{ $request_infos->bank_statement }}</div>
-                                        <div class="form-group col-6">Description: {{ $request_infos->description }}</div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Customer Request Form</th>
+                                                <th scope="col"></th>
 
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Customer Id:</th>
+                                                <td>{{ $request_infos->customer_id }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Service Type:</th>
+                                                <td>{{ $request_infos->service_type }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Property Type:</th>
+                                                <td>{{ $request_infos->property_type }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Business Purpose:</th>
+                                                <td>{{ $request_infos->business_purpose }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Location:</th>
+                                                <td>{{ $request_infos->location }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Zone:</th>
+                                                <td>{{ $request_infos->zone }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Min Size Area:</th>
+                                                <td>{{ $request_infos->minsize_area }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Max Siz Area:</th>
+                                                <td>{{ $request_infos->maxsize_area }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Min Budget:</th>
+                                                <td>{{ $request_infos->min_budget }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Max Budget:</th>
+                                                <td>{{ $request_infos->max_budget }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Bank Loan Service:</th>
+                                                <td>{{ $request_infos->bank_loan_service }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Bank Statement:</th>
+                                                <td>{{ $request_infos->bank_statement }}</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="width: 30%">Description:</th>
+                                                <td>{{ $request_infos->description }}</td>
+
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

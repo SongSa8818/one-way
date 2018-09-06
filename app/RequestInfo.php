@@ -10,7 +10,8 @@ class RequestInfo extends Model
     public function scopeList($query){
         $query = DB::table('request_infos')
             ->select('*')
-            ->limit(10);
+            ->paginate(10);
+        //dd($query);
         return $query;
     }
 }

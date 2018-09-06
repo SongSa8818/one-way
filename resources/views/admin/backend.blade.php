@@ -132,7 +132,7 @@
                             <a href="{{ route('contact.edit', 1) }}"><i class="ion ion-ios-contact-outline"></i><span>Contact Info</span></a>
                         </li>
                         <li class="{{ in_array($uri, array('request-list','request'))?'active':'' }}">
-                            <a href="{{ route('request.list') }}"><i class="ion ion-home"></i><span>Request Info</span></a>
+                            <a href="{{ route('request.list') }}"><i class="ion-ios-email-outline"></i><span>Request Info</span></a>
                         </li>
                         <li class="{{ $uri == 'about/1/edit'?'active':'' }}">
                             <a href="{{ route('about.edit', 1) }}"><i class="ion ion-clipboard"></i><span>About</span></a>

@@ -16,8 +16,7 @@ class RequestController extends Controller
 
     public function list()
     {
-        $request_info = RequestInfo::findOrFail(1);
-       // $request_info = RequestInfo::list();
+        $request_info = RequestInfo::List();
         //dd($request_info);
         return view('admin.requests.list')->with('request_infos', $request_info);
 
