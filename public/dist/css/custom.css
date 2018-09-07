@@ -2,4 +2,15 @@
 .pull-left {
     float: left;
 }
+.media .ion {
+    font-size: 50px;
+    line-height: 20px;
+    padding-right: 20px;
+}
+.media .ion-email-unread {
+    color: #dc3545;
+}
+.media .ion-ios-home-outline {
+    color: #ffc107;
+}
 
