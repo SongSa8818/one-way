@@ -37,8 +37,8 @@ class AboutController extends Controller
         $about = new About();
         $about->company_slogan = $request->company_slogan;
         $about->description = $request->description;
-        //dd($about);
         $about->save();
+        Session::flash('alert-success', 'Successfully saved');
         return redirect(route('about.edit', $about->id));
     }
 
@@ -84,10 +84,8 @@ class AboutController extends Controller
         $about->company_slogan = $request->company_slogan;
         $about->description = $request->description;
         $about->save();
-
-        Session::flash('alert-success', 'Successfully saved');
-
-      return redirect(route('about.edit', $about->id));
+        Session::flash('alert-success', 'Successfully updated');
+        return redirect(route('about.edit', $about->id));
     }
 
     /**

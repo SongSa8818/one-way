@@ -9,9 +9,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-      $contact_info = ContactInfo::findOrFail(1);
-      return view('pages.home')->with('contact_info', $contact_info);
-
+      return view('pages.home');
     }
 }
