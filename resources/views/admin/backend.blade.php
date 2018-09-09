@@ -171,6 +171,9 @@
                             <li class="{{ in_array($uri,array('village.index','village.create','village.edit'))?'active':'' }}"><a href="{{ route('village.index') }}"><i class="ion ion-ios-location-outline"></i> Village</a></li>
                         </ul>
                     </li>
+                        <li class="{{ in_array($uri, array('slideshow-list','slideshow'))?'active':'' }}">
+                        <a href="{{ route('slideshow.list') }}"><i class="ion ion-laptop"></i><span>Slideshow Image</span></a>
+                    </li>
                 </ul>
             </aside>
         </div>
