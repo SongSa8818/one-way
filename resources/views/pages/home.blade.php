@@ -224,26 +224,26 @@
             </div>
 
             <div class="row featured_row">
-                @for($i = 0; $i < 12; $i++)
+                @foreach($latestProperties as $property)
                 <div class="col-lg-4 featured_card_col">
                     <div class="featured_card_container trans_200">
                         <div class="card featured_card">
-                            <div class="featured_panel">For sale</div>
-                            <img class="card-img-top" src="images/featured_1.jpg" alt="https://unsplash.com/@breather">
+                            <div class="featured_panel">{{ $property->status }}</div>
+                            <img class="card-img-top" src="{{ url('/uploads/'.$image->img) }}" alt="{{ $property->title }}">
                             <div class="card-body">
-                                <div class="card-title"><a href="{{ route('property.index') }}">House in West California</a></div>
+                                <div class="card-title"><a href="{{ route('property.show', $property->id) }}">{{ $property->title }}</a></div>
                             </div>
                         </div>
                         <div class="featured_card_box d-flex flex-row align-items-center">
                             <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
                             <div class="featured_card_box_content">
-                                <div class="featured_card_price_title">For Sale</div>
-                                <div class="featured_card_price">$540,000</div>
+                                <div class="featured_card_price_title">{{ $property->type }}</div>
+                                <div class="featured_card_price">${{ $property->price }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endfor
+                @endforeach
             </div>
             <!-- Buttons -->
             <div class="elements_section buttons_section">
