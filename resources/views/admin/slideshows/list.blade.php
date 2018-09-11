@@ -23,8 +23,26 @@
                                         <th>Image</th>
                                         <th>Action</th>
                                     </tr>
+                                    @foreach($slideshows as $slideshow)
+                                        <tr>
+                                            <td><div class="sidebar-user-picture">
+                                                    <img src="{{ url('/uploads/slideshows/'.@$slideshow->image) }}" width="100px" height="80px" class="img-thumbnail w-25"/>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{ Form::open(array('route' => array('slideshow.destroy', $slideshow->id), 'method' => 'DELETE')) }}
+                                                <button type="submit" onclick="return confirm('Are you sure you want to delete');" class="btn btn-sm btn-danger">Delete</button>
+                                                {{ Form::close() }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </table>
                             </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <nav class="d-inline-block">
+                                {{ @$slideshows->links() }}
+                            </nav>
                         </div>
                     </div>
                 </div>

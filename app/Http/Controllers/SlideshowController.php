@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\DeleteImage;
 use App\SlideshowImage;
-use Faker\Provider\Image;
+use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 
 class SlideshowController extends Controller
 {
+
+    private $no_image;
+
+    public function __construct()
+    {
+        $this->no_image = 'NO_PICTURE.png';
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +35,9 @@ class SlideshowController extends Controller
     public function list()
     {
         //
-        return view('admin.slideshows.list');
+        //return view('admin.slideshows.list');
+        $slideshow = SlideshowImage::paginate(10);
+        return view('admin.slideshows.list')->with('slideshows', $slideshow);
     }
 
     /**
@@ -50,54 +61,19 @@ class SlideshowController extends Controller
     {
         //
         $file = $request->file('image');
-        if(in_array($file->getClientMimeType(), array('image/jpeg','image/jpg','image/png'))) {
-            $image = 'PP-' . $request->proid . '-' . time() . '.' . $file->getClientOriginalExtension();
-
-            $slideshow = new SlideshowImage();
-            $slideshow->img = $image;
-            if($slideshow->save()) {
-                $file->move(public_path('/uploads'), $image);
+        if(in_array($file->getClientMimeType(), array('image/jpeg','image/jpg','image/png'))){
+            $imageName = $request->file('image')->getClientOriginalName();
+            $image = new SlideshowImage();
+            $image->image = $imageName;
+            if($image->save()) {
+                $file->move(public_path('/uploads/slideshows'), $imageName);
             }
-
-            return redirect(route('slideshow.create', $slideshow->id));
+            return redirect(route('slideshow.list'));
         } else {
-            return redirect(route('slideshow.create', $slideshow->id));
+            return redirect(route('slideshow.list'));
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -108,5 +84,12 @@ class SlideshowController extends Controller
     public function destroy($id)
     {
         //
+        {
+            $slideshow = SlideshowImage::findOrFail($id);
+            $deleteFile = new DeleteImage();
+            $deleteFile->deleteImage(public_path('/uploads/slideshows'), $slideshow->img);
+            SlideshowImage::destroy($id);
+            return redirect(route('slideshow.list', $slideshow->slideshow_id));
+        }
     }
 }

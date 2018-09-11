@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\ContactInfo;
+use App\SlideshowImage;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-      return view('pages.home');
+        $slideshow = SlideshowImage::paginate(10);
+       // dd($slideshow);
+        return view('pages.home')->with('slideshows', $slideshow);
+
     }
 }
