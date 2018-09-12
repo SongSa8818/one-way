@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ContactInfo;
+use App\SlideshowImage;
 use App\ImageProperty;
 use App\Property;
 use App\Role;
@@ -13,7 +14,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-
+        /*sorry b please help me i already try my best
+         * please b update it for me pg i really don't know how to do this one
+         * sorry that i always disturb you
+         */
         $slideshow = SlideshowImage::paginate(10);
         return view('pages.home')->with('slideshows', $slideshow);
 
@@ -30,7 +34,6 @@ class HomeController extends Controller
                 'image' => $image,
                 'agencies' => $agencies
             ]);
-        return view('pages.home')->with(['latestProperties' => $latestProperties, 'image' => $image]);
 
     }
 }
