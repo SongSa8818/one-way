@@ -107,7 +107,7 @@ class UserController extends Controller
       $img = Image::make(public_path('/uploads/profiles/'.$imageName));
       $img->resize(100, 100);
       $img->save(public_path('/uploads/profiles/'.$imageName));
-      if (!$request->old_picture.equalTo($this->no_picture)) {
+      if ($request->old_picture != $this->no_picture) {
         $deleteFile = new DeleteImage();
         $deleteFile->deleteImage(public_path('/uploads/profiles/'), $request->old_picture);
       }
@@ -123,7 +123,7 @@ class UserController extends Controller
   public function destroy($id)
   {
     $user = User::findOrFail($id);
-    if (!$user->picture == $this->no_picture) {
+    if ($user->picture != $this->no_picture) {
       $deleteFile = new DeleteImage();
       $deleteFile->deleteImage(public_path('/uploads/profiles/'), $user->picture);
     }

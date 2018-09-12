@@ -273,56 +273,25 @@
 
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-
                     <div class="testimonials_slider_container">
-
                         <!-- Testimonials Slider -->
                         <div class="owl-carousel owl-theme testimonials_slider">
-
+                        @foreach($agencies as $agency)
                             <!-- Testimonials Item -->
                             <div class="owl-item">
                                 <div class="testimonials_item text-center">
-                                    <p class="testimonials_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae neque libero. Vivamus vel interdum massa. Mauris ut felis vel diam pretium eleifend vel eu neque. Mauris a condimentum tortor. Cras nec molestie est. Nulla vel facilisis metus. Quisque tempus fermentum enim, in feugiat sem laoreet</p>
+                                    <p class="testimonials_text">{{ $agency->address }}</p>
                                     <div class="testimonial_user">
                                         <div class="testimonial_image mx-auto">
-                                            <img src="images/person.jpg" alt="https://unsplash.com/@remdesigns">
+                                            <img src="{{ url('/uploads/profiles/'.$agency->picture) }}" alt="{{ $agency->full_name }}">
                                         </div>
-                                        <div class="testimonial_name">natalie smith</div>
-                                        <div class="testimonial_title">Client in California</div>
+                                        <div class="testimonial_name">{{ $agency->full_name }}</div>
+                                        <div class="testimonial_title">{{ $agency->phone_number }}</div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Testimonials Item -->
-                            <div class="owl-item">
-                                <div class="testimonials_item text-center">
-                                    <p class="testimonials_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae neque libero. Vivamus vel interdum massa. Mauris ut felis vel diam pretium eleifend vel eu neque. Mauris a condimentum tortor. Cras nec molestie est. Nulla vel facilisis metus. Quisque tempus fermentum enim, in feugiat sem laoreet</p>
-                                    <div class="testimonial_user">
-                                        <div class="testimonial_image mx-auto">
-                                            <img src="images/person.jpg" alt="https://unsplash.com/@remdesigns">
-                                        </div>
-                                        <div class="testimonial_name">natalie smith</div>
-                                        <div class="testimonial_title">Client in California</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Testimonials Item -->
-                            <div class="owl-item">
-                                <div class="testimonials_item text-center">
-                                    <p class="testimonials_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae neque libero. Vivamus vel interdum massa. Mauris ut felis vel diam pretium eleifend vel eu neque. Mauris a condimentum tortor. Cras nec molestie est. Nulla vel facilisis metus. Quisque tempus fermentum enim, in feugiat sem laoreet</p>
-                                    <div class="testimonial_user">
-                                        <div class="testimonial_image mx-auto">
-                                            <img src="images/person.jpg" alt="https://unsplash.com/@remdesigns">
-                                        </div>
-                                        <div class="testimonial_name">natalie smith</div>
-                                        <div class="testimonial_title">Client in California</div>
-                                    </div>
-                                </div>
-                            </div>
-
+                        @endforeach
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -446,63 +415,7 @@
                                 </a>
                             </div>
 
-                            <!-- City Item -->
-                            <div class="owl-item city_item">
-                                <a href="#">
-                                    <div class="city_image">
-                                        <img src="images/city_2.jpg" alt="">
-                                    </div>
-                                    <div class="city_details"><img src="images/search.png" alt=""></div>
-                                    <div class="city_name"><span>dublin</span></div>
-                                </a>
-                            </div>
-
-                            <!-- City Item -->
-                            <div class="owl-item city_item">
-                                <a href="#">
-                                    <div class="city_image">
-                                        <img src="images/city_3.jpg" alt="">
-                                    </div>
-                                    <div class="city_details"><img src="images/search.png" alt=""></div>
-                                    <div class="city_name"><span>vienna</span></div>
-                                </a>
-                            </div>
-
-                            <!-- City Item -->
-                            <div class="owl-item city_item">
-                                <a href="#">
-                                    <div class="city_image">
-                                        <img src="images/city_4.jpg" alt="">
-                                    </div>
-                                    <div class="city_details"><img src="images/search.png" alt=""></div>
-                                    <div class="city_name"><span>marbella</span></div>
-                                </a>
-                            </div>
-
-                            <!-- City Item -->
-                            <div class="owl-item city_item">
-                                <a href="#">
-                                    <div class="city_image">
-                                        <img src="images/city_5.jpg" alt="">
-                                    </div>
-                                    <div class="city_details"><img src="images/search.png" alt=""></div>
-                                    <div class="city_name"><span>new york</span></div>
-                                </a>
-                            </div>
-
-                            <!-- City Item -->
-                            <div class="owl-item city_item">
-                                <a href="#">
-                                    <div class="city_image">
-                                        <img src="images/city_6.jpg" alt="">
-                                    </div>
-                                    <div class="city_details"><img src="images/search.png" alt=""></div>
-                                    <div class="city_name"><span>geneva</span></div>
-                                </a>
-                            </div>
-
                         </div>
-
                         <div class="cities_prev cities_nav d-flex flex-row align-items-center justify-content-center trans_200">
                             <img src="images/nav_left.png" alt="">
                         </div>
@@ -517,24 +430,6 @@
 
             </div>
 
-        </div>
-    </div>
-
-    <!-- Call to Action -->
-
-    <div class="cta_1">
-        <div class="cta_1_background" style="background-image:url(images/cta_1.jpg)"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-
-                    <div class="cta_1_content d-flex flex-lg-row flex-column align-items-center justify-content-start">
-                        <h3 class="cta_1_text text-lg-left text-center">Do you want to talk with one of our <span>real estate experts?</span></h3>
-                        <div class="cta_1_phone">Call now:   +885 23 999 888</div>
-                    </div>
-
-                </div>
-            </div>
         </div>
     </div>
 

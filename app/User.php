@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'phone_number', 'email', 'password','role'
+        'full_name', 'phone_number', 'email', 'password', 'role'
     ];
 
     /**
@@ -26,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function scopeGetUserByRole($query, $role){
+        $query = DB::table('users')
+            ->select('*')
+            ->where('users.role', '=', $role)
+            ->get();
+        return $query;
+    }
 }
