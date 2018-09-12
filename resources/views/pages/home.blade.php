@@ -273,56 +273,25 @@
 
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-
                     <div class="testimonials_slider_container">
-
                         <!-- Testimonials Slider -->
                         <div class="owl-carousel owl-theme testimonials_slider">
-
+                        @foreach($agencies as $agency)
                             <!-- Testimonials Item -->
                             <div class="owl-item">
                                 <div class="testimonials_item text-center">
-                                    <p class="testimonials_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae neque libero. Vivamus vel interdum massa. Mauris ut felis vel diam pretium eleifend vel eu neque. Mauris a condimentum tortor. Cras nec molestie est. Nulla vel facilisis metus. Quisque tempus fermentum enim, in feugiat sem laoreet</p>
+                                    <p class="testimonials_text">{{ $agency->address }}</p>
                                     <div class="testimonial_user">
                                         <div class="testimonial_image mx-auto">
-                                            <img src="images/person.jpg" alt="https://unsplash.com/@remdesigns">
+                                            <img src="images/person.jpg" alt="{{ $agency->full_name }}">
                                         </div>
-                                        <div class="testimonial_name">natalie smith</div>
-                                        <div class="testimonial_title">Client in California</div>
+                                        <div class="testimonial_name">{{ $agency->full_name }}</div>
+                                        <div class="testimonial_title">{{ $agency->phone_number }}</div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Testimonials Item -->
-                            <div class="owl-item">
-                                <div class="testimonials_item text-center">
-                                    <p class="testimonials_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae neque libero. Vivamus vel interdum massa. Mauris ut felis vel diam pretium eleifend vel eu neque. Mauris a condimentum tortor. Cras nec molestie est. Nulla vel facilisis metus. Quisque tempus fermentum enim, in feugiat sem laoreet</p>
-                                    <div class="testimonial_user">
-                                        <div class="testimonial_image mx-auto">
-                                            <img src="images/person.jpg" alt="https://unsplash.com/@remdesigns">
-                                        </div>
-                                        <div class="testimonial_name">natalie smith</div>
-                                        <div class="testimonial_title">Client in California</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Testimonials Item -->
-                            <div class="owl-item">
-                                <div class="testimonials_item text-center">
-                                    <p class="testimonials_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae neque libero. Vivamus vel interdum massa. Mauris ut felis vel diam pretium eleifend vel eu neque. Mauris a condimentum tortor. Cras nec molestie est. Nulla vel facilisis metus. Quisque tempus fermentum enim, in feugiat sem laoreet</p>
-                                    <div class="testimonial_user">
-                                        <div class="testimonial_image mx-auto">
-                                            <img src="images/person.jpg" alt="https://unsplash.com/@remdesigns">
-                                        </div>
-                                        <div class="testimonial_name">natalie smith</div>
-                                        <div class="testimonial_title">Client in California</div>
-                                    </div>
-                                </div>
-                            </div>
-
+                        @endforeach
                         </div>
-
                     </div>
                 </div>
             </div>

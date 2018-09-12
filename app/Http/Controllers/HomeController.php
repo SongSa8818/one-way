@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\ContactInfo;
 use App\ImageProperty;
 use App\Property;
+use App\Role;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,6 +18,13 @@ class HomeController extends Controller
         foreach ($latestProperties as $property) {
             $image = ImageProperty::FindOneByPropertyId($property->id);
         }
-        return view('pages.home')->with(['latestProperties' => $latestProperties, 'image' => $image]);
+
+        $agencies = User::GetUserByRole(Role::AGENCY);
+        return view('pages.home')->with(
+            [
+                'latestProperties' => $latestProperties,
+                'image' => $image,
+                'agencies' => $agencies
+            ]);
     }
 }
