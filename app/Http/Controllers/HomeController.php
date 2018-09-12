@@ -12,15 +12,16 @@ class HomeController extends Controller
 {
     public function index()
     {
+
+        $slideshow = SlideshowImage::paginate(10);
+        return view('pages.home')->with('slideshows', $slideshow);
+
         $image = array();
         $latestProperties = Property::Latest();
         foreach ($latestProperties as $property) {
             $image = ImageProperty::FindOneByPropertyId($property->id);
         }
         return view('pages.home')->with(['latestProperties' => $latestProperties, 'image' => $image]);
-        $slideshow = SlideshowImage::paginate(10);
-       // dd($slideshow);
-        return view('pages.home')->with('slideshows', $slideshow);
 
     }
 }
