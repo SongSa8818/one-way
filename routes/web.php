@@ -29,8 +29,12 @@ Route::resource('/property', 'PropertyController');
 Route::get('/property-list', 'PropertyController@list')->name('property.list');
 Route::resource('/image', 'ImagePropertyController');
 
+Route::resource('/slideshow', 'SlideshowController');
+Route::get('/slideshow-list', 'SlideshowController@list')->name('slideshow.list');
+
 Route::resource('/request', 'RequestController');
 Route::get('/request-list', 'RequestController@list')->name('request.list');
+
 
 Route::resource('/offer', 'OfferController');
 Route::post('/acceptOffer', 'OfferController@acceptOffer')->name('acceptOffer');

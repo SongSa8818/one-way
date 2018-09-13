@@ -1,42 +1,17 @@
-
 <!-- Home -->
 <div class="home">
     <!-- Home Slider -->
     <div class="home_slider_container">
         <div class="owl-carousel owl-theme home_slider">
-
+        @foreach($slideshows as $slideshow)
             <!-- Home Slider Item -->
-            <div class="owl-item home_slider_item">
+            <div class="home_slider_background">
                 <!-- ImageProperty by https://unsplash.com/@aahubs -->
-                <div class="home_slider_background" style="background-image:url(images/home_slider_bcg.jpg)"></div>
-                <div class="home_slider_content_container text-center">
-                    <div class="home_slider_content">
-                        <h1 data-animation-in="flipInX" data-animation-out="animate-out fadeOut">find your home</h1>
-                    </div>
+                <div class="sidebar-user-picture">
+                    <img src="{{ url('/uploads/slideshows/'.@$slideshow->image) }}"/>
                 </div>
             </div>
-
-            <!-- Home Slider Item -->
-            <div class="owl-item home_slider_item">
-                <!-- ImageProperty by https://unsplash.com/@aahubs -->
-                <div class="home_slider_background" style="background-image:url(images/home_slider_bcg.jpg)"></div>
-                <div class="home_slider_content_container text-center">
-                    <div class="home_slider_content">
-                        <h1 data-animation-in="flipInX" data-animation-out="animate-out fadeOut">find your home</h1>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Home Slider Item -->
-            <div class="owl-item home_slider_item">
-                <!-- ImageProperty by https://unsplash.com/@aahubs -->
-                <div class="home_slider_background" style="background-image:url(images/home_slider_bcg.jpg)"></div>
-                <div class="home_slider_content_container text-center">
-                    <div class="home_slider_content">
-                        <h1 data-animation-in="flipInX" data-animation-out="animate-out fadeOut">find your home</h1>
-                    </div>
-                </div>
-            </div>
+         @endforeach
         </div>
 
         <!-- Home Slider Nav -->
