@@ -18,21 +18,20 @@ class HomeController extends Controller
          * please b update it for me pg i really don't know how to do this one
          * sorry that i always disturb you
          */
-        $slideshow = SlideshowImage::paginate(10);
-        return view('pages.home')->with('slideshows', $slideshow);
 
         $image = array();
         $latestProperties = Property::Latest();
         foreach ($latestProperties as $property) {
             $image = ImageProperty::FindOneByPropertyId($property->id);
         }
-
+        $slideshow = SlideshowImage::paginate(10);
         $agencies = User::GetUserByRole(Role::AGENCY);
         return view('pages.home')->with(
             [
                 'latestProperties' => $latestProperties,
                 'image' => $image,
-                'agencies' => $agencies
+                'agencies' => $agencies,
+                'slideshows' => $slideshow
             ]);
 
     }
