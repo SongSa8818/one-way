@@ -14,10 +14,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        /*sorry b please help me i already try my best
-         * please b update it for me pg i really don't know how to do this one
-         * sorry that i always disturb you
-         */
 
         $image = array();
         $latestProperties = Property::Latest();
