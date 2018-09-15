@@ -18,6 +18,11 @@ class ExclusiveController extends Controller
       return view('pages.exclusive')->with('properties', $properties);
     }
 
+    public function search(Request $request) {
+        $results = Property::Search($request->all());
+        return view('pages.exclusive')->with('results', $results);
+    }
+
     /**
      * Display the specified resource.
      *

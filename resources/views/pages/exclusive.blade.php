@@ -200,9 +200,10 @@
             <!-- Listings -->
 
             <div class="col-lg-8 listings_col">
+                <?php $data = @$results != null ? $results : $properties; ?>
 
                 <!-- Listings Item -->
-                @foreach($properties as $property)
+                @foreach($data as $property)
                     <div class="listing_item">
                         <div class="listing_item_inner d-flex flex-md-row flex-column trans_300">
                             <div class="listing_image_container">
@@ -267,7 +268,7 @@
         <div class="row">
             <div class="col clearfix">
                 <div class="listings_nav">
-                    {{ $properties->links() }}
+                    {{ $data->links() }}
                 </div>
             </div>
         </div>
