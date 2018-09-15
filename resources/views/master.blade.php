@@ -20,7 +20,7 @@
     @if ($uri == 'home')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
-    @elseif(in_array($uri,array('exclusive.index','showing.index','offer.index')))
+    @elseif(in_array($uri,array('exclusive.index','showing.index','offer.index','search')))
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_responsive.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_styles.css')}}">

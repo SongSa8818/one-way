@@ -46,7 +46,7 @@
                             </div>
                             <div class="form-group col-6">
                                 {!! Form::Label('khan_id', 'Khan/District') !!}
-                                <select class="form-control" name="khan_id" id="khan_id" disabled required>
+                                <select class="form-control" name="khan_id" id="khan_id" {{ @$property->khan_id == null ? 'disabled': '' }} required>
                                     <option value=""></option>
                                     @foreach($khans as $key => $value)
                                         <option value="{{$key}}" {{ $key == @$property->khan_id? 'selected': '' }}>{{$value}}</option>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="form-group col-6">
                                 {!! Form::Label('sangkat_id', 'Sangkat') !!}
-                                <select class="form-control" name="sangkat_id" id="sangkat_id" disabled required>
+                                <select class="form-control" name="sangkat_id" id="sangkat_id" {{ @$property->sangkat_id == null ? 'disabled': '' }} required>
                                     <option value=""></option>
                                     @foreach($sangkats as $key => $value)
                                         <option value="{{$key}}" {{ $key == @$property->sangkat_id? 'selected': '' }}>{{$value}}</option>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="form-group col-6">
                                 {!! Form::Label('village_id', 'Village') !!}
-                                <select class="form-control" name="village_id" id="village_id" disabled required>
+                                <select class="form-control" name="village_id" id="village_id" {{ @$property->village_id == null ? 'disabled': '' }} required>
                                     <option value=""></option>
                                     @foreach($villages as $key => $value)
                                         <option value="{{$key}}" {{ $key == @$property->village_id? 'selected': '' }}>{{$value}}</option>
@@ -92,8 +92,8 @@
                             <div class="form-group col-6">
                                 {!! Form::Label('status', 'Active / Inactive') !!}
                                 <select class="form-control" name="status">
-                                    @foreach(\App\Active::getKeys() as $value)
-                                        <option value="{{$value}}">{{$value}}</option>
+                                    @foreach($status as $key => $value)
+                                        <option value="{{$value}}" {{ $key == @$property->status? 'selected': '' }}>{{$value}}</option>
                                     @endforeach
                                 </select>
                             </div>

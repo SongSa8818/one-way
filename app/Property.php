@@ -50,6 +50,27 @@ class Property extends Model
             ->get();
     }
 
+    public function scopeSearch($query, $parameters = array())
+    {
+        $query = DB::table('properties')
+            ->select('*')
+            ->leftJoin('cities', 'properties.city_id', '=', 'cities.id');
+            if($parameters['title'] != null) {
+                $query->where('properties.title', 'like', '%' . $parameters['title'] . '%');
+            }
+            if ($parameters['type'] != null) {
+                $query->where('type', '=', $parameters['type']);
+            }
+            if ($parameters['status'] != null) {
+                $query->where('status', '=', $parameters['status']);
+            }
+            if ($parameters['location'] != null) {
+                $query->where('cities.name', '=', $parameters['location']);
+            }
+        //dd($query->toSql());
+        return $query->paginate(10);
+    }
+
     public function user()
     {
         return $this->belongsTo('App\User');
