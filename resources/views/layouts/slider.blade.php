@@ -16,11 +16,9 @@
                 </div>
             </div>
          @endforeach
-    </div>
-    <!-- Home Slider Nav -->
-    <div class="home_slider_nav_left home_slider_nav d-flex flex-row align-items-center justify-content-end">
-        <img src="images/nav_left.png" alt="">
-    </div>
-
+        <!-- Home Slider Nav -->
+        <div class="home_slider_nav_left home_slider_nav d-flex flex-row align-items-center justify-content-end">
+            <img src="images/nav_left.png" alt="">
+        </div>
     </div>
 </div>

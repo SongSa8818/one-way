@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\DeleteImage;
 use App\SlideshowImage;
-use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 
 class SlideshowController extends Controller
@@ -73,7 +72,6 @@ class SlideshowController extends Controller
             return redirect(route('slideshow.list'));
         }
     }
-
 
     /**
      * Remove the specified resource from storage.
