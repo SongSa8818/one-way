@@ -220,17 +220,9 @@
                                 <!-- ImageProperty by: https://unsplash.com/@breather -->
                                 <div class="listing_background" style="background-image:url(images/listing_1.jpg)"></div>
                             </div>
-                            <div class="featured_card_box d-flex flex-row align-items-center trans_300">
-                                <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
-                                <div class="featured_card_box_content">
-                                    <div class="featured_card_price_title trans_300">For Sale</div>
-                                    <div class="featured_card_price trans_300">$540,000</div>
-                                </div>
-                            </div>
                         </div>
                         <div class="listing_content">
                             <div class="listing_title"><a href="{{ route('property.index') }}">House in West California</a></div>
-                            <div class="listing_text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</div>
                             <div class="row mt-3">
                                 <div class="col-lg-6">
                                     <span class="room_title">Blocked by</span>
@@ -246,6 +238,14 @@
                             <div class="room_tags">
                                 <div class="button elements_button_1"><a href="#">Unblock now</a></div>
                                 <div class="button elements_button_2"><a href="#">Visitor</a></div>
+                            </div>
+
+                            <div class="featured_card_box d-flex flex-row align-items-center trans_300">
+                                <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                                <div class="featured_card_box_content">
+                                    <div class="featured_card_price_title trans_300">For Sale</div>
+                                    <div class="featured_card_price trans_300">$540,000</div>
+                                </div>
                             </div>
                         </div>
                     </div>

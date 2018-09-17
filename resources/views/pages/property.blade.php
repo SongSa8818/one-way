@@ -11,13 +11,6 @@
                 <!-- Listing Title -->
                 <div class="listing_title_container">
                     <div class="listing_title">{{ $property->title }}</div>
-                    <div class="room_tags">
-                        <span class="room_tag"><a href="#">Hottub</a></span>
-                        <span class="room_tag"><a href="#">Swimming Pool</a></span>
-                        <span class="room_tag"><a href="#">Garden</a></span>
-                        <span class="room_tag"><a href="#">Patio</a></span>
-                        <span class="room_tag"><a href="#">Hard Wood Floor</a></span>
-                    </div>
                 </div>
             </div>
 
@@ -26,8 +19,8 @@
                 <div class="featured_card_box d-flex flex-row align-items-center trans_300 float-lg-right">
                     <img src="../images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
                     <div class="featured_card_box_content">
-                        <div class="featured_card_price_title trans_300">For Sale</div>
-                        <div class="featured_card_price trans_300">$540,000</div>
+                        <div class="featured_card_price_title trans_300">{{ $property->type }}</div>
+                        <div class="featured_card_price trans_300">${{ $property->price }}</div>
                     </div>
                 </div>
             </div>
