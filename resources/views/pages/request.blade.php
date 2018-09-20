@@ -75,6 +75,14 @@
                                 {{ Form::label('description', 'Description') }}
                                 {{ Form::textarea('description', @$request_info->description, array('id' => "exampleFormControlTextarea1",'rows' => "3", 'class' => "form-control")) }}
                             </div>
+                            <div class="form-group col-6">
+                                {{ Form::Label('image', 'Upload Photo of Property') }}
+                                {{ Form::file('image') }}
+                                <input type="hidden" name="old_picture" value="{{ @$request_info->image }}">
+                            </div>
+                            <div class="form-group col-6">
+                                <img width="100px" src="{{ url('/uploads/requests/'.@$request_info->image) }}" class="img-thumbnail"/>
+                            </div>
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-lg mr-3">Request</button>

@@ -390,8 +390,8 @@
             <div class="row">
                 <div class="col">
                     <div class="section_title text-center">
-                        <h3>cities clients prefer</h3>
-                        <span class="section_subtitle">What you need to do</span>
+                        <h3>Our Customer Requests</h3>
+                        <span class="section_subtitle">What you need to request?</span>
                     </div>
                 </div>
             </div>
@@ -403,18 +403,18 @@
 
                     <div class="cities_slider_container">
                         <div class="owl-carousel owl-theme cities_slider">
-
+                        @foreach($request_infos as $request_info)
                             <!-- City Item -->
                             <div class="owl-item city_item">
                                 <a href="#">
                                     <div class="city_image">
-                                        <img src="images/city_1.jpg" alt="">
+                                        <img src="{{ url('/uploads/requests/'.@$request_info->image) }}" alt="">
                                     </div>
                                     <div class="city_details"><img src="images/search.png" alt=""></div>
                                     <div class="city_name"><span>miami</span></div>
                                 </a>
                             </div>
-
+                        @endforeach
                         </div>
                         <div class="cities_prev cities_nav d-flex flex-row align-items-center justify-content-center trans_200">
                             <img src="images/nav_left.png" alt="">
