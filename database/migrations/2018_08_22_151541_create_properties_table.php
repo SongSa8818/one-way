@@ -19,17 +19,18 @@ class CreatePropertiesTable extends Migration
             $table->string('title');
             $table->decimal('price', 8, 2);
             $table->text('description');
-            $table->string('video_url');
+            $table->string('video_url')->nullable();
             $table->string('type','100');
             $table->string('property_number');
             $table->integer('city_id');
             $table->integer('khan_id');
             $table->integer('sangkat_id');
             $table->integer('village_id');
-            $table->string('street_name');
-            $table->string('street_number');
+            $table->string('street_name')->nullable();
+            $table->string('street_number')->nullable();
             $table->string('pro_lat');
             $table->string('pro_lon');
+            $table->string('blocked_by')->nullable();
 
             $table->string('status');
             $table->foreign('user_id')

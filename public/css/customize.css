@@ -1,3 +1,14 @@
+.w-120 { width: 120px; }
+.h-40 { height: 40px; }
+.status-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fd784f;
+    margin-top: -3px;
+}
+.featured_card_box {
+    width: 100%;
+}
 .dropdown-menu {
     background-color: #fd784f;
 }
@@ -112,6 +123,30 @@ p {
 }
 .listing_content {
     padding-bottom: 15px;
+}
+.button a {
+    text-align: center;
+}
+.btn-showing {
+    width: 100%;
+}
+.search_box_content {
+    padding: 20px;
+}
+.listing_slider_container {
+    margin-top: 30px;
+}
+.listing_content_row {
+    padding-top: 30px;
+}
+.hello {
+    margin-top: 30px;
+}
+.listing_description {
+    margin-top: 0px;
+}
+.buttons_section_content {
+    margin-top: 8px;
 }
 
 @media only screen and (max-width: 991px)
