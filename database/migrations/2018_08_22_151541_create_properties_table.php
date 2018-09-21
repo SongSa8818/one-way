@@ -30,6 +30,7 @@ class CreatePropertiesTable extends Migration
             $table->string('street_number');
             $table->string('pro_lat');
             $table->string('pro_lon');
+            $table->string('blocked_by');
 
             $table->string('status');
             $table->foreign('user_id')

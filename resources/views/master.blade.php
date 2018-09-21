@@ -35,6 +35,8 @@
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/magnific-popup/magnific-popup.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/listings_single_responsive.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_styles.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_responsive.css')}}">
     @endif
     <link rel="stylesheet" type="text/css" href="{{asset('css/customize.css')}}">
 

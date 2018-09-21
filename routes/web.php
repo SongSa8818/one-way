@@ -28,6 +28,8 @@ Route::get('/customer-list', 'CustomerController@list')->name('customer.list');
 
 Route::resource('/property', 'PropertyController');
 Route::get('/property-list', 'PropertyController@list')->name('property.list');
+Route::put('/property-block/{id}', 'PropertyController@block')->name('property.block');
+
 Route::resource('/image', 'ImagePropertyController');
 
 Route::resource('/slideshow', 'SlideshowController');
