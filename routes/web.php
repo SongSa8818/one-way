@@ -16,6 +16,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/exclusive', 'ExclusiveController');
+Route::get('/search', 'ExclusiveController@search')->name('search');
 Route::resource('/showing', 'ShowingController');
 
 Route::resource('/about', 'AboutController');

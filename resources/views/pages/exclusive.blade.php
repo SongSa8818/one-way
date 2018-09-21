@@ -200,61 +200,27 @@
             <!-- Listings -->
 
             <div class="col-lg-8 listings_col">
+                <?php $data = @$results != null ? $results : $properties; ?>
 
                 <!-- Listings Item -->
-                @foreach($properties as $property)
+                @foreach($data as $property)
                     <div class="listing_item">
                         <div class="listing_item_inner d-flex flex-md-row flex-column trans_300">
                             <div class="listing_image_container">
                                 <div class="listing_image">
                                     <!-- ImageProperty by: https://unsplash.com/@breather -->
-                                    <div class="listing_background" style="background-image:url(images/listing_1.jpg)"></div>
-                                </div>
-                                <div class="featured_card_box d-flex flex-row align-items-center trans_300">
-                                    <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
-                                    <div class="featured_card_box_content">
-                                        <div class="featured_card_price_title trans_300">For Sale</div>
-                                        <div class="featured_card_price trans_300">${{ $property->price }}</div>
-                                    </div>
+                                    <div class="listing_background" style="background-image:url({{ url('/uploads/'.$image->img) }})"></div>
                                 </div>
                             </div>
                             <div class="listing_content">
                                 <div class="listing_title"><a href="{{ route('property.show', $property->id) }}">{{ $property->title }}</a></div>
-                                <div class="listing_text">{{ $property->description }}</div>
-                                <div class="rooms">
-
-                                    <div class="room">
-                                        <span class="room_title">Bedrooms</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/bedroom.png" alt=""></div>
-                                            <span class="room_number">4</span>
-                                        </div>
+                                <div class="listing_text">{!! substr($property->description, 0, 140) !!}</div>
+                                <div class="featured_card_box d-flex flex-row align-items-center trans_300">
+                                    <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                                    <div class="featured_card_box_content">
+                                        <div class="featured_card_price_title trans_300">{{ $property->type }}</div>
+                                        <div class="featured_card_price trans_300">${{ $property->price }}</div>
                                     </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Bathrooms</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/shower.png" alt=""></div>
-                                            <span class="room_number">3</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="room">
-                                        <span class="room_title">Area</span>
-                                        <div class="room_content">
-                                            <div class="room_image"><img src="images/area.png" alt=""></div>
-                                            <span class="room_number">7100 Sq Ft</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="room_tags">
-                                    <span class="room_tag"><a href="#">Hottub</a></span>
-                                    <span class="room_tag"><a href="#">Swimming Pool</a></span>
-                                    <span class="room_tag"><a href="#">Garden</a></span>
-                                    <span class="room_tag"><a href="#">Patio</a></span>
-                                    <span class="room_tag"><a href="#">Hard Wood Floor</a></span>
                                 </div>
                             </div>
                         </div>
@@ -267,7 +233,7 @@
         <div class="row">
             <div class="col clearfix">
                 <div class="listings_nav">
-                    {{ $properties->links() }}
+                    {{ $data->links() }}
                 </div>
             </div>
         </div>

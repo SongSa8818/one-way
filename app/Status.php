@@ -4,7 +4,7 @@ namespace App;
 
 use Enum;
 
-abstract class Active extends enum
+abstract class Status extends enum
 {
     const ACTIVE = 'Active';
     const INACTIVE = 'Inactive';

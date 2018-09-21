@@ -16,192 +16,61 @@
                             <div class="search_box_title text-center">
                                 <div class="search_box_title_inner">
                                     <div class="search_box_title_icon d-flex flex-column align-items-center justify-content-center"><img src="images/search.png" alt=""></div>
-                                    <span>Find your properties</span>
+                                    <span>Find properties</span>
                                 </div>
                             </div>
 
-                            <!-- Search Arrow -->
+                            <!-- Search Arrow
                             <div class="search_arrow_box">
                                 <div class="search_arrow_box_inner">
                                     <div class="search_arrow_circle d-flex flex-column align-items-center justify-content-center"><span>Search it here</span></div>
                                     <img src="images/search_arrow.png" alt="">
                                 </div>
-                            </div>
+                            </div>-->
 
                             <!-- Search Form -->
-                            <form class="search_form" action="#">
+                            {{ Form::model("", array('route' => array('search'), 'class' => 'search_form', 'method' => 'get')) }}
                                 <div class="search_box_container">
-                                    <ul class="dropdown_row clearfix">
-                                        <li class="dropdown_item dropdown_item_5">
-                                            <div class="dropdown_item_title">Keywords</div>
-                                            <select name="keywords" id="keywords" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Keyword 1</option>
-                                                <option>Keyword 2</option>
-                                            </select>
+                                    <ul class="row clearfix">
+                                        <li class="col-4">
+                                            <div class="dropdown_item_title">Property title</div>
+                                            <input type="text" name="title" class="form-control" value="{{ old('title') }}" placeholder="Property title">
                                         </li>
-                                        <li class="dropdown_item dropdown_item_5">
-                                            <div class="dropdown_item_title">Property ID</div>
-                                            <select name="property_ID" id="property_ID" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>ID 1</option>
-                                                <option>ID 2</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_5">
-                                            <div class="dropdown_item_title">Property Status</div>
-                                            <select name="property_status" id="property_status" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Status 1</option>
-                                                <option>Status 2</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_5">
-                                            <div class="dropdown_item_title">Location</div>
-                                            <select name="property_location" id="property_location" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Location 1</option>
-                                                <option>Location 2</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_5">
+                                        <li class="col-2">
                                             <div class="dropdown_item_title">Property Type</div>
-                                            <select name="property_type" id="property_type" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Type 1</option>
-                                                <option>Type 2</option>
+                                            <select name="type" id="type" class="form-control" value="{{ old('type') }}">
+                                                <option value="">Any</option>
+                                                @foreach($types as $value)
+                                                    <option value="{{$value}}" {{ $value == @$property->type? 'selected': '' }}>{{$value}}</option>
+                                                @endforeach
                                             </select>
                                         </li>
-                                    </ul>
-                                </div>
-
-                                <div class="search_box_container">
-                                    <ul class="dropdown_row clearfix">
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Bedrooms no</div>
-                                            <select name="bedrooms_no" id="bedrooms_no" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>1</option>
-                                                <option>2</option>
+                                        <li class="col-2">
+                                            <div class="dropdown_item_title">Status</div>
+                                            <select name="status" id="status" class="form-control">
+                                                <option value="">Any</option>
+                                                @foreach($status as $value)
+                                                    <option value="{{$value}}" {{ $value == @$property->status? 'selected': '' }}>{{$value}}</option>
+                                                @endforeach
                                             </select>
                                         </li>
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Bathrooms no</div>
-                                            <select name="bathrooms_no" id="bathrooms_no" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>1</option>
-                                                <option>2</option>
+                                        <li class="col-2">
+                                            <div class="dropdown_item_title">Location</div>
+                                            <select name="location" id="location" class="form-control">
+                                                <option value="">Any</option>
+                                                @foreach($cities as $key => $value)
+                                                    <option value="{{$key}}" {{ $key == @$property->city_id? 'selected': '' }}>{{$value}}</option>
+                                                @endforeach
                                             </select>
                                         </li>
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Min Price</div>
-                                            <select name="min_price" id="min_price" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>$10000</option>
-                                                <option>$20000</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Max Price</div>
-                                            <select name="max_price" id="max_price" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>$1000000</option>
-                                                <option>$2000000</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Min Sq Ft</div>
-                                            <select name="min_sq_ft" id="min_sq_ft" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Any</option>
-                                                <option>Any</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item dropdown_item_6">
-                                            <div class="dropdown_item_title">Max Sq Ft</div>
-                                            <select name="max_sq_ft" id="max_sq_ft" class="dropdown_item_select">
-                                                <option>Any</option>
-                                                <option>Any</option>
-                                                <option>Any</option>
-                                            </select>
-                                        </li>
-                                        <li class="dropdown_item">
+                                        <li class="col-2">
                                             <div class="search_button">
-                                                <input value="search" type="submit" class="search_submit_button">
+                                                <input value="search" type="submit" class="btn-search btn btn-primary">
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
-
-                                <div class="search_features_container">
-                                    <div class="search_features_trigger">
-                                        <a href="#">Specific features</a>
-                                    </div>
-                                    <ul class="search_features clearfix">
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_1" class="search_features_cb">
-                                                <label for="search_features_1">Feature 1</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_2" class="search_features_cb">
-                                                <label for="search_features_2">Feature 2</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_3" class="search_features_cb">
-                                                <label for="search_features_3">Feature 3</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_4" class="search_features_cb">
-                                                <label for="search_features_4">Feature 4</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_5" class="search_features_cb">
-                                                <label for="search_features_5">Feature 5</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_6" class="search_features_cb">
-                                                <label for="search_features_6">Feature 6</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_7" class="search_features_cb">
-                                                <label for="search_features_7">Feature 7</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_8" class="search_features_cb">
-                                                <label for="search_features_8">Feature 8</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_9" class="search_features_cb">
-                                                <label for="search_features_9">Feature 9</label>
-                                            </div>
-                                        </li>
-                                        <li class="search_features_item">
-                                            <div>
-                                                <input type="checkbox" id="search_features_10" class="search_features_cb">
-                                                <label for="search_features_10">Feature 10</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </form>
+                            {{ Form::close() }}
                         </div>
                     </div>
 
