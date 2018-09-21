@@ -26,6 +26,10 @@
                                     <img width="100px" src="{{ url('/uploads/slideshows/'.@$slideshow->image) }}" class="img-thumbnail"/>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                {{ Form::label('title', 'Title') }}
+                                {{ Form::text('title', @$slideshow->title, array('class' => "form-control")) }}
+                            </div>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary btn-lg mr-3">Save</button>

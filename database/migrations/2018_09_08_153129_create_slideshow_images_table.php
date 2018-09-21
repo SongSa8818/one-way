@@ -16,6 +16,7 @@ class CreateSlideshowImagesTable extends Migration
         Schema::create('slideshow_images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image');
+            $table->string('title');
             $table->timestamps();
         });
     }
