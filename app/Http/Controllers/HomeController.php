@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\City;
 use App\ContactInfo;
 use App\PropertyTypes;
+use App\RequestInfo;
 use App\SlideshowImage;
 use App\ImageProperty;
 use App\Property;
@@ -24,6 +25,7 @@ class HomeController extends Controller
         }
 
         $slideshow = SlideshowImage::paginate(10);
+        $request_info = RequestInfo::paginate(10);
         $agencies = User::GetUserByRole(Role::AGENCY);
         $types = PropertyTypes::getKeys();
         $status = Status::getKeys();
@@ -36,7 +38,8 @@ class HomeController extends Controller
                 'slideshows' => $slideshow,
                 'types' => $types,
                 'status' => $status,
-                'cities' => $cities
+                'cities' => $cities,
+                'request_infos' => $request_info
             ]);
 
     }
