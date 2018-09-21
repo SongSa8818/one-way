@@ -7,17 +7,17 @@
             <div class="request">
                 <div class="row mb-5">
                     <div class="col">
-                        @if(@$request_info != null)
-                            {{ Form::model(@$request_info, array('route' => array('request.update', @$request_info->id), 'class' => '', 'method' => 'put')) }}
-                        @else
-                            {{ Form::model(@$request_info, array('route' => array('request.store'), 'class' => '')) }}
-                        @endif
                         <div class="section_title text-center">
                             <h3>Request To Company</h3>
                             <span class="section_subtitle">You Can Buy Sale Or Rent Property Here</span>
                         </div>
                     </div>
                 </div>
+                @if(@$request_info != null)
+                    {{ Form::model(@$request_info, array('route' => array('request.update', @$request_info->id), 'class' => '', 'method' => 'put')) }}
+                @else
+                    {{ Form::model(@$request_info, array('route' => array('request.store'), 'class' => '', 'enctype' => 'multipart/form-data')) }}
+                @endif
                 <div class="estate_contact_form">
                     <div class="content">
                         <div class="body">
@@ -80,10 +80,6 @@
                                 {{ Form::file('image') }}
                                 <input type="hidden" name="old_picture" value="{{ @$request_info->image }}">
                             </div>
-                            <div class="form-group col-6">
-                                <img width="100px" src="{{ url('/uploads/requests/'.@$request_info->image) }}" class="img-thumbnail"/>
-                            </div>
-
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-lg mr-3">Request</button>
                                 <a href="{{ route('request.index') }}" class="btn btn-lg btn-info btn-action">Cancel</a>
@@ -91,6 +87,7 @@
                         </div>
                     </div>
                 </div>
+                {{ Form::close() }}
             </div>
         </div>
     </div>

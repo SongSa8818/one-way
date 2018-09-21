@@ -30,28 +30,9 @@ class RequestController extends Controller
 
     }
 
-//    protected function validator(array $data)
-//    {
-//        return Validator::make($data, [
-//            'customer_id' => 'required|string|max:10',
-//            'service_type' => 'required|string|max:255',
-//            'property_type' => 'required|string|max:255',
-//            'business_purpose' => 'required|string|max:255',
-//            'location' => 'required|string|max:255',
-//            'zone' => 'required|string|max:255',
-//            'minsize_area' => 'required|string|max:255',
-//            'maxsize_area' => 'required|string|max:255',
-//            'min_budget' => 'required|string|max:255',
-//            'max_budget' => 'required|string|max:255',
-//            'bank_loan_service' => 'required|string|max:255',
-//            'bank_statement' => 'required|string|max:255',
-//            'description' => 'required|string|max:255',
-//        ]);
-//    }
-
     public function store(Request $request)
     {
-        // $this->validator($request->all())->validate();
+
 
         $request_info = new RequestInfo();
         $request_info->customer_id = $request->customer_id;
@@ -69,37 +50,16 @@ class RequestController extends Controller
         $request_info->description = $request->description;
 
         $file = $request->file('image');
-        if (in_array($file->getClientMimeType(), array('image/jpeg', 'image/jpg', 'image/png'))) {
-            $imageName = $request->file('image')->getClientOriginalName();
+        if($file && in_array($file->getClientMimeType(), array('image/jpeg','image/jpg','image/png'))){
+            $imageName = $file->getClientOriginalName();
             $request_info->image = $imageName;
             $file->move(public_path('/uploads/requests'), $imageName);
-            $image = Image::make(public_path('/uploads/requests/' . $imageName));
-            $image->resize(100, 100);
-            $image->save(public_path('/uploads/requests/' . $imageName));
         } else {
-            return redirect(route('request.index'));
+            $request_info->image = "no_picture";
         }
         $request_info->save();
         return redirect(route('request.index'));
     }
-
-
-//        $image = $request->file('image');
-//        if(in_array($image->getClientMimeType(), array('image/jpeg','image/jpg','image/png'))){
-//            $imageName = $request->file('image')->getClientOriginalName();
-//            $image = new RequestInfo();
-//            $request_info->image = $imageName;
-//            if($request_info->save()) {
-//                $image->move(public_path('/uploads/requests'), $imageName);
-//            }
-//            return redirect(route('page.request'));
-//        } else {
-//            return redirect(route('page.request'));
-//        }
-
-        //$request_info->save();
-        //return redirect(route('request.index'));
-  //  }
 
     public function edit($id)
     {
