@@ -28,6 +28,7 @@ class CreateRequestInfosTable extends Migration
             $table->string('bank_loan_service');
             $table->string('bank_statement');
             $table->text('description');
+            $table->string('image');
             $table->timestamps();
         });
     }

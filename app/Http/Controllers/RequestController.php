@@ -3,16 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\RequestInfo;
+use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class RequestController extends Controller
 {
+    private $no_image;
+
+    public function __construct()
+    {
+        $this->no_image = 'NO_IMAGE.png';
+    }
+
     //
     public function index()
     {
         return view('pages.request');
-}
+    }
 
     public function list()
     {
@@ -24,6 +32,8 @@ class RequestController extends Controller
 
     public function store(Request $request)
     {
+
+
         $request_info = new RequestInfo();
         $request_info->customer_id = $request->customer_id;
         $request_info->service_type = $request->service_type;
@@ -38,9 +48,17 @@ class RequestController extends Controller
         $request_info->bank_loan_service = $request->bank_loan_service;
         $request_info->bank_statement = $request->bank_statement;
         $request_info->description = $request->description;
-        //dd($request_info);
+
+        $file = $request->file('image');
+        if($file && in_array($file->getClientMimeType(), array('image/jpeg','image/jpg','image/png'))){
+            $imageName = $file->getClientOriginalName();
+            $request_info->image = $imageName;
+            $file->move(public_path('/uploads/requests'), $imageName);
+        } else {
+            $request_info->image = "no_picture";
+        }
         $request_info->save();
-        return redirect(route('request.index', $request_info->id));
+        return redirect(route('request.index'));
     }
 
     public function edit($id)
