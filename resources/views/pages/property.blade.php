@@ -6,7 +6,7 @@
 <div class="listing">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
 
                 <!-- Listing Title -->
                 <div class="listing_title_container">
@@ -15,16 +15,15 @@
             </div>
 
             <!-- Listing Price -->
-            <div class="col-lg-4 listing_price_col clearfix">
+            <div class="col-lg-3">
                 <div class="featured_card_box d-flex flex-row align-items-center trans_300 float-lg-right">
-                    <img src="../images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                    <img src="../images/tag.svg" alt="">
                     <div class="featured_card_box_content">
                         <div class="featured_card_price_title trans_300">{{ $property->type }}</div>
                         <div class="featured_card_price trans_300">${{ $property->price }}</div>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="row">
             <div class="col">
@@ -58,26 +57,18 @@
 
             <!-- Search Sidebar -->
 
-            <div class="col-lg-4 sidebar_col">
+            <div class="col-lg-3 sidebar_col">
                 <!-- Search Box -->
-
                 <div class="search_box">
-
                     <div class="search_box_content">
-
-                        <!-- Search Box Title -->
-                        <div class="search_box_title text-center">
-                            <div class="search_box_title_inner">
-                                <div class="search_box_title_icon d-flex flex-column align-items-center justify-content-center">
-                                    <img src="images/search.png" alt=""></div>
-                                <span>Menu side bar</span>
-                            </div>
+                        <!-- Buttons -->
+                        <div class="elements_section buttons_section">
+                            <h4>Status : {{ $property->status }}</h4>
+                            <a href="#" class="btn btn-info btn-lg w-120" data-toggle="modal" data-target="#exampleModalCenter">Show</a>
+                            <a href="#" class="btn btn-primary btn-lg w-120">Offer</a>
                         </div>
-
-
                     </div>
                 </div>
-
                 <div class="hello">
                     <div class="footer_col_title">Message to seller</div>
                     <div class="footer_contact_form_container">
@@ -91,9 +82,32 @@
                 </div>
             </div>
 
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        {{ Form::model(@$property, array('route' => array('property.block', @$property->id), 'class' => '', 'method' => 'put')) }}
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Confirmation</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h3>Are you sure to block this property?</h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary w-120 h-40" data-dismiss="modal">No</button>
+                            <button type="submit" type="button" class="btn btn-primary w-120 h-40">Yes</button>
+                        </div>
+                        {{ Form::close() }}
+                    </div>
+                </div>
+            </div>
+
             <!-- Listing -->
 
-            <div class="col-lg-8 listing_col">
+            <div class="col-lg-9 listing_col">
 
                 <!-- Listing Description -->
                 <div class="listing_description">

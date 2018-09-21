@@ -99,6 +99,15 @@ class PropertyController extends Controller
         return view('pages.property')->with(array('property' => $property, 'images' => $images));
     }
 
+    public function block(Request $request, $id) {
+        $property = Property::findOrFail($id);
+        $property->status = Status::SHOWING;
+        //$property->blocked_by = Auth::user()->full_name;
+        $property->save();
+        return redirect(route('property.show', $id));
+        //return redirect()->back()->with("status", "Succesfully edited!");
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
