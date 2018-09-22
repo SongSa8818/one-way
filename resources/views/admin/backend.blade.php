@@ -49,34 +49,6 @@
                                     <div class="time">10 Hours Ago</div>
                                 </div>
                             </a>
-                            <a href="#" class="dropdown-item dropdown-item-unread">
-                                <img alt="image" src="../dist/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
-                                <div class="dropdown-item-desc">
-                                    <b>Ujang Maman</b> has moved task <b>Fix bug footer</b> to <b>Progress</b>
-                                    <div class="time">12 Hours Ago</div>
-                                </div>
-                            </a>
-                            <a href="#" class="dropdown-item">
-                                <img alt="image" src="../dist/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
-                                <div class="dropdown-item-desc">
-                                    <b>Agung Ardiansyah</b> has moved task <b>Fix bug sidebar</b> to <b>Done</b>
-                                    <div class="time">12 Hours Ago</div>
-                                </div>
-                            </a>
-                            <a href="#" class="dropdown-item">
-                                <img alt="image" src="../dist/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
-                                <div class="dropdown-item-desc">
-                                    <b>Ardian Rahardiansyah</b> has moved task <b>Fix bug navbar</b> to <b>Done</b>
-                                    <div class="time">16 Hours Ago</div>
-                                </div>
-                            </a>
-                            <a href="#" class="dropdown-item">
-                                <img alt="image" src="../dist/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
-                                <div class="dropdown-item-desc">
-                                    <b>Alfa Zulkarnain</b> has moved task <b>Add logo</b> to <b>Done</b>
-                                    <div class="time">Yesterday</div>
-                                </div>
-                            </a>
                         </div>
                     </div>
                 </li>
@@ -84,7 +56,7 @@
                         <i class="ion ion-android-person d-lg-none"></i>
                         <div class="d-sm-none d-lg-inline-block">Hi, {{ @Auth::user()->full_name }}</div></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="profile.html" class="dropdown-item has-icon">
+                        <a href="{{ route('user.edit', @Auth::user()->id) }}" class="dropdown-item has-icon">
                             <i class="ion ion-android-person"></i> Profile
                         </a>
                         <a href="#" class="dropdown-item has-icon" href="{{ route('logout') }}"
@@ -139,9 +111,9 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="{{ in_array($uri, array('user.index','user.edit'))?'active':'' }}">
-                        <a href="{{ route('user.index') }}"><i class="ion ion-android-contact"></i><span>Agency</span></a>
-                    </li>
+                    {{--<li class="{{ in_array($uri, array('user.index','user.edit'))?'active':'' }}">--}}
+                        {{--<a href="{{ route('user.index') }}"><i class="ion ion-android-contact"></i><span>Agency</span></a>--}}
+                    {{--</li>--}}
                     <li class="{{ in_array($uri, array('customer.list','customer.edit'))?'active':'' }}">
                         <a href="{{ route('customer.list') }}"><i class="ion ion-person-stalker"></i><span>Customers</span></a>
                     </li>
