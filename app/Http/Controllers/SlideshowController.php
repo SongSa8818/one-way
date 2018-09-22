@@ -59,18 +59,19 @@ class SlideshowController extends Controller
     public function store(Request $request)
     {
         //
+        $slideshow = new SlideshowImage();
+        $slideshow->title = $request->title;
+
         $file = $request->file('image');
         if(in_array($file->getClientMimeType(), array('image/jpeg','image/jpg','image/png'))){
             $imageName = $request->file('image')->getClientOriginalName();
-            $image = new SlideshowImage();
-            $image->image = $imageName;
-            if($image->save()) {
-                $file->move(public_path('/uploads/slideshows'), $imageName);
-            }
-            return redirect(route('slideshow.list'));
+            $slideshow->image = $imageName;
+            $file->move(public_path('/uploads/slideshows'), $imageName);
         } else {
             return redirect(route('slideshow.list'));
         }
+        $slideshow->save();
+        return redirect(route('slideshow.list'));
     }
 
     /**

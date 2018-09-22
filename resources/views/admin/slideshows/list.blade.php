@@ -21,6 +21,7 @@
                                 <table class="table table-bordered">
                                     <tr>
                                         <th>Image</th>
+                                        <th>Title</th>
                                         <th>Action</th>
                                     </tr>
                                     @foreach($slideshows as $slideshow)
@@ -29,6 +30,7 @@
                                                     <img src="{{ url('/uploads/slideshows/'.@$slideshow->image) }}" width="100px" height="80px" class="img-thumbnail w-25"/>
                                                 </div>
                                             </td>
+                                            <td style="width: 250px">{{ $slideshow->title }}</td>
                                             <td>
                                                 {{ Form::open(array('route' => array('slideshow.destroy', $slideshow->id), 'method' => 'DELETE')) }}
                                                 <button type="submit" onclick="return confirm('Are you sure you want to delete');" class="btn btn-sm btn-danger">Delete</button>

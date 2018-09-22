@@ -9,7 +9,7 @@
                     <div class="home_slider_background" style="background-image:url({{ url('/uploads/slideshows/'.@$slideshow->image) }})"></div>
                     <div class="home_slider_content_container text-center">
                         <div class="home_slider_content">
-                            <h1 data-animation-in="flipInX" data-animation-out="animate-out fadeOut">find your home</h1>
+                            <h1 data-animation-in="flipInX" data-animation-out="animate-out fadeOut">{{ $slideshow->title }}</h1>
                         </div>
                     </div>
                 </div>
