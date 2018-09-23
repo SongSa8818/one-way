@@ -196,6 +196,9 @@
     });
 
     $(document).ready(function() {
+        $('#khan_id option').remove();
+        $('#sangkat_id option').remove();
+        $('#village_id option').remove();
         $('#city_id').on('change', function() {
             var data = {
                 'city_id': $(this).val(),
@@ -206,7 +209,7 @@
                 /*optional stuff to do after success */
                 //console.log(resultKhans.length);
                 $('#khan_id option').remove();
-                resultKhans.length > 0?$('#khan_id').prop('disabled', false):$('#khan_id').prop('disabled', true);
+                //resultKhans.length > 0?$('#khan_id').prop('disabled', false):$('#khan_id').prop('disabled', true);
                 for (i in resultKhans) {
                     $('#khan_id').append('<option value="'+ resultKhans[i].id +'">'+ resultKhans[i].name +'</option>');
                 }
@@ -219,7 +222,7 @@
             };
             $.post('{{ route("ajax.sangkats_select") }}', data, function(resultSangkats, textStatus, xhr) {
                 $('#sangkat_id option').remove();
-                resultSangkats.length > 0 ? $('#sangkat_id').prop('disabled', false) : $('#sangkat_id').prop('disabled', true);
+                //resultSangkats.length > 0 ? $('#sangkat_id').prop('disabled', false) : $('#sangkat_id').prop('disabled', true);
                 for (i in resultSangkats) {
                     $('#sangkat_id').append('<option value="'+ resultSangkats[i].id +'">'+ resultSangkats[i].name +'</option>');
                 }
@@ -232,7 +235,7 @@
             };
             $.post('{{ route("ajax.villages_select") }}', data, function(resultVillages, textStatus, xhr) {
                 $('#village_id option').remove();
-                resultVillages.length > 0 ? $('#village_id').prop('disabled', false) : $('#village_id').prop('disabled', true);
+                //resultVillages.length > 0 ? $('#village_id').prop('disabled', false) : $('#village_id').prop('disabled', true);
                 for (i in resultVillages) {
                     $('#village_id').append('<option value="'+ resultVillages[i].id +'">'+ resultVillages[i].name +'</option>');
                 }
