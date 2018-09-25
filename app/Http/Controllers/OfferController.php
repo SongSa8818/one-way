@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Offer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OfferController extends Controller
 {
@@ -13,7 +15,9 @@ class OfferController extends Controller
      */
     public function index()
     {
-        return view('pages.offer');
+        $offers = Offer::SelectList();
+        //dd($offers);
+        return view('pages.offer')->with('offers', $offers);
     }
 
     /**
@@ -34,7 +38,12 @@ class OfferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $offer = new Offer();
+        $offer->property_id = $request->property_id;
+        $offer->user_id     = Auth::user()->getAuthIdentifier();
+        $offer->offer_amount = $request->offer_amount;
+        $offer->save();
+        return redirect('offer');
     }
 
     /**

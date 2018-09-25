@@ -13,6 +13,4 @@ class Customer extends Model
             ->paginate(10);
         return $query;
     }
-
-
 }

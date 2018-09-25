@@ -18,12 +18,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $image = array();
         $latestProperties = Property::Latest();
-        foreach ($latestProperties as $property) {
-            $image = ImageProperty::FindOneByPropertyId($property->id);
-        }
-
         $slideshow = SlideshowImage::paginate(10);
         $request_info = RequestInfo::paginate(10);
         $agencies = User::GetUserByRole(Role::AGENCY);
@@ -33,7 +28,6 @@ class HomeController extends Controller
         return view('pages.home')->with(
             [
                 'latestProperties' => $latestProperties,
-                'image' => $image,
                 'agencies' => $agencies,
                 'slideshows' => $slideshow,
                 'types' => $types,

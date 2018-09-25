@@ -98,9 +98,11 @@
                     <div class="featured_card_container trans_200">
                         <div class="card featured_card">
                             <div class="featured_panel">{{ $property->status }}</div>
-                            <img class="card-img-top" src="{{ url('/uploads/'.$image->img) }}" alt="{{ $property->title }}">
+                            <img class="card-img-top" src="{{ url('/uploads/'.$property->img) }}" alt="{{ $property->title }}">
                             <div class="card-body">
-                                <div class="card-title"><a href="{{ route('property.show', $property->id) }}">{{ $property->title }}</a></div>
+                                <div class="card-title">
+                                    <a href="{{ route('property.show', $property->pro_id) }}">{{ $property->title }}</a>
+                                </div>
                             </div>
                         </div>
                         <div class="featured_card_box d-flex flex-row align-items-center">
