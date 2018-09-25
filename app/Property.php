@@ -32,7 +32,6 @@ class Property extends Model
             ->where('properties.id', '=', $id)
             ->limit(1)
             ->first();
-        //dd($query);
         return $query;
     }
 
@@ -45,9 +44,12 @@ class Property extends Model
 
     public function scopeLatest($query)
     {
-        return $query->orderBy('id', 'DESC')
+        $query = DB::table('properties')
+            ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
+            ->select('*','properties.id as pro_id', 'property_images.img')
             ->limit(10)
             ->get();
+        return $query;
     }
 
     public function scopeSearch($query, $parameters = array())

@@ -148,6 +148,9 @@ p {
 .buttons_section_content {
     margin-top: 8px;
 }
+.input_field {
+    background: #ffffff;
+}
 
 @media only screen and (max-width: 991px)
 {

@@ -70,14 +70,13 @@
                     </div>
                 </div>
                 <div class="hello">
-                    <div class="footer_col_title">Message to seller</div>
+                    <div class="footer_col_title">Offer form</div>
                     <div class="footer_contact_form_container">
-                        <form id="hello_contact_form" class="footer_contact_form" action="post">
-                            <input id="hello_contact_form_name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
-                            <input id="hello_contact_form_email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
-                            <textarea id="hello_contact_form_message" class="text_field contact_form_message" name="message" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
-                            <button id="hello_contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">send</button>
-                        </form>
+                        {{ Form::model(@$property, array('route' => array('offer.store'), 'class' => 'footer_contact_form','id' => 'hello_contact_form', 'method' => 'POST')) }}
+                            <input id="hello_contact_form_name" class="input_field contact_form_name" name="offer_amount" type="text" placeholder="Price" required="required" data-error="Price is required.">
+                            <input type="hidden" name="property_id" value="{{ $property->id }}">
+                            <button id="hello_contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">Send</button>
+                        {{ Form::close() }}
                     </div>
                 </div>
             </div>

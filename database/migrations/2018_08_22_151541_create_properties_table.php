@@ -20,7 +20,7 @@ class CreatePropertiesTable extends Migration
             $table->decimal('price', 8, 2);
             $table->text('description');
             $table->string('video_url')->nullable();
-            $table->string('type','100');
+            $table->string('type', '100');
             $table->string('property_number');
             $table->integer('city_id');
             $table->integer('khan_id');
@@ -34,20 +34,27 @@ class CreatePropertiesTable extends Migration
 
             $table->string('status');
             $table->foreign('user_id')
-                  ->references('id')->on('users')
-                  ->onDelete('cascade');
+                ->references('id')->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
 
-      Schema::create('property_images', function (Blueprint $table) {
-        $table->increments('id');
-        $table->unsignedInteger('property_id');
-        $table->string('img');
-        $table->foreign('property_id')
-          ->references('id')->on('properties')
-          ->onDelete('cascade');
-        $table->timestamps();
-      });
+        Schema::create('property_images', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('property_id');
+            $table->string('img');
+            $table->foreign('property_id')
+                ->references('id')->on('properties')
+                ->onDelete('cascade');
+            $table->timestamps();
+        });
+
+        Schema::create('offers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('property_id');
+            $table->integer('user_id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -57,7 +64,7 @@ class CreatePropertiesTable extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('property_images');
-      Schema::dropIfExists('properties');
+        Schema::dropIfExists('property_images');
+        Schema::dropIfExists('properties');
     }
 }

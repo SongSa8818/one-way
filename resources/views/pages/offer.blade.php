@@ -1,5 +1,5 @@
 @extends('master')
-@section('title','Showing property')
+@section('title','Offering property')
 
 @section('content')
 
@@ -212,28 +212,26 @@
             <div class="col-lg-8 listings_col">
 
                 <!-- Listings Item -->
-                @for($i = 0; $i < 10; $i++)
+                @foreach($offers as $offer)
                 <div class="listing_item">
                     <div class="listing_item_inner d-flex flex-md-row flex-column trans_300">
                         <div class="listing_image_container">
                             <div class="listing_image">
                                 <!-- ImageProperty by: https://unsplash.com/@breather -->
-                                <div class="listing_background" style="background-image:url(images/listing_1.jpg)"></div>
+                                <div class="listing_background" style="background-image:url({{ url('/uploads/'.$offer->img) }})"></div>
                             </div>
                         </div>
                         <div class="listing_content">
-                            <div class="listing_title"><a href="{{ route('property.index') }}">House in West California</a></div>
+                            <div class="listing_title"><a href="{{ route('property.index') }}">{{ $offer->title }}</a></div>
 
-
-                            <div class="featured_card_box d-flex flex-row align-items-center trans_300">
-                                <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
-                                <div class="featured_card_box_content">
+                            <div class="featured_card_box d-flex flex-row align-items-center trans_300 p-0">
+                                <div class="featured_card_box_content p-10">
                                     <div class="featured_card_price_title trans_300">Price</div>
-                                    <div class="featured_card_price trans_300">$540,000</div>
+                                    <div class="featured_card_price trans_300">${{ $offer->price }}</div>
                                 </div>
                                 <div class="featured_card_box_content">
                                     <div class="featured_card_price_title trans_300">Offer amount</div>
-                                    <div class="featured_card_price trans_300 text-danger">$400,000</div>
+                                    <div class="featured_card_price trans_300 text-danger">${{ $offer->offer_amount }}</div>
                                 </div>
                             </div>
 
@@ -246,12 +244,12 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <span class="room_title">Customer name</span>
-                                    <div class="room_content"><span class="room_tag customer_tag"><a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$i}}"> Mr. Kimsong </a></span></div>
+                                    <div class="room_content"><span class="room_tag customer_tag"><a href="#" data-toggle="modal" data-target="#exampleModalCenter{{ $offer->id }}"> {{ $offer->full_name }} </a></span></div>
                                 </div>
                             </div>
                             <div class="room_tags">
                                 <div class="button btn-success"><a onclick="initConfirmModal('Are you sure to accept this offer?','acceptOffer')">Accept</a></div>
-                                <div class="button btn-warning"><a onclick="initConfirmModal('Are you sure to reject this offer?','rejectOffer')">Reject</a></div>
+                                <div class="button btn-warning pull-right"><a onclick="initConfirmModal('Are you sure to reject this offer?','rejectOffer')">Reject</a></div>
                             </div>
                         </div>
                     </div>
@@ -259,7 +257,7 @@
 
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter{{$i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="exampleModalCenter{{ $offer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -295,7 +293,7 @@
                     </div>
                 </div>
 
-                @endfor
+                @endforeach
 
             </div>
 
