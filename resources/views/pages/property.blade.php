@@ -64,8 +64,7 @@
                         <!-- Buttons -->
                         <div class="elements_section buttons_section">
                             <h4>Status : {{ $property->status }}</h4>
-                            <a href="#" class="btn btn-info btn-lg w-120" data-toggle="modal" data-target="#exampleModalCenter">Show</a>
-                            <a href="#" class="btn btn-primary btn-lg w-120">Offer</a>
+                            <a href="#" class="btn btn-outline-warning btn-lg w-100" data-toggle="modal" data-target="#exampleModalCenter">Block now</a>
                         </div>
                     </div>
                 </div>

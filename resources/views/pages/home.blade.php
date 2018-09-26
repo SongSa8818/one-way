@@ -101,7 +101,7 @@
                             <img class="card-img-top" src="{{ url('/uploads/'.$property->img) }}" alt="{{ $property->title }}">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <a href="{{ route('property.show', $property->pro_id) }}">{{ $property->title }}</a>
+                                    <a href="{{ route('property.show', $property->id) }}">{{ $property->title }}</a>
                                 </div>
                             </div>
                         </div>

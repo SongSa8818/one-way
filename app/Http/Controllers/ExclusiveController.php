@@ -15,14 +15,8 @@ class ExclusiveController extends Controller
      */
     public function index()
     {
-        $image = array();
-        $properties = Property::paginate(2);
-        foreach ($properties as $property) {
-            $image = ImageProperty::FindOneByPropertyId($property->id);
-        }
-        return view('pages.exclusive')->with(
-            ['properties' => $properties,
-                'image' => $image]);
+        $exclusives = Property::SelectPropertyExclusive();
+        return view('pages.exclusive')->with('properties', $exclusives);
     }
 
     public function search(Request $request)

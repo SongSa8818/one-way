@@ -52,7 +52,7 @@ class PropertyController extends Controller
                 'khans' => $khan,
                 'sangkats' => $sangkat,
                 'villages' => $village,
-                'status' => $status
+                'statuses' => $status
             )
         );
     }
@@ -102,7 +102,7 @@ class PropertyController extends Controller
     public function block(Request $request, $id) {
         $property = Property::findOrFail($id);
         $property->status = Status::SHOWING;
-        //$property->blocked_by = Auth::user()->full_name;
+        $property->blocked_by = Auth::user()->getAuthIdentifier();
         $property->save();
         return redirect(route('property.show', $id));
         //return redirect()->back()->with("status", "Succesfully edited!");

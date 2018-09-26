@@ -18,8 +18,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $latestProperties = Property::Latest();
-        $slideshow = SlideshowImage::paginate(10);
+        $latestProperties = Property::SelectHomeLatest();
+        $slideShow = SlideshowImage::paginate(10);
         $request_info = RequestInfo::paginate(10);
         $agencies = User::GetUserByRole(Role::AGENCY);
         $types = PropertyTypes::getKeys();
@@ -29,7 +29,7 @@ class HomeController extends Controller
             [
                 'latestProperties' => $latestProperties,
                 'agencies' => $agencies,
-                'slideshows' => $slideshow,
+                'slideshows' => $slideShow,
                 'types' => $types,
                 'status' => $status,
                 'cities' => $cities,

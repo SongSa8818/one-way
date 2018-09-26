@@ -212,27 +212,33 @@
             <div class="col-lg-8 listings_col">
 
                 <!-- Listings Item -->
-                @for($i = 0; $i < 10; $i++)
+                @foreach($showings as $property)
                 <div class="listing_item">
                     <div class="listing_item_inner d-flex flex-md-row flex-column trans_300">
                         <div class="listing_image_container">
                             <div class="listing_image">
                                 <!-- ImageProperty by: https://unsplash.com/@breather -->
-                                <div class="listing_background" style="background-image:url(images/listing_1.jpg)"></div>
+                                <div class="listing_background" style="background-image:url({{ url('/uploads/'.$property->img) }})"></div>
                             </div>
                         </div>
                         <div class="listing_content">
-                            <div class="listing_title"><a href="{{ route('property.index') }}">House in West California</a></div>
+                            <div class="listing_title"><a href="{{ route('property.show', $property->id) }}">{{ $property->title }}</a></div>
                             <div class="row mt-3">
                                 <div class="col-lg-6">
                                     <span class="room_title">Blocked by</span>
                                     <div class="room_content">
-                                        <div class="room_image"><a href="#"><img src="images/agent_4.jpg" class="img-agent-booked rounded-circle" alt=""></a></div>
+                                        <div class="room_image">
+                                            <a href="#">
+                                                <img src="{{ url('/uploads/profiles/'.$property->picture) }}" class="img-agent-booked rounded-circle" alt="">
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <span class="room_title">Blocked date</span>
-                                    <div class="room_content"><span class="room_tag"><a href="#">{{ \Carbon\Carbon::parse(date(now()))->format('d-M-Y') }}</a></span></div>
+                                    <div class="room_content">
+                                        <span class="room_tag"><a href="#">{{ $property->updated_at }}</a></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="room_tags">
@@ -243,14 +249,14 @@
                             <div class="featured_card_box d-flex flex-row align-items-center trans_300">
                                 <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
                                 <div class="featured_card_box_content">
-                                    <div class="featured_card_price_title trans_300">For Sale</div>
-                                    <div class="featured_card_price trans_300">$540,000</div>
+                                    <div class="featured_card_price_title trans_300">{{ $property->type }}</div>
+                                    <div class="featured_card_price trans_300">${{ $property->price }}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endfor
+                @endforeach
 
             </div>
 

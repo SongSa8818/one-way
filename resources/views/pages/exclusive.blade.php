@@ -209,7 +209,7 @@
                             <div class="listing_image_container">
                                 <div class="listing_image">
                                     <!-- ImageProperty by: https://unsplash.com/@breather -->
-                                    <div class="listing_background" style="background-image:url({{ url('/uploads/'.$image->img) }})"></div>
+                                    <div class="listing_background" style="background-image:url({{ url('/uploads/'.$property->img) }})"></div>
                                 </div>
                             </div>
                             <div class="listing_content">

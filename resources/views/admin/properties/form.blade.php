@@ -92,7 +92,7 @@
                             <div class="form-group col-6">
                                 {!! Form::Label('status', 'Active / Inactive') !!}
                                 <select class="form-control" name="status">
-                                    @foreach($status as $key => $value)
+                                    @foreach($statuses as $key => $value)
                                         <option value="{{$value}}" {{ $key == @$property->status? 'selected': '' }}>{{$value}}</option>
                                     @endforeach
                                 </select>

@@ -10,10 +10,12 @@ class Property extends Model
     protected $table = 'properties';
     protected $primaryKey = 'id';
 
-    public function scopeList($query)
+    public function scopeSelectPropertyExclusive($query)
     {
         $query = DB::table('properties')
-            ->select('*')
+            ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
+            ->select('properties.title','properties.description',
+                'properties.id','properties.type','properties.price','property_images.img')
             ->paginate(10);
         return $query;
     }
@@ -35,6 +37,20 @@ class Property extends Model
         return $query;
     }
 
+    public function scopeSelectPropertyByShowing($query, $status)
+    {
+        $query = DB::table('properties')
+            ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
+            ->leftJoin('users', 'users.id', '=', 'properties.blocked_by')
+            ->select('properties.title','properties.description',
+                'properties.id','properties.type',
+                'properties.price','properties.status','properties.updated_at',
+                'property_images.img','users.picture')
+            ->where('properties.status', '=', $status)
+            ->paginate(10);
+        return $query;
+    }
+
     public function scopeActive($query)
     {
         return $query->orderBy('id', 'DESC')
@@ -42,11 +58,12 @@ class Property extends Model
             ->get();
     }
 
-    public function scopeLatest($query)
+    public function scopeSelectHomeLatest($query)
     {
         $query = DB::table('properties')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
-            ->select('*','properties.id as pro_id', 'property_images.img')
+            ->select('properties.title','properties.description','properties.id',
+                'properties.type','properties.price','properties.status','property_images.img')
             ->limit(10)
             ->get();
         return $query;
@@ -56,6 +73,7 @@ class Property extends Model
     {
         $query = DB::table('properties')
             ->select('*')
+            ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
             ->leftJoin('cities', 'properties.city_id', '=', 'cities.id');
             if($parameters['title'] != null) {
                 $query->where('properties.title', 'like', '%' . $parameters['title'] . '%');

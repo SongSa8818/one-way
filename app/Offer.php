@@ -10,7 +10,7 @@ class Offer extends Model
     protected $table = 'offers';
     protected $primaryKey = 'id';
 
-    public function scopeSelectList($query)
+    public function scopeSelectListOffer($query)
     {
         $query = DB::table('offers')
             ->leftJoin('properties', 'properties.id', '=', 'offers.property_id')
@@ -18,8 +18,7 @@ class Offer extends Model
             ->leftJoin('property_images', 'property_images.id', '=', 'properties.id')
             ->select('offers.id','offers.offer_amount','properties.title',
                 'properties.price','property_images.img','users.full_name')
-            ->limit(10)
-            ->get();
+            ->paginate(10);
         return $query;
     }
 }

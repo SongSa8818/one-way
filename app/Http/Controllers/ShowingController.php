@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Property;
+use App\Status;
 use Illuminate\Http\Request;
 
 class ShowingController extends Controller
@@ -13,7 +15,8 @@ class ShowingController extends Controller
    */
   public function index()
   {
-      return view('pages.showing');
+      $showings = Property::SelectPropertyByShowing(Status::SHOWING);
+      return view('pages.showing')->with('showings', $showings);
   }
 
   /**

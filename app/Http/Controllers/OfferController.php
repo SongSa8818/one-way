@@ -15,8 +15,7 @@ class OfferController extends Controller
      */
     public function index()
     {
-        $offers = Offer::SelectList();
-        //dd($offers);
+        $offers = Offer::SelectListOffer();
         return view('pages.offer')->with('offers', $offers);
     }
 
