@@ -32,9 +32,13 @@
                             {{ Form::model("", array('route' => array('search'), 'class' => 'search_form', 'method' => 'get')) }}
                                 <div class="search_box_container">
                                     <ul class="row clearfix">
-                                        <li class="col-4">
+                                        <li class="col-2">
                                             <div class="dropdown_item_title">Property title</div>
                                             <input type="text" name="title" class="form-control" value="{{ old('title') }}" placeholder="Property title">
+                                        </li>
+                                        <li class="col-2">
+                                            <div class="dropdown_item_title">Property ID</div>
+                                            <input type="text" name="property_number" class="form-control" value="{{ old('property_number') }}" placeholder="Property ID">
                                         </li>
                                         <li class="col-2">
                                             <div class="dropdown_item_title">Property Type</div>
@@ -117,11 +121,7 @@
                 @endforeach
             </div>
             <!-- Buttons -->
-            <div class="elements_section buttons_section">
-                <div class="buttons_section_content">
-                    <div class="button elements_button_1"><a href="#">View more</a></div>
-                </div>
-            </div>
+            <div class="btn btn-outline-warning btn-lg w-25 mt-5"><a href="#">View more</a></div>
         </div>
     </div>
 

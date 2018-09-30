@@ -151,6 +151,12 @@ p {
 .input_field {
     background: #ffffff;
 }
+.additional_detail:nth-child(even) {
+    background: #f1f6f9;
+}
+::selection {
+    background: #338FFF;
+}
 
 @media only screen and (max-width: 991px)
 {

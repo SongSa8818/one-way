@@ -75,6 +75,9 @@ class Property extends Model
             ->select('*')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
             ->leftJoin('cities', 'properties.city_id', '=', 'cities.id');
+            if($parameters['property_number'] != null) {
+                $query->where('properties.property_number', 'like', '%' . $parameters['property_number'] . '%');
+            }
             if($parameters['title'] != null) {
                 $query->where('properties.title', 'like', '%' . $parameters['title'] . '%');
             }
