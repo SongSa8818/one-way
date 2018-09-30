@@ -7,10 +7,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-
                 <!-- Listing Title -->
                 <div class="listing_title_container">
                     <div class="listing_title">{{ $property->title }}</div>
+                    <p class="listing_text">Property Number : <b>{{ $property->property_number }}</b></p>
                 </div>
             </div>
 
@@ -63,7 +63,7 @@
                     <div class="search_box_content">
                         <!-- Buttons -->
                         <div class="elements_section buttons_section">
-                            <h4>Status : {{ $property->status }}</h4>
+                            <div class="footer_col_title">Status : {{ $property->status }}</div><br>
                             <a href="#" class="btn btn-outline-warning btn-lg w-100" data-toggle="modal" data-target="#exampleModalCenter">Block now</a>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                 <div class="listing_additional_details">
                     <div class="listing_subtitle">Property Details</div>
                     <ul class="additional_details_list">
-                        <li class="additional_detail"><span>Property ID:</span> {{ $property->property_number }}</li>
+                        <li class="additional_detail">Property Number : <span>{{ $property->property_number }}</span></li>
                         <li class="additional_detail"><span>Property type:</span> {{ $property->type }}</li>
                         <li class="additional_detail"><span>Property Location:</span> {{ $property->city_name.', '.$property->khan_name.', '.$property->sangkat_name.', '.$property->village_name }}</li>
                     </ul>
