@@ -17,11 +17,11 @@
                 </div>
 
                 <!-- Main Navigation -->
-
                 <nav class="main_nav">
                     <ul class="main_nav_list">
                         @foreach ($menus as $key => $value)
-                            <li class="main_nav_item {{ $key == $uri ? 'main_nav_item_active' : '' }}"><a href="{{ route($key) }}">{{$value}}</a></li>
+                            <li class="main_nav_item {{ ($isCustomer == true && in_array($key, ['showing.index','offer.index','request.index']))? 'hidden' : '' }} {{ $key == $uri ? 'main_nav_item_active' : '' }}">
+                                <a href="{{ route($key) }}">{{$value}}</a></li>
                         @endforeach
                     </ul>
                 </nav>
