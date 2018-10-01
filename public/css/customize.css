@@ -157,6 +157,7 @@ p {
 ::selection {
     background: #338FFF;
 }
+.hidden { display: none; }
 
 @media only screen and (max-width: 991px)
 {
