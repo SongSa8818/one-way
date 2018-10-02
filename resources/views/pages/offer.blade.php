@@ -217,7 +217,6 @@
                     <div class="listing_item_inner d-flex flex-md-row flex-column trans_300">
                         <div class="listing_image_container">
                             <div class="listing_image">
-                                <!-- ImageProperty by: https://unsplash.com/@breather -->
                                 <div class="listing_background" style="background-image:url({{ url('/uploads/'.$offer->img) }})"></div>
                             </div>
                         </div>
@@ -248,47 +247,59 @@
                                 </div>
                             </div>
                             <div class="room_tags">
-                                <div class="button btn-success"><a onclick="initConfirmModal('Are you sure to accept this offer?','acceptOffer')">Accept</a></div>
-                                <div class="button btn-warning pull-right"><a onclick="initConfirmModal('Are you sure to reject this offer?','rejectOffer')">Reject</a></div>
+                                <div class="button btn-info">
+                                    <a href="" data-toggle="modal" data-target="#acceptOffer{{ $offer->id }}">Accept</a>
+                                </div>
+                                <div class="button btn-warning pull-right">
+                                    <a href="" data-toggle="modal" data-target="#rejectOffer{{ $offer->id }}">Reject</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter{{ $offer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="acceptOffer{{ $offer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
+                            {{ Form::model(@$offer, array('route' => array('property.accept', @$offer->property_id), 'class' => '', 'method' => 'put')) }}
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Customer info</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Confirmation</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-4 col-form-label">Name:</label>
-                                    <div class="col-sm-8">
-                                        <p class="form-control-plaintext">Mr. Kimsong</p>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-4 col-form-label">Phone number:</label>
-                                    <div class="col-sm-8">
-                                        <p class="form-control-plaintext">kimsong@gmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col-sm-4 col-form-label">Email:</label>
-                                    <div class="col-sm-8">
-                                        <p class="form-control-plaintext">096273101</p>
-                                    </div>
-                                </div>
+                                <h3>Are you sure to accept this offer?</h3>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary w-120 h-40" data-dismiss="modal">No</button>
+                                <button type="submit" type="button" class="btn btn-primary w-120 h-40">Yes</button>
                             </div>
+                            {{ Form::close() }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="rejectOffer{{ $offer->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            {{ Form::model(@$offer, array('route' => array('property.reject', @$offer->property_id), 'class' => '', 'method' => 'put')) }}
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Confirmation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Are you sure to reject this offer?</h3>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary w-120 h-40" data-dismiss="modal">No</button>
+                                <button type="submit" type="button" class="btn btn-primary w-120 h-40">Yes</button>
+                            </div>
+                            {{ Form::close() }}
                         </div>
                     </div>
                 </div>

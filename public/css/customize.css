@@ -158,6 +158,10 @@ p {
     background: #338FFF;
 }
 .hidden { display: none; }
+.button a {
+    text-align: center;
+    color: #ffffff;
+}
 
 @media only screen and (max-width: 991px)
 {

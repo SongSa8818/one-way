@@ -29,6 +29,8 @@ Route::get('/customer-list', 'CustomerController@list')->name('customer.list');
 Route::resource('/property', 'PropertyController');
 Route::get('/property-list', 'PropertyController@list')->name('property.list');
 Route::put('/property-block/{id}', 'PropertyController@block')->name('property.block');
+Route::put('/accept-offer/{id}', 'PropertyController@acceptOffer')->name('property.accept');
+Route::put('/reject-offer/{id}', 'PropertyController@rejectOffer')->name('property.reject');
 
 Route::resource('/image', 'ImagePropertyController');
 
@@ -38,9 +40,7 @@ Route::get('/slideshow-list', 'SlideshowController@list')->name('slideshow.list'
 Route::resource('/request', 'RequestController');
 Route::get('/request-list', 'RequestController@list')->name('request.list');
 
-
 Route::resource('/offer', 'OfferController');
-Route::post('/acceptOffer', 'OfferController@acceptOffer')->name('acceptOffer');
 
 Route::resource('/dashboard', 'DashboardController');
 Route::resource('/user', 'UserController');

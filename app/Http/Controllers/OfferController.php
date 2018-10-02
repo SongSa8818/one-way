@@ -32,14 +32,14 @@ class OfferController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $offer = new Offer();
         $offer->property_id = $request->property_id;
-        $offer->user_id     = Auth::user()->getAuthIdentifier();
+        $offer->user_id = Auth::user()->getAuthIdentifier();
         $offer->offer_amount = $request->offer_amount;
         $offer->save();
         return redirect('offer');
@@ -48,7 +48,7 @@ class OfferController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -59,7 +59,7 @@ class OfferController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -70,8 +70,8 @@ class OfferController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -82,7 +82,7 @@ class OfferController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -90,15 +90,12 @@ class OfferController extends Controller
         //
     }
 
-    public function acceptOffer(Request $request) {
-      if($request->ajax()){
-/*        $grocery = new Grocery();
-        $grocery->name = $request->name;
-        $grocery->type = $request->type;
-        $grocery->price = $request->price;
-        $grocery->save();*/
-        return response()->json(['success'=>'Data is successfully added']);
-      }
-      return "HTTP";
+    public function acceptOffer(Request $request)
+    {
+        if ($request->ajax()) {
+            dd($request);
+            return response()->json(['success' => 'Data is successfully updated']);
+        }
+        return "HTTP";
     }
 }
