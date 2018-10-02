@@ -6,6 +6,7 @@ use App\City;
 use App\DeleteImage;
 use App\ImageProperty;
 use App\Khan;
+use App\Offer;
 use App\Property;
 use App\PropertyTypes;
 use App\Active;
@@ -108,6 +109,34 @@ class PropertyController extends Controller
         //return redirect()->back()->with("status", "Succesfully edited!");
     }
 
+    public function acceptOffer(Request $request, $id)
+    {
+        $property = Property::findOrFail($id);
+        $property->status = Status::ACCEPT_OFFER;
+        $property->save();
+
+        $offers = Offer::FindAllByPropertyId($id);
+        foreach ($offers as $offer) {
+            Offer::destroy($offer->id);
+        }
+
+        return redirect(route('property.show', $id));
+    }
+
+    public function rejectOffer(Request $request, $id)
+    {
+        $property = Property::findOrFail($id);
+        $property->status = Status::REJECT_OFFER;
+        $property->save();
+
+        $offers = Offer::FindAllByPropertyId($id);
+        foreach ($offers as $offer) {
+            Offer::destroy($offer->id);
+        }
+
+        return redirect(route('property.show', $id));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -184,4 +213,5 @@ class PropertyController extends Controller
 
         return redirect(route('property.list'));
     }
+
 }

@@ -11,5 +11,6 @@ abstract class Status extends enum
     const SHOWING = 'Showing';
     const OFFERING = 'Offering';
     const REQUESTED = 'Requested';
-    const REJECT_OFFER = 'Requested';
+    const REJECT_OFFER = 'Rejected offer';
+    const ACCEPT_OFFER = 'Accepted offer';
 }
