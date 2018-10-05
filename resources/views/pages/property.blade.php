@@ -78,6 +78,17 @@
                         {{ Form::close() }}
                     </div>
                 </div>
+                <div class="hello">
+                    <div class="footer_col_title">Share Now</div>
+                    <div class="footer_contact_form_container">
+                        <div class="social-buttons">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}"
+                               target="_blank">
+                                <i class="fa fa-facebook-official"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Modal -->
