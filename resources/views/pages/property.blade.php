@@ -117,7 +117,8 @@
                 <div class="listing_additional_details">
                     <div class="listing_subtitle">Property Details</div>
                     <ul class="additional_details_list">
-                        <li class="additional_detail">Property Number : <span>{{ $property->property_number }}</span></li>
+                        <li class="additional_detail"><span>Property Number: </span>{{ $property->property_number }}</li>
+                        <li class="additional_detail"><span>Property Size:</span> {{ $property->width_size }} X {{ $property->length_size }}</li>
                         <li class="additional_detail"><span>Property type:</span> {{ $property->type }}</li>
                         <li class="additional_detail"><span>Property Location:</span> {{ $property->city_name.', '.$property->khan_name.', '.$property->sangkat_name.', '.$property->village_name }}</li>
                     </ul>

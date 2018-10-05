@@ -25,6 +25,14 @@
                                 {{ Form::text('price', @$property->price, array('class' => "form-control")) }}
                             </div>
                             <div class="form-group col-6">
+                                {{ Form::label('width_size', 'Width Size') }}
+                                {{ Form::text('width_size', @$property->width_size, array('class' => "form-control",'autofocus')) }}
+                            </div>
+                            <div class="form-group col-6">
+                                {{ Form::label('length_size', 'Length Size') }}
+                                {{ Form::text('length_size', @$property->length_size, array('class' => "form-control")) }}
+                            </div>
+                            <div class="form-group col-6">
                                 {!! Form::Label('type', 'Property type') !!}
                                 <select class="form-control" name="type">
                                     @foreach($propertyTypes as $value)
@@ -54,7 +62,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-6">
-                                {!! Form::Label('sangkat_id', 'Sangkat') !!}
+                                {!! Form::Label('sangkat_id', 'Commune/Sangkat') !!}
                                 <select class="form-control" name="sangkat_id" id="sangkat_id" required>
                                     <option value=""></option>
                                     @foreach($sangkats as $key => $value)
@@ -72,7 +80,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-6">
-                                {{ Form::label('street_name', 'Street ame') }}
+                                {{ Form::label('street_name', 'Street Name') }}
                                 {{ Form::text('street_name', @$property->street_name, array('class' => "form-control")) }}
                             </div>
                             <div class="form-group col-6">
