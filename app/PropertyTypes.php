@@ -9,4 +9,5 @@ abstract class PropertyTypes extends enum
 {
   const BUY = 'Buy';
   const RENT = 'Rental';
+  const SELL = 'Sell';
 }
