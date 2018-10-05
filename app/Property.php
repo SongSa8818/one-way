@@ -11,11 +11,19 @@ class Property extends Model
     protected $primaryKey = 'id';
 
     public function scopeSelectPropertyExclusive($query)
+
     {
         $query = DB::table('properties')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
             ->select('properties.title','properties.description',
                 'properties.id','properties.type','properties.price','property_images.img')
+            ->paginate(10);
+        return $query;
+    }
+
+    public function scopeList($query){
+        $query = DB::table('properties')
+            ->select('*')
             ->paginate(10);
         return $query;
     }
