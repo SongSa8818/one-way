@@ -33,8 +33,6 @@ class SlideshowController extends Controller
      */
     public function list()
     {
-        //
-        //return view('admin.slideshows.list');
         $slideshow = SlideshowImage::paginate(10);
         return view('admin.slideshows.list')->with('slideshows', $slideshow);
     }
@@ -46,7 +44,6 @@ class SlideshowController extends Controller
      */
     public function create()
     {
-        //
         return view('admin.slideshows.create');
     }
 
@@ -58,7 +55,6 @@ class SlideshowController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $slideshow = new SlideshowImage();
         $slideshow->title = $request->title;
 
@@ -82,13 +78,10 @@ class SlideshowController extends Controller
      */
     public function destroy($id)
     {
-        //
-        {
-            $slideshow = SlideshowImage::findOrFail($id);
-            $deleteFile = new DeleteImage();
-            $deleteFile->deleteImage(public_path('/uploads/slideshows'), $slideshow->img);
-            SlideshowImage::destroy($id);
-            return redirect(route('slideshow.list', $slideshow->slideshow_id));
-        }
+        $slideshow = SlideshowImage::findOrFail($id);
+        $deleteFile = new DeleteImage();
+        $deleteFile->deleteImage(public_path('/uploads/slideshows'), $slideshow->img);
+        SlideshowImage::destroy($id);
+        return redirect(route('slideshow.list', $slideshow->slideshow_id));
     }
 }

@@ -28,7 +28,7 @@
     @elseif($uri == 'about.index')
         <link rel="stylesheet" type="text/css" href="{{asset('styles/about_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/about_responsive.css')}}">
-    @elseif($uri == 'contact.index')
+    @elseif(in_array($uri, array('contact.index','user.show')))
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/contact_responsive.css')}}">
     @elseif(in_array($uri, array('property.show','request.index')))
