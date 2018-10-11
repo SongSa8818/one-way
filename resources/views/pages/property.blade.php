@@ -78,27 +78,39 @@
                         {{ Form::close() }}
                     </div>
                 </div>
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        {{ Form::model(@$property, array('route' => array('property.block', @$property->id), 'class' => '', 'method' => 'put')) }}
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Confirmation</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                <div class="hello">
+                    <div class="footer_col_title">Share Now</div>
+                    <div class="footer_contact_form_container">
+                        <div class="social-buttons">
+                            <ul class="list-group">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be" class="btn btn-outline-primary"><span class="fa fa-facebook-official"></span> Share on Facebook</a>
+                                <a href="https://twitter.com/intent/tweet?text=my share text&amp;url=http://jorenvanhocht.be" class="btn btn-outline-info"><span class="fa fa-twitter"></span> Share on Twitter</a>
+                                <a href="https://https://plus.google.com/share?url=http://jorenvanhocht.be" class="btn btn-outline-danger"><span class="fa fa-google-plus"></span> Share on Google+</a>
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://jorenvanhocht.be&amp;title=my share text&amp;summary=dit is de linkedin summary" class="btn btn-outline-info"><span class="fa fa-linkedin"></span> Share on Link In</a>
+                            </ul>
                         </div>
-                        <div class="modal-body">
-                            <h3>Are you sure to block this property?</h3>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            {{ Form::model(@$property, array('route' => array('property.block', @$property->id), 'class' => '', 'method' => 'put')) }}
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Confirmation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Are you sure to block this property?</h3>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary w-120 h-40" data-dismiss="modal">No</button>
+                                <button type="submit" type="button" class="btn btn-primary w-120 h-40">Yes</button>
+                            </div>
+                            {{ Form::close() }}
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary w-120 h-40" data-dismiss="modal">No</button>
-                            <button type="submit" type="button" class="btn btn-primary w-120 h-40">Yes</button>
-                        </div>
-                        {{ Form::close() }}
                     </div>
                 </div>
             </div>
@@ -117,7 +129,8 @@
                 <div class="listing_additional_details">
                     <div class="listing_subtitle">Property Details</div>
                     <ul class="additional_details_list">
-                        <li class="additional_detail">Property Number : <span>{{ $property->property_number }}</span></li>
+                        <li class="additional_detail"><span>Property Number: </span>{{ $property->property_number }}</li>
+                        <li class="additional_detail"><span>Property Size:</span> {{ $property->width_size }} X {{ $property->length_size }}</li>
                         <li class="additional_detail"><span>Property type:</span> {{ $property->type }}</li>
                         <li class="additional_detail"><span>Property Location:</span> {{ $property->city_name.', '.$property->khan_name.', '.$property->sangkat_name.', '.$property->village_name }}</li>
                     </ul>

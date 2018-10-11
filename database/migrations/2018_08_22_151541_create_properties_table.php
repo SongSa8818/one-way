@@ -18,6 +18,8 @@ class CreatePropertiesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->decimal('price', 8, 2);
+            $table->string ('width_size');
+            $table->string ('length_size');
             $table->text('description');
             $table->string('video_url')->nullable();
             $table->string('type', '100');
