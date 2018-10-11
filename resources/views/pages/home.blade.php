@@ -154,7 +154,7 @@
                                     <p class="testimonials_text">{{ $agency->address }}</p>
                                     <div class="testimonial_user">
                                         <div class="testimonial_image mx-auto">
-                                            <img src="{{ url('/uploads/profiles/'.$agency->picture) }}" alt="{{ $agency->full_name }}">
+                                            <a href="{{ route('user.show', $agency->id) }}"><img src="{{ url('/uploads/profiles/'.$agency->picture) }}" alt="{{ $agency->full_name }}"></a>
                                         </div>
                                         <div class="testimonial_name">{{ $agency->full_name }}</div>
                                         <div class="testimonial_title">{{ $agency->phone_number }}</div>
