@@ -30,7 +30,7 @@ class PageServiceProvider extends ServiceProvider
                 "request.index" =>"Request",
                 "contact.index" =>"Contact",
                 "about.index" => "About Us");
-            $view->with(['menus' => $menus, 'isCustomer' => Auth::user()->role == Role::CUSTOMER]);
+            $view->with(['menus' => $menus, 'isCustomer' => @Auth::user()->role == Role::CUSTOMER]);
         });
     }
 
