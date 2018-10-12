@@ -16,7 +16,7 @@
                         </li>
                         <li class="contact_info_item d-flex flex-row">
                             <div class="contact_info_icon"><span class="fa fa-phone"></span></div>
-                            <div class="contact_info_text">{{ $user->phone_number }}</div>
+                            <div class="contact_info_text">{{ @Auth::user()->role == 'ADMIN' ? substr($user->phone_number, 0, 3)." . . . . . ".substr($user->phone_number, -2) : $user->phone_number }}</div>
                         </li>
                         <li class="contact_info_item d-flex flex-row">
                             <div class="contact_info_icon"><span class="fa fa-envelope"></span></div>

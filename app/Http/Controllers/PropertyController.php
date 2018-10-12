@@ -31,7 +31,6 @@ class PropertyController extends Controller
     public function list()
     {
         $properties = Property::List();
-//        dd($properties);
         return view('admin.properties.list')->with('properties', $properties);
     }
 
@@ -100,7 +99,6 @@ class PropertyController extends Controller
     {
         $property = Property::SelectById($id);
         $images = ImageProperty::List($id);
-//        dd($property);
         return view('pages.property')->with(array('property' => $property, 'images' => $images));
     }
 
