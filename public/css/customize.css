@@ -162,7 +162,12 @@ p {
     text-align: center;
     color: #ffffff;
 }
-
+.contact {
+    padding-bottom: 30px;
+}
+.form-control {
+    border-radius: 2px;
+}
 @media only screen and (max-width: 991px)
 {
     .navbar-right { display: none; }

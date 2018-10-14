@@ -202,7 +202,7 @@
                         </div>
                         <div class="workflow_item_content text-center">
                             <div class="workflow_title">Choose a Location</div>
-                            <p class="workflow_text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</p>
+                            <p class="workflow_text"></p>
                         </div>
                     </div>
                 </div>
@@ -223,7 +223,7 @@
                         </div>
                         <div class="workflow_item_content text-center">
                             <div class="workflow_title">Find the Perfect Home</div>
-                            <p class="workflow_text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</p>
+                            <p class="workflow_text"></p>
                         </div>
                     </div>
                 </div>
@@ -244,7 +244,7 @@
                         </div>
                         <div class="workflow_item_content text-center">
                             <div class="workflow_title">Move in your new life</div>
-                            <p class="workflow_text">Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</p>
+                            <p class="workflow_text"></p>
                         </div>
                     </div>
                 </div>
