@@ -22,18 +22,20 @@ class RequestController extends Controller
         return view('pages.request');
     }
 
+    public function newRequest()
+    {
+        return view('pages.newRequest');
+    }
+
     public function list()
     {
         $request_info = RequestInfo::List();
-        //dd($request_info);
         return view('admin.requests.list')->with('request_infos', $request_info);
 
     }
 
     public function store(Request $request)
     {
-
-
         $request_info = new RequestInfo();
         $request_info->customer_id = $request->customer_id;
         $request_info->service_type = $request->service_type;
@@ -48,6 +50,19 @@ class RequestController extends Controller
         $request_info->bank_loan_service = $request->bank_loan_service;
         $request_info->bank_statement = $request->bank_statement;
         $request_info->description = $request->description;
+
+        if(!empty($request->inputSignature)) {
+            $base_to_php = explode(',', $request->inputSignature);
+            // the 2nd item in the base_to_php array contains the content of the image
+            $data = base64_decode(@$base_to_php[1]);
+            // here you can detect if type is png or jpg if you want
+            $safeName = "request-signature-" . @$request->customer_id . "-" . mt_rand().time() . '.' . 'png';
+            $folderName = '/uploads/signatures/';
+            $filepath = public_path() . $folderName . $safeName; // or image.jpg
+            $request_info->signature = $safeName;
+            // Save the image in a defined path
+            file_put_contents($filepath, $data);
+        }
 
         $file = $request->file('image');
         if($file && in_array($file->getClientMimeType(), array('image/jpeg','image/jpg','image/png'))){

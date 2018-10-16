@@ -75,11 +75,24 @@
                                 {{ Form::label('description', 'Description') }}
                                 {{ Form::textarea('description', @$request_info->description, array('id' => "exampleFormControlTextarea1",'rows' => "3", 'class' => "form-control")) }}
                             </div>
-                            <div class="form-group col-6">
-                                {{ Form::Label('image', 'Upload Photo of Property') }}
+                            <h4>Upload picture</h4>
+                            <div class="form-group col-12">
                                 {{ Form::file('image') }}
-                                <input type="hidden" name="old_picture" value="{{ @$request_info->image }}">
                             </div>
+
+                            <div id="canvas" class="form-group">
+                                <h4>Signature here</h4>
+                                <canvas class="roundCorners" id="newSignature" style="position: relative; margin: 0; padding: 0; border: 1px solid #c4caac;" width="474" height="314"></canvas>
+                            </div>
+                            <button class="btn btn-info mr-2" type="button" onclick="signatureSave()">Add signature</button>
+                            <button class="btn btn-danger" type="button" onclick="signatureClear()">Clear signature</button>
+
+                            <div class="col-12">
+                                <img id="saveSignature" alt="">
+                                <input type="hidden" id="inputSignature" name="inputSignature">
+                            </div>
+
+                            <hr>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-lg mr-3">Request</button>
                                 <a href="{{ route('request.index') }}" class="btn btn-lg btn-info btn-action">Cancel</a>

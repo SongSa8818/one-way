@@ -40,6 +40,8 @@
     @endif
     <link rel="stylesheet" type="text/css" href="{{asset('css/customize.css')}}">
 
+    <script src="{{ asset('js/signature.js') }}"></script>
+
 </head>
 <body>
 
@@ -75,6 +77,9 @@
         </div>
     </div>
 
+    <script>
+        signatureCapture();
+    </script>
 
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('styles/bootstrap4/popper.js')}}"></script>
