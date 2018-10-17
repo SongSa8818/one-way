@@ -121,7 +121,7 @@
                 @endforeach
             </div>
             <!-- Buttons -->
-            <div class="btn btn-outline-warning btn-lg w-25 mt-5"><a href="#">View more</a></div>
+            <div class="btn btn-outline-warning btn-lg mt-5"><a href="#">View more</a></div>
         </div>
     </div>
 

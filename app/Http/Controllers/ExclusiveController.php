@@ -19,7 +19,16 @@ class ExclusiveController extends Controller
     public function index()
     {
         $exclusives = Property::SelectPropertyExclusive();
-        return view('pages.exclusive')->with('properties', $exclusives);
+        $types = PropertyTypes::getKeys();
+        $status = Status::getKeys();
+        $cities = City::pluck('name', 'id');
+        return view('pages.exclusive')->with(
+            [
+                'properties' => $exclusives,
+                'types' => $types,
+                'status' => $status,
+                'cities' => $cities,
+            ]);
     }
 
     public function search(Request $request)

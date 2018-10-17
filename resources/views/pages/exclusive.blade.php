@@ -32,11 +32,11 @@
                                 <ul class="dropdown_row clearfix">
                                     <li class="dropdown_item">
                                         <div class="dropdown_item_title">Property title</div>
-                                        <input type="text" name="title" class="form-control" value="{{ $_GET['title'] }}" placeholder="Title">
+                                        <input type="text" name="title" class="form-control" value="{{ @$_GET['title'] }}" placeholder="Title">
                                     </li>
                                     <li class="dropdown_item">
                                         <div class="dropdown_item_title">Property ID</div>
-                                        <input type="text" name="property_number" class="form-control" value="{{ $_GET['property_number'] }}" placeholder="ID">
+                                        <input type="text" name="property_number" class="form-control" value="{{ @$_GET['property_number'] }}" placeholder="ID">
                                     </li>
                                     <li class="dropdown_item">
                                         <div class="dropdown_item_title">Property type</div>
