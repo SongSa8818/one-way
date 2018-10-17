@@ -31,17 +31,17 @@
                             <!-- Search Form -->
                             {{ Form::model("", array('route' => array('search'), 'class' => 'search_form', 'method' => 'get')) }}
                                 <div class="search_box_container">
-                                    <ul class="row clearfix">
-                                        <li class="col-2">
+                                    <ul class="dropdown_row clearfix">
+                                        <li class="dropdown_item dropdown_item_5">
                                             <div class="dropdown_item_title">Property title</div>
-                                            <input type="text" name="title" class="form-control" value="{{ old('title') }}" placeholder="Property title">
+                                            <input type="text" name="title" class="form-control" value="{{ old('title') }}" placeholder="Title">
                                         </li>
-                                        <li class="col-2">
+                                        <li class="dropdown_item dropdown_item_5">
                                             <div class="dropdown_item_title">Property ID</div>
-                                            <input type="text" name="property_number" class="form-control" value="{{ old('property_number') }}" placeholder="Property ID">
+                                            <input type="text" name="property_number" class="form-control" value="{{ old('property_number') }}" placeholder="ID">
                                         </li>
-                                        <li class="col-2">
-                                            <div class="dropdown_item_title">Property Type</div>
+                                        <li class="dropdown_item dropdown_item_5">
+                                            <div class="dropdown_item_title">Property type</div>
                                             <select name="type" id="type" class="form-control" value="{{ old('type') }}">
                                                 <option value="">Any</option>
                                                 @foreach($types as $value)
@@ -49,7 +49,7 @@
                                                 @endforeach
                                             </select>
                                         </li>
-                                        <li class="col-2">
+                                        <li class="dropdown_item dropdown_item_5">
                                             <div class="dropdown_item_title">Status</div>
                                             <select name="status" id="status" class="form-control">
                                                 <option value="">Any</option>
@@ -58,7 +58,7 @@
                                                 @endforeach
                                             </select>
                                         </li>
-                                        <li class="col-2">
+                                        <li class="dropdown_item dropdown_item_5">
                                             <div class="dropdown_item_title">Location</div>
                                             <select name="location" id="location" class="form-control">
                                                 <option value="">Any</option>
@@ -67,9 +67,9 @@
                                                 @endforeach
                                             </select>
                                         </li>
-                                        <li class="col-2">
+                                        <li class="dropdown_item dropdown_item_1">
                                             <div class="search_button">
-                                                <input value="search" type="submit" class="btn-search btn btn-primary">
+                                                <button type="submit" class="btn-search btn btn-primary"><span class="fa fa-search"></span></button>
                                             </div>
                                         </li>
                                     </ul>

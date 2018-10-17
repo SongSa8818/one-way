@@ -8,11 +8,11 @@
             <div class="col">
                 <div class="home_content">
                     <div class="home_title">
-                        <h2>{{ explode(".",Route::currentRouteName())[0] }}</h2>
+                        <h2>{{ explode(".", Route::currentRouteName())[0] }}</h2>
                     </div>
                     <div class="breadcrumbs">
                         <span><a href="{{ route("home") }}">Home</a></span>
-                        <span><a href="{{ route(Route::currentRouteName()) }}"> {{ explode(".",Route::currentRouteName())[1] }}</a></span>
+                        <span><a href="{{ route(Route::currentRouteName()) }}"> {{ @explode(".", Route::currentRouteName())[1] }}</a></span>
                     </div>
                 </div>
             </div>

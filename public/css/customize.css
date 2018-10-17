@@ -168,6 +168,9 @@ p {
 .form-control {
     border-radius: 2px;
 }
+.pull-right {
+    float: right !important;
+}
 @media only screen and (max-width: 991px)
 {
     .navbar-right { display: none; }
