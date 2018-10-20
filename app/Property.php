@@ -15,7 +15,7 @@ class Property extends Model
     {
         $query = DB::table('properties')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
-            ->select('properties.title','properties.description',
+            ->select('properties.title','properties.status','properties.description',
                 'properties.id','properties.type','properties.price','property_images.img')
             ->paginate(10);
         return $query;
@@ -35,7 +35,7 @@ class Property extends Model
             ->leftJoin('khans', 'properties.khan_id', '=', 'khans.id')
             ->leftJoin('sangkats', 'properties.sangkat_id', '=', 'sangkats.id')
             ->leftJoin('villages', 'properties.village_id', '=', 'villages.id')
-            ->select('*', 'cities.id as city_id', 'cities.name as city_name',
+            ->select('*', 'properties.id as id', 'cities.id as city_id', 'cities.name as city_name',
                 'khans.id as khan_id', 'khans.name as khan_name',
                 'sangkats.id as sangkat_id', 'sangkats.name as sangkat_name',
                 'villages.id as village_id', 'villages.name as village_name')

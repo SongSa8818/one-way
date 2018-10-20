@@ -79,7 +79,6 @@
 
             <div class="col-lg-8 listings_col">
                 <?php $data = @$results != null ? $results : $properties; ?>
-
                 <!-- Listings Item -->
                 @foreach($data as $property)
                     <div class="listing_item">
@@ -92,7 +91,11 @@
                             </div>
                             <div class="listing_content">
                                 <div class="listing_title"><a href="{{ route('property.show', $property->id) }}">{{ $property->title }}</a></div>
-                                <div class="listing_text">{!! substr($property->description, 0, 140) !!}</div>
+                                <div class="listing_text">{{ substr($property->description, 0, 45) }}...</div>
+                                <div class="room_tags">
+                                    {{--<div class="button elements_button_1"><a href="#">Block now</a></div>--}}
+                                    <div class="button elements_button_3 {{ $property->status }}"><a href="#">{{ $property->status }}</a></div>
+                                </div>
                                 <div class="featured_card_box d-flex flex-row align-items-center trans_300">
                                     <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
                                     <div class="featured_card_box_content">

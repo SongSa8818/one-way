@@ -98,10 +98,10 @@
                                 {{ Form::text('video_url', @$property->video_url, array('class' => "form-control")) }}
                             </div>
                             <div class="form-group col-6">
-                                {!! Form::Label('status', 'Active / Inactive') !!}
+                                {!! Form::Label('status', 'Status') !!}
                                 <select class="form-control" name="status">
-                                    @foreach($statuses as $key => $value)
-                                        <option value="{{$value}}" {{ $key == @$property->status? 'selected': '' }}>{{$value}}</option>
+                                    @foreach($status as $value)
+                                        <option value="{{ $value }}" {{ $value == @$property->status? 'selected': '' }}>{{$value}}</option>
                                     @endforeach
                                 </select>
                             </div>

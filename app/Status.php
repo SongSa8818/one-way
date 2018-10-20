@@ -9,6 +9,7 @@ abstract class Status extends enum
     const ACTIVE = 'Active';
     const INACTIVE = 'Inactive';
     const SHOWING = 'Showing';
+    const BLOCKING = 'Blocking';
     const OFFERING = 'Offering';
     const REQUESTED = 'Requested';
     const REJECT_OFFER = 'Rejected offer';
