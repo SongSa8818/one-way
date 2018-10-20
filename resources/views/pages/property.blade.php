@@ -61,10 +61,11 @@
                 <!-- Search Box -->
                 <div class="search_box">
                     <div class="search_box_content">
+                        <div class="status-text">Status : {{ $property->status }}</div>
                         <!-- Buttons -->
                         <div class="elements_section buttons_section">
-                            <div class="footer_col_title">Status : {{ $property->status }}</div><br>
-                            <a href="#" class="btn btn-outline-warning btn-lg w-100" data-toggle="modal" data-target="#exampleModalCenter">Block now</a>
+                            <a href="#" class="btn btn-outline-warning btn-lg w-100 mb-2" data-toggle="modal" data-target="#blockProperty">{{ $property->status == 'Blocking' ? 'Unblock' : 'Block' }} now</a>
+                            <a href="#" class="btn btn-outline-warning btn-lg w-100" data-toggle="modal" data-target="#showingProperty">{{ $property->status == 'Showing' ? 'Active' : 'Show' }} now</a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
                     </div>
                 </div>
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="blockProperty" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             {{ Form::model(@$property, array('route' => array('property.block', @$property->id), 'class' => '', 'method' => 'put')) }}
@@ -103,7 +104,28 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <h3>Are you sure to block this property?</h3>
+                                <h3>Are you sure to {{ $property->status == 'Blocking' ? 'Unblock' : 'Block' }} this property?</h3>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary w-120 h-40" data-dismiss="modal">No</button>
+                                <button type="submit" type="button" class="btn btn-primary w-120 h-40">Yes</button>
+                            </div>
+                            {{ Form::close() }}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="showingProperty" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            {{ Form::model(@$property, array('route' => array('property.showing', @$property->id), 'class' => '', 'method' => 'put')) }}
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Confirmation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Are you sure to {{ $property->status == 'Showing' ? 'active' : 'show' }} this property?</h3>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary w-120 h-40" data-dismiss="modal">No</button>

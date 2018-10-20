@@ -29,6 +29,7 @@ Route::get('/customer-list', 'CustomerController@list')->name('customer.list');
 Route::resource('/property', 'PropertyController');
 Route::get('/property-list', 'PropertyController@list')->name('property.list');
 Route::put('/property-block/{id}', 'PropertyController@block')->name('property.block');
+Route::put('/property-showing/{id}', 'PropertyController@showing')->name('property.showing');
 Route::put('/accept-offer/{id}', 'PropertyController@acceptOffer')->name('property.accept');
 Route::put('/reject-offer/{id}', 'PropertyController@rejectOffer')->name('property.reject');
 

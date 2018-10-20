@@ -1,10 +1,12 @@
 .w-120 { width: 120px; }
 .h-40 { height: 40px; }
 .status-text {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
-    color: #fd784f;
+    color: #ffffff;
     margin-top: -3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 .featured_card_box {
     width: 100%;
@@ -140,7 +142,9 @@ p {
     padding-top: 30px;
 }
 .hello {
-    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-top: 20px;
 }
 .listing_description {
     margin-top: 0px;
@@ -170,6 +174,15 @@ p {
 }
 .pull-right {
     float: right !important;
+}
+.Showing {
+    background: #ca9908;
+}
+.Blocking {
+    background: red;
+}
+.Active {
+    background: green;
 }
 @media only screen and (max-width: 991px)
 {

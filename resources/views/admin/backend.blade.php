@@ -196,9 +196,9 @@
     });
 
     $(document).ready(function() {
-        $('#khan_id option').remove();
-        $('#sangkat_id option').remove();
-        $('#village_id option').remove();
+        // $('#khan_id option').remove();
+        // $('#sangkat_id option').remove();
+        // $('#village_id option').remove();
         $('#city_id').on('change', function() {
             var data = {
                 'city_id': $(this).val(),

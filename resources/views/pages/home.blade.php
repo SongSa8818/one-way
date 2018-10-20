@@ -101,11 +101,11 @@
                 <div class="col-lg-4 featured_card_col">
                     <div class="featured_card_container trans_200">
                         <div class="card featured_card">
-                            <div class="featured_panel">{{ $property->status }}</div>
+                            <div class="featured_panel {{ $property->status }}">{{ $property->status }}</div>
                             <img class="card-img-top" src="{{ url('/uploads/'.$property->img) }}" alt="{{ $property->title }}">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <a href="{{ route('property.show', $property->id) }}">{{ $property->title }}</a>
+                                    <a href="{{ route('property.show', $property->id) }}">{{ substr($property->title,0,28) }}</a>
                                 </div>
                             </div>
                         </div>
