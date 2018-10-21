@@ -17,7 +17,7 @@
                         <h4>Total Properties</h4>
                     </div>
                     <div class="card-body">
-                        1000
+                        {{ $totalProperty }}
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <h4>Total Offered</h4>
                     </div>
                     <div class="card-body">
-                        42
+                        {{ $totalOffer }}
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                         <h4>Total Request</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ $totalRequest }}
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                         <h4>Total Agencies</h4>
                     </div>
                     <div class="card-body">
-                        47
+                        {{ $totalAgency }}
                     </div>
                 </div>
             </div>

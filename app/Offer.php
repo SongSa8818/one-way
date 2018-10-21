@@ -30,4 +30,9 @@ class Offer extends Model
             ->get();
         return $query;
     }
+
+    public function scopeSelectCountTotallyOffer($query){
+        $query = DB::table('offers')->count();
+        return $query;
+    }
 }
