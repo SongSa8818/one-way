@@ -35,4 +35,9 @@ class User extends Authenticatable
             ->get();
         return $query;
     }
+
+    public function isAdmin()
+    {
+        return $this->role == 'Admin';
+    }
 }

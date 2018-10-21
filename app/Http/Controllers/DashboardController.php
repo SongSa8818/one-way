@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-      return view('admin.dashboard');
+        return view('admin.dashboard');
     }
 
     /**

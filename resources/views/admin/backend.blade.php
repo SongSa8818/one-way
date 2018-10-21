@@ -114,9 +114,9 @@
                     {{--<li class="{{ in_array($uri, array('user.index','user.edit'))?'active':'' }}">--}}
                         {{--<a href="{{ route('user.index') }}"><i class="ion ion-android-contact"></i><span>Agency</span></a>--}}
                     {{--</li>--}}
-                    <li class="{{ in_array($uri, array('customer.list','customer.edit'))?'active':'' }}">
+{{--                    <li class="{{ in_array($uri, array('customer.list','customer.edit'))?'active':'' }}">
                         <a href="{{ route('customer.list') }}"><i class="ion ion-person-stalker"></i><span>Customers</span></a>
-                    </li>
+                    </li>--}}
                     <li class="{{ in_array($uri, array('request-list','request'))?'active':'' }}">
                         <a href="{{ route('request.list') }}"><i class="ion ion-email-unread"></i><span>Request Info</span></a>
                     </li>
