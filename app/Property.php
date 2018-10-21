@@ -11,7 +11,6 @@ class Property extends Model
     protected $primaryKey = 'id';
 
     public function scopeSelectPropertyExclusive($query)
-
     {
         $query = DB::table('properties')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
@@ -98,12 +97,16 @@ class Property extends Model
             if ($parameters['location'] != null) {
                 $query->where('cities.name', '=', $parameters['location']);
             }
-        //dd($query->toSql());
         return $query->paginate(10);
     }
 
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function scopeSelectCountTotallyProperty($query){
+        $query = DB::table('properties')->count();
+        return $query;
     }
 }

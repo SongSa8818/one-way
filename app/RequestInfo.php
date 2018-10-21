@@ -11,7 +11,11 @@ class RequestInfo extends Model
         $query = DB::table('request_infos')
             ->select('*')
             ->paginate(10);
-        //dd($query);
+        return $query;
+    }
+
+    public function scopeSelectCountTotallyRequest($query) {
+        $query = DB::table('request_infos')->count();
         return $query;
     }
 }

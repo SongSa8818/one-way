@@ -40,4 +40,9 @@ class User extends Authenticatable
     {
         return $this->role == 'Admin';
     }
+
+    public function scopeSelectCountTotallyAgency($query) {
+        $query = DB::table('users')->where('users.role', '=', Role::AGENCY)->count();
+        return $query;
+    }
 }
