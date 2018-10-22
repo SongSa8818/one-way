@@ -97,14 +97,14 @@
                     <li class="{{ $uri == 'dashboard.index'?'active':'' }}">
                         <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
                     </li>
-                    <li class="{{ in_array($uri, array('property.list','property.create','image.edit','image.create'))?'active':'' }}">
+                    <li class="{{ in_array($uri, array('property.list','property.create','image.edit','image.create','offer.offerList'))?'active':'' }}">
                         <a class="has-dropdown" href=""><i class="ion ion-home"></i><span>Properties</span></a>
                         <ul class="menu-dropdown">
-                            <li class="">
+                            <li class="{{ in_array($uri, array('property.list','property.create','image.edit','image.create'))?'active':'' }}">
                                 <a href="{{ route('property.list') }}"><i class="ion ion-ios-home-outline"></i><span>All</span></a>
                             </li>
-                            <li class="">
-                                <a href=""><i class="ion ion-social-usd"></i><span>Offered</span></a>
+                            <li class="{{ in_array($uri, array('offer.offerList'))?'active':'' }}">
+                                <a href="{{ route('offer.offerList') }}"><i class="ion ion-social-usd"></i><span>Offer</span></a>
                             </li>
                             <li class="">
                                 <a href=""><i class="ion ion-eye"></i><span>Showing</span></a>

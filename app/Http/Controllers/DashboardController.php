@@ -27,11 +27,14 @@ class DashboardController extends Controller
         $totalOffer = Offer::SelectCountTotallyOffer();
         $totalRequest = RequestInfo::SelectCountTotallyRequest();
         $totalAgency = User::SelectCountTotallyAgency();
+
+        $offers = Offer::SelectShowDashboard();
         return view('admin.dashboard')->with([
             'totalProperty' => $totalProperty,
             'totalOffer' => $totalOffer,
             'totalRequest' => $totalRequest,
-            'totalAgency' => $totalAgency
+            'totalAgency' => $totalAgency,
+            'offers' => $offers
         ]);
     }
 
