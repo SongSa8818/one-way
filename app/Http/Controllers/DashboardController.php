@@ -27,6 +27,7 @@ class DashboardController extends Controller
         $totalOffer = Offer::SelectCountTotallyOffer();
         $totalRequest = RequestInfo::SelectCountTotallyRequest();
         $totalAgency = User::SelectCountTotallyAgency();
+        $request_info = RequestInfo::paginate(10);
 
         $offers = Offer::SelectShowDashboard();
         return view('admin.dashboard')->with([
@@ -34,7 +35,8 @@ class DashboardController extends Controller
             'totalOffer' => $totalOffer,
             'totalRequest' => $totalRequest,
             'totalAgency' => $totalAgency,
-            'offers' => $offers
+            'offers' => $offers,
+            'request_infos' => $request_info
         ]);
     }
 
