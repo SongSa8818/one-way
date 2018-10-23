@@ -42,6 +42,7 @@ Route::resource('/request', 'RequestController');
 Route::get('/request-list', 'RequestController@list')->name('request.list');
 
 Route::resource('/offer', 'OfferController');
+Route::get('/offer-list', 'OfferController@offerList')->name('offer.offerList');
 
 Route::resource('/dashboard', 'DashboardController');
 Route::resource('/user', 'UserController');

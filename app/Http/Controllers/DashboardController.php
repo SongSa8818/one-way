@@ -30,12 +30,16 @@ class DashboardController extends Controller
         $totalAgency = User::SelectCountTotallyAgency();
         $customer = Customer::paginate(10);
 //        dd($customer);
+
+        $offers = Offer::SelectShowDashboard();
         return view('admin.dashboard')->with([
             'totalProperty' => $totalProperty,
             'totalOffer' => $totalOffer,
             'totalRequest' => $totalRequest,
             'totalAgency' => $totalAgency,
             'customer' => $customer
+            'totalAgency' => $totalAgency,
+            'offers' => $offers
         ]);
     }
 

@@ -19,6 +19,12 @@ class OfferController extends Controller
         return view('pages.offer')->with('offers', $offers);
     }
 
+    public function offerList()
+    {
+        $offers = Offer::SelectListOffer();
+        return view('admin.offers.list')->with('offers', $offers);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -88,14 +94,5 @@ class OfferController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function acceptOffer(Request $request)
-    {
-        if ($request->ajax()) {
-            dd($request);
-            return response()->json(['success' => 'Data is successfully updated']);
-        }
-        return "HTTP";
     }
 }

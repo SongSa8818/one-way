@@ -73,7 +73,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="float-right">
-                        <a href="#" class="btn btn-primary">View All</a>
+                        <a href="{{ route('offer.offerList') }}" class="btn btn-primary">View All</a>
                     </div>
                     <h4>Offers</h4>
                 </div>
@@ -83,32 +83,33 @@
                             <thead>
                             <tr>
                                 <th>Title</th>
+                                <th>ID</th>
                                 <th>Offer amount</th>
-                                <th>Agency</th>
-                                <th>Action</th>
+                                <th>Picture</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @for($i = 0; $i < 5; $i++)
+                            @foreach($offers as $offer)
                                 <tr>
                                     <td>
-                                        វីឡាកូនកាត់​ LC2 កែង ក្នុងបុរីប៉េងហួត
+                                        {{ $offer->title }}
                                         <div class="table-links">
-                                            Offered by <a href="#">Mr. KIMSONG</a>
+                                            Offered by <a href="#">{{ $offer->full_name }}</a>
                                         </div>
                                     </td>
-                                    <td>40000$</td>
+                                    <td>{{ $offer->property_number }}</td>
+                                    <td>${{ $offer->offer_amount }}</td>
                                     <td>
                                         <a href="#">
-                                            <img src="../dist/img/avatar/avatar-1.jpeg" alt="avatar" width="30" class="rounded-circle mr-1">
+                                            <img src="{{ url('/uploads/'.$offer->img) }}" alt="avatar" width="30" class="rounded mr-1">
                                         </a>
                                     </td>
-                                    <td>
-                                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Accept"><i class="ion ion-android-done"></i> Accept</a>
-                                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Reject"><i class="ion ion-android-close"></i> Reject</a>
-                                    </td>
+                                    {{--<td>--}}
+                                        {{--<a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Accept"><i class="ion ion-android-done"></i> Accept</a>--}}
+                                        {{--<a class="btn btn-danger btn-action" data-toggle="tooltip" title="Reject"><i class="ion ion-android-close"></i> Reject</a>--}}
+                                    {{--</td>--}}
                                 </tr>
-                            @endfor
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
