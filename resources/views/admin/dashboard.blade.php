@@ -194,17 +194,24 @@
                             <li class="media">
                                 <span class="ion ion-email-unread"></span>
                                 <div class="media-body">
+                                    @foreach($customers as $customer)
                                     <div class="float-right"><small>10m</small></div>
-                                    <div class="media-title">Farhan A Mujib</div>
-                                    <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</small>
+                                    <div class="media-title">{{ $customer->name }}</div>
+                                    <small>{{ $customer->message }}</small>
+                                    @endforeach
                                 </div>
                             </li>
                         @endfor
                     </ul>
                     <div class="text-center">
-                        <a href="#" class="btn btn-primary btn-round">
+                        <a href="/customer-list" class="btn btn-primary btn-round">
                             View All
                         </a>
+                        {{--<div class="card-footer text-right">--}}
+                            {{--<nav class="d-inline-block">--}}
+                                {{--{{ $customers->links() }}--}}
+                            {{--</nav>--}}
+                        {{--</div>--}}
                     </div>
                 </div>
             </div>
