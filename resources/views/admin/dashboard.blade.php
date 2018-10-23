@@ -145,8 +145,8 @@
                                     </td>
                                     <td>{{ $request_info->min_budget }}$ -  {{ $request_info->max_budget }}$</td>
                                     <td>
-                                        <a href="#"><span class="fa fa-check-circle"></span> </a> </br>
-                                        <a href="#"><span class="fa fa-trash"></span> </a>
+                                        <a href="#"><span class="fa fa-check-circle" style="font-size:17px;color:blue"></span> </a>
+                                        <a href="#"><span class="fa fa-trash danger" style="font-size:17px;color:red"></span> </a>
                                     </td>
                                 </tr>
                             </tbody>
