@@ -49,7 +49,7 @@ class Property extends Model
         $query = DB::table('properties')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
             ->leftJoin('users', 'users.id', '=', 'properties.blocked_by')
-            ->select('properties.title','properties.description',
+            ->select('properties.property_number','properties.title','properties.description',
                 'properties.id','properties.type',
                 'properties.price','properties.status','properties.updated_at',
                 'property_images.img','users.picture')
@@ -107,6 +107,20 @@ class Property extends Model
 
     public function scopeSelectCountTotallyProperty($query){
         $query = DB::table('properties')->count();
+        return $query;
+    }
+
+    public function scopeSelectShowingDashboard($query, $status)
+    {
+        $query = DB::table('properties')
+            ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
+            ->leftJoin('users', 'users.id', '=', 'properties.blocked_by')
+            ->select('properties.title','properties.description',
+                'properties.id',
+                'properties.price','properties.updated_at')
+            ->where('properties.status', '=', $status)
+            ->limit(4)
+            ->get();
         return $query;
     }
 }
