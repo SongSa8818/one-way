@@ -190,29 +190,27 @@
                     <h4>Customers Directly Contact</h4>
                 </div>
                 <div class="card-body">
-                    <ul class="list-unstyled list-unstyled-border">
-                        @for($i = 0; $i < 4; $i++)
-                            <li class="media">
-                                <span class="ion ion-email-unread"></span>
-                                <div class="media-body">
-                                    @foreach($customers as $customer)
-                                    <div class="float-right"><small>10m</small></div>
+                    <table class="table table-borderless">
+                        <tbody>
+                        @foreach($customers as $customer)
+                            <tr>
+                                <td style="width: 5px;">
+                                    <div class="media">
+                                        <span class="ion ion-email-unread"></span>
+                                    </div>
+                                </td>
+                                <td>
                                     <div class="media-title">{{ $customer->name }}</div>
                                     <small>{{ $customer->message }}</small>
-                                    @endforeach
-                                </div>
-                            </li>
-                        @endfor
-                    </ul>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                     <div class="text-center">
                         <a href="/customer-list" class="btn btn-primary btn-round">
                             View All
                         </a>
-                        {{--<div class="card-footer text-right">--}}
-                            {{--<nav class="d-inline-block">--}}
-                                {{--{{ $customers->links() }}--}}
-                            {{--</nav>--}}
-                        {{--</div>--}}
                     </div>
                 </div>
             </div>
