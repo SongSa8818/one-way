@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Offer;
 use App\Property;
 use App\RequestInfo;
+use App\Status;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -29,12 +30,14 @@ class DashboardController extends Controller
         $totalAgency = User::SelectCountTotallyAgency();
 
         $offers = Offer::SelectShowDashboard();
+        $showings = Property::SelectShowingDashboard(Status::SHOWING);
         return view('admin.dashboard')->with([
             'totalProperty' => $totalProperty,
             'totalOffer' => $totalOffer,
             'totalRequest' => $totalRequest,
             'totalAgency' => $totalAgency,
-            'offers' => $offers
+            'offers' => $offers,
+            'showings' => $showings
         ]);
     }
 

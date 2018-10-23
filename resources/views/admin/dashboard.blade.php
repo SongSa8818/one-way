@@ -165,19 +165,19 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled list-unstyled-border">
-                        @for($i = 0; $i < 4; $i++)
+                        @foreach($showings as $showing)
                             <li class="media">
                                 <span class="ion ion-ios-home-outline"></span>
                                 <div class="media-body">
-                                    <div class="float-right"><small>10m</small></div>
-                                    <div class="media-title">Land for sale near new city</div>
-                                    <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</small>
+                                    {{--<div class="float-right"><small>10m</small></div>--}}
+                                    <div class="media-title"><a href="{{ route('property.show', $showing->id) }}">{{ $showing->title }}</a></div>
+                                    <small>{{ substr($showing->description,0, 120) }}...</small>
                                 </div>
                             </li>
-                        @endfor
+                        @endforeach
                     </ul>
                     <div class="text-center">
-                        <a href="#" class="btn btn-primary btn-round">
+                        <a href="{{ route('showing.list') }}" class="btn btn-primary btn-round">
                             View All
                         </a>
                     </div>
