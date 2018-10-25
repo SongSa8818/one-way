@@ -23,7 +23,7 @@
                                     </tr>
                                     @foreach($request_infos as $request_info)
                                         <tr>
-                                            <td>{{ $request_info->customer_id }}</td>
+                                            <td>{{ $request_info->customer_name }}</td>
                                             <td>{{ $request_info->service_type }}</td>
                                             <td>{{ $request_info->property_type }}</td>
                                             <td>{{ $request_info->business_purpose }}</td>

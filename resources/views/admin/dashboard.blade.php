@@ -120,7 +120,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="float-right">
-                        <a href="#" class="btn btn-primary">View All</a>
+                        <a href="/request-list" class="btn btn-primary">View All</a>
                     </div>
                     <h4>Requests</h4>
                 </div>
@@ -134,23 +134,23 @@
                                 <th>Action</th>
                             </tr>
                             </thead>
+                            @foreach($request_infos as $request_info)
                             <tbody>
-                            @for($i = 0; $i < 5; $i++)
                                 <tr>
-                                    <td>
-                                        វីឡាកូនកាត់ LA ត្រូវការលក់ បន្ទាន់ខ្លាំង
+                                    <td style="width: 60%">
+                                        {{ $request_info->description }}
                                         <div class="table-links">
-                                            Requested by <a href="#">Mr. John</a>
+                                            Requested by <a href="#">{{ $request_info->customer_name }}</a>
                                         </div>
                                     </td>
-                                    <td>40000$ -  60000$</td>
+                                    <td>{{ $request_info->min_budget }}$ -  {{ $request_info->max_budget }}$</td>
                                     <td>
-                                        <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Accept"><i class="ion ion-android-done"></i> Accept</a>
-                                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Reject"><i class="ion ion-android-close"></i> Reject</a>
+                                        <a href="#"><span class="fa fa-check-circle" style="font-size:17px;color:blue"></span> </a>
+                                        <a href="#"><span class="fa fa-trash danger" style="font-size:17px;color:red"></span> </a>
                                     </td>
                                 </tr>
-                            @endfor
                             </tbody>
+                            @endforeach
                         </table>
                     </div>
                 </div>

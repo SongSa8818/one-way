@@ -20,6 +20,9 @@
                 @endif
                 <div class="estate_contact_form">
                     <div class="content">
+                        <div class="hidden">
+                            {{ Form::text('customer_name', Auth::user()->full_name) }}
+                        </div>
                         <div class="body">
                             <div class="row">
                                 <div class="form-group col-6">
