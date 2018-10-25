@@ -28,7 +28,7 @@ class DashboardController extends Controller
         $totalOffer = Offer::SelectCountTotallyOffer();
         $totalRequest = RequestInfo::SelectCountTotallyRequest();
         $totalAgency = User::SelectCountTotallyAgency();
-        $request_info = RequestInfo::paginate(10);
+        $request_info = RequestInfo::limit(5)->get();
 
         $offers = Offer::SelectShowDashboard();
         $showings = Property::SelectShowingDashboard(Status::SHOWING);

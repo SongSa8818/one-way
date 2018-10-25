@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\RequestInfo;
+use App\User;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -37,7 +38,7 @@ class RequestController extends Controller
     public function store(Request $request)
     {
         $request_info = new RequestInfo();
-        $request_info->customer_id = $request->customer_id;
+        $request_info->customer_name = $request->customer_name;
         $request_info->service_type = $request->service_type;
         $request_info->property_type = $request->property_type;
         $request_info->business_purpose = $request->business_purpose;

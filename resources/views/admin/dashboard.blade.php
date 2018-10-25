@@ -140,7 +140,7 @@
                                     <td style="width: 60%">
                                         {{ $request_info->description }}
                                         <div class="table-links">
-                                            Requested by <a href="#">{{ $request_info->customer_id }}</a>
+                                            Requested by <a href="#">{{ $request_info->customer_name }}</a>
                                         </div>
                                     </td>
                                     <td>{{ $request_info->min_budget }}$ -  {{ $request_info->max_budget }}$</td>
