@@ -6,6 +6,7 @@ use App\Offer;
 use App\Customer;
 use App\Property;
 use App\RequestInfo;
+use App\Status;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -28,17 +29,21 @@ class DashboardController extends Controller
         $totalOffer = Offer::SelectCountTotallyOffer();
         $totalRequest = RequestInfo::SelectCountTotallyRequest();
         $totalAgency = User::SelectCountTotallyAgency();
+        $request_info = RequestInfo::limit(5)->get();
         $customers = Customer::paginate(10);
 //        dd($customer);
 
         $offers = Offer::SelectShowDashboard();
+        $showings = Property::SelectShowingDashboard(Status::SHOWING);
         return view('admin.dashboard')->with([
             'totalProperty' => $totalProperty,
             'totalOffer' => $totalOffer,
             'totalRequest' => $totalRequest,
             'totalAgency' => $totalAgency,
             'customers' => $customers,
-            'offers' => $offers
+            'request_infos' => $request_info,
+            'offers' => $offers,
+            'showings' => $showings
         ]);
     }
 
