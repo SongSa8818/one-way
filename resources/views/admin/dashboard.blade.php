@@ -192,7 +192,7 @@
                 <div class="card-body">
                     <table class="table table-borderless">
                         <tbody>
-                        @foreach($customers as $customer)
+                        @foreach($messages as $message)
                             <tr>
                                 <td style="width: 5px;">
                                     <div class="media">
@@ -200,15 +200,15 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="media-title">{{ $customer->name }}</div>
-                                    <small>{{ $customer->message }}</small>
+                                    <div class="media-title">{{ $message->name }}</div>
+                                    <small>{{ $message->message }}</small>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <a href="/customer-list" class="btn btn-primary btn-round">
+                        <a href="/message-list" class="btn btn-primary btn-round">
                             View All
                         </a>
                     </div>
