@@ -2,22 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Offer;
 use App\Message;
-use App\Property;
-use App\RequestInfo;
-use App\Status;
-use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class MessageController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,26 +15,15 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $totalProperty = Property::SelectCountTotallyProperty();
-        $totalOffer = Offer::SelectCountTotallyOffer();
-        $totalRequest = RequestInfo::SelectCountTotallyRequest();
-        $totalAgency = User::SelectCountTotallyAgency();
-        $request_info = RequestInfo::limit(5)->get();
-        $messages = Message::limit(5)->get();
-//        dd($customer);
+        return view('admin.message.list');
+    }
 
-        $offers = Offer::SelectShowDashboard();
-        $showings = Property::SelectShowingDashboard(Status::SHOWING);
-        return view('admin.dashboard')->with([
-            'totalProperty' => $totalProperty,
-            'totalOffer' => $totalOffer,
-            'totalRequest' => $totalRequest,
-            'totalAgency' => $totalAgency,
-            'messages' => $messages,
-            'request_infos' => $request_info,
-            'offers' => $offers,
-            'showings' => $showings
-        ]);
+    public function list()
+    {
+        $message = Message::Message();
+       // dd($message);
+        return view('admin.messages.list')->with('messages', $message);
+
     }
 
     /**
@@ -54,7 +33,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.message.create');
     }
 
     /**
@@ -65,7 +44,13 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = new Message();
+        $message->name = $request->name;
+        $message->email = $request->email;
+        $message->subject = $request->subject;
+        $message->message = $request->message;
+        $message->save();
+        return redirect(route('contact.index', $message->id));
     }
 
     /**
@@ -76,7 +61,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -87,7 +72,7 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -99,7 +84,7 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -110,6 +95,7 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Message::destroy($id);
+        return redirect('message-list');
     }
 }

@@ -190,20 +190,25 @@
                     <h4>Customers Directly Contact</h4>
                 </div>
                 <div class="card-body">
-                    <ul class="list-unstyled list-unstyled-border">
-                        @for($i = 0; $i < 4; $i++)
-                            <li class="media">
-                                <span class="ion ion-email-unread"></span>
-                                <div class="media-body">
-                                    <div class="float-right"><small>10m</small></div>
-                                    <div class="media-title">Farhan A Mujib</div>
-                                    <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</small>
-                                </div>
-                            </li>
-                        @endfor
-                    </ul>
+                    <table class="table table-borderless">
+                        <tbody>
+                        @foreach($messages as $message)
+                            <tr>
+                                <td style="width: 5px;">
+                                    <div class="media">
+                                        <span class="ion ion-email-unread"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="media-title">{{ $message->name }}</div>
+                                    <small>{{ $message->message }}</small>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                     <div class="text-center">
-                        <a href="#" class="btn btn-primary btn-round">
+                        <a href="/message-list" class="btn btn-primary btn-round">
                             View All
                         </a>
                     </div>

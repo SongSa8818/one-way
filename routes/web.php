@@ -27,6 +27,9 @@ Route::resource('/contact', 'ContactController');
 Route::resource('/customer', 'CustomerController');
 Route::get('/customer-list', 'CustomerController@list')->name('customer.list');
 
+Route::resource('/message', 'MessageController');
+Route::get('/message-list', 'MessageController@list')->name('message.list');
+
 Route::resource('/property', 'PropertyController');
 Route::get('/property-list', 'PropertyController@list')->name('property.list');
 Route::put('/property-block/{id}', 'PropertyController@block')->name('property.block');
