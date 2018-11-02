@@ -41,7 +41,9 @@
 
                     <li class="contact_info_item d-flex flex-row">
                         <div><div class="contact_info_icon"><img src="images/phone-call.svg" alt=""></div></div>
-                        <div class="contact_info_text"><a href="#">{{ @$contact_info->phone_number }}</a></div>
+                        <div class="contact_info_text"><a
+                                    href="tel:{{ @$contact_info->phone_number }}">{{ @$contact_info->phone_number }}</a>
+                        </div>
                     </li>
                 </div>
             </div>
