@@ -31,7 +31,6 @@
                     <div class="listing_item_inner d-flex flex-md-row flex-column trans_300">
                         <div class="listing_image_container">
                             <div class="listing_image">
-                                <!-- ImageProperty by: https://unsplash.com/@breather -->
                                 <div class="listing_background" style="background-image:url({{ url('/uploads/'.$property->img) }})"></div>
                             </div>
                         </div>
@@ -61,7 +60,7 @@
                             </div>
 
                             <div class="featured_card_box d-flex flex-row align-items-center trans_300">
-                                <img src="images/tag.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                                <img src="{{ asset('images/tag.svg') }}" alt="">
                                 <div class="featured_card_box_content">
                                     <div class="featured_card_price_title trans_300">{{ $property->type }}</div>
                                     <div class="featured_card_price trans_300">${{ $property->price }}</div>
@@ -79,17 +78,11 @@
         <div class="row">
             <div class="col clearfix">
                 <div class="listings_nav">
-                    <ul>
-                        <li class="listings_nav_item active"><a href="#">01.</a></li>
-                        <li class="listings_nav_item"><a href="#">02.</a></li>
-                        <li class="listings_nav_item"><a href="#">03.</a></li>
-                    </ul>
+                    {{ $showings->links() }}
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- Newsletter -->
 
 @endsection

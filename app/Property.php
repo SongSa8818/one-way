@@ -79,7 +79,8 @@ class Property extends Model
     public function scopeSearch($query, $parameters = array())
     {
         $query = DB::table('properties')
-            ->select('*')
+            ->select('properties.title', 'properties.status', 'properties.description',
+                'properties.id', 'properties.type', 'properties.price', 'property_images.img')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
             ->leftJoin('cities', 'properties.city_id', '=', 'cities.id');
             if($parameters['property_number'] != null) {

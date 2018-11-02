@@ -10,7 +10,7 @@
                 <!-- Listing Title -->
                 <div class="listing_title_container">
                     <div class="listing_title">{{ $property->title }}</div>
-                    <p class="listing_text">Property Number : <b>{{ $property->property_number }}</b></p>
+                    <p class="listing_text">Property ID : <b>{{ $property->property_number }}</b></p>
                 </div>
             </div>
 

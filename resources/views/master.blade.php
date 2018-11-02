@@ -40,7 +40,9 @@
     @endif
     <link rel="stylesheet" type="text/css" href="{{asset('css/customize.css')}}">
 
+    @if($uri == 'request.index')
     <script src="{{ asset('js/signature.js') }}"></script>
+    @endif
 
 </head>
 <body>
@@ -62,24 +64,11 @@
 
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="confirmPop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <h3></h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="buttonNo" class="btn btn-secondary w-100 btn-lg" data-dismiss="modal">No</button>
-                    <button type="button" id="buttonYes" class="btn btn-primary w-100 btn-lg">Yes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    @if($uri == 'request.index')
     <script>
         signatureCapture();
     </script>
+    @endif
 
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('styles/bootstrap4/popper.js')}}"></script>
@@ -90,22 +79,20 @@
     <script src="{{asset('plugins/greensock/animation.gsap.min.js')}}"></script>
     <script src="{{asset('plugins/greensock/ScrollToPlugin.min.js')}}"></script>
     <script src="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
+
     <script src="{{asset('plugins/scrollTo/jquery.scrollTo.min.js')}}"></script>
     <script src="{{asset('plugins/easing/easing.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
     @if($uri == 'about.index')
         <script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
         <script src="{{asset('js/about_custom.js')}}"></script>
-    @elseif($uri == 'contact.index')
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
-        <script src="{{asset('js/contact_custom.js')}}"></script>
     @elseif(in_array($uri, array('property.show')))
         <script src="{{asset('plugins/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA4Ukxfg33boz0seOAO87i9eZYJvyffDk&callback=initMap&libraries=places"></script>
         <script src="{{asset('js/listings_single_custom.js')}}"></script>
 
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA4Ukxfg33boz0seOAO87i9eZYJvyffDk&callback=initMap&libraries=places"></script>
         <script>
-
             function initMap() {
                 var uluru = {lat: {{ @$property->pro_lat }}, lng: {{ @$property->pro_lon }}};
                 var img = '{{ url('/uploads/'.@$images[0]->img) }}';
