@@ -10,7 +10,7 @@
                 <div class="logo_container">
                     <a href="#">
                         <div class="logo">
-                            <img src="images/logo.png" alt="">
+                            <img src="{{ asset('/images/logo.png') }}" alt="">
                             <span>OneWay Realty</span>
                         </div>
                     </a>

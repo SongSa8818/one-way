@@ -1,0 +1,3 @@
+ALTER TABLE properties
+ADD COLUMN width_size VARCHAR(255),
+ADD COLUMN length_size VARCHAR(255);
