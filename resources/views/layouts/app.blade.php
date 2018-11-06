@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Login page') }}</title>
+    <title> Login </title>
 
     <link rel="stylesheet" href="{{asset('styles/bootstrap4/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('dist/modules/ionicons/css/ionicons.min.css') }}">

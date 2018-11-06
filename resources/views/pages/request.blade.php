@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {{ Form::label('description', 'Description') }}, 'required' => "required", 'data-error' => "Description is required.", 'autofocus'
+                                {{ Form::label('description', 'Description') }}
                                 {{ Form::textarea('description', @$request_info->description, array('id' => "exampleFormControlTextarea1",'rows' => "3", 'class' => "form-control")) }}
                             </div>
                             <h4>Upload picture</h4>
