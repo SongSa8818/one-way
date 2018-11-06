@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 {{ Form::label('title', 'Name') }}
-                                {{ Form::text('name', @$khan->name, array('class' => "form-control", 'autofocus')) }}
+                                {{ Form::text('name', @$khan->name, array('class' => "form-control", 'required' => "required", 'data-error' => "Name is required.", 'autofocus')) }}
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('title') }}</strong>

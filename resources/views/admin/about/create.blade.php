@@ -33,11 +33,11 @@
 
                                     <div class="form-group">
                                         {{ Form::label('company_slogan', 'Sub Title') }}
-                                        {{ Form::text('company_slogan', @$about->company_slogan, array('class' => "form-control", 'autofocus')) }}
+                                        {{ Form::text('company_slogan', @$about->company_slogan, array('class' => "form-control", 'required' => "required", 'data-error' => "Sub Title is required.", 'autofocus')) }}
                                     </div>
                                     <div class="form-group">
                                         {{ Form::label('description', 'Description') }}
-                                        {{ Form::textarea('description', @$about->description, array('class' => "form-control")) }}
+                                        {{ Form::textarea('description', @$about->description, array('class' => "form-control", 'required' => "required", 'data-error' => "Description is required.", 'autofocus')) }}
                                     </div>
 
                                 </div>
