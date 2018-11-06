@@ -18,19 +18,19 @@
                         <div class="row">
                             <div class="form-group col-6">
                                 {{ Form::label('title', 'Title') }}
-                                {{ Form::text('title', @$property->title, array('class' => "form-control",'autofocus')) }}
+                                {{ Form::text('title', @$property->title, array('class' => "form-control", 'required' => "required", 'data-error' => "Title is required.", 'autofocus')) }}
                             </div>
                             <div class="form-group col-6">
                                 {{ Form::label('price', 'Price') }}
-                                {{ Form::text('price', @$property->price, array('class' => "form-control")) }}
+                                {{ Form::text('price', @$property->price, array('class' => "form-control", 'required' => "required", 'data-error' => "Price is required.", 'autofocus')) }}
                             </div>
                             <div class="form-group col-6">
                                 {{ Form::label('width_size', 'Width Size') }}
-                                {{ Form::text('width_size', @$property->width_size, array('class' => "form-control",'autofocus')) }}
+                                {{ Form::text('width_size', @$property->width_size, array('class' => "form-control", 'required' => "required", 'data-error' => "Width Size is required.", 'autofocus')) }}
                             </div>
                             <div class="form-group col-6">
                                 {{ Form::label('length_size', 'Length Size') }}
-                                {{ Form::text('length_size', @$property->length_size, array('class' => "form-control")) }}
+                                {{ Form::text('length_size', @$property->length_size, array('class' => "form-control", 'required' => "required", 'data-error' => "Length Size is required.", 'autofocus')) }}
                             </div>
                             <div class="form-group col-6">
                                 {!! Form::Label('type', 'Property type') !!}
@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group col-6">
                                 {{ Form::label('property_number', 'Property ID') }}
-                                {{ Form::text('property_number', @$property->property_number, array('class' => "form-control")) }}
+                                {{ Form::text('property_number', @$property->property_number, array('class' => "form-control", 'required' => "required", 'data-error' => "Property ID is required.", 'autofocus')) }}
                             </div>
                             <div class="form-group col-6">
                                 {!! Form::Label('city_id', 'City') !!}
@@ -81,16 +81,16 @@
                             </div>
                             <div class="form-group col-6">
                                 {{ Form::label('street_name', 'Street Name') }}
-                                {{ Form::text('street_name', @$property->street_name, array('class' => "form-control")) }}
+                                {{ Form::text('street_name', @$property->street_name, array('class' => "form-control", 'required' => "required", 'data-error' => "Street Name is required.", 'autofocus')) }}
                             </div>
                             <div class="form-group col-6">
                                 {{ Form::label('street_number', 'Street Number') }}
-                                {{ Form::text('street_number', @$property->street_number, array('class' => "form-control")) }}
+                                {{ Form::text('street_number', @$property->street_number, array('class' => "form-control", 'required' => "required", 'data-error' => "Street Number is required.", 'autofocus')) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label('description', 'Description') }}
-                            <textarea id="description" name="description" rows="7" class="form-control">{{ @$property->description }}</textarea>
+                            <textarea id="description" name="description" rows="7" class="form-control" required="required" data-error="Street Number is required." autofocus>{{ @$property->description }}</textarea>
                         </div>
                         <div class="row">
                             <div class="form-group col-6">

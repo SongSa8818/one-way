@@ -28,7 +28,7 @@
                             </div>
                             <div class="form-group">
                                 {{ Form::label('title', 'Title') }}
-                                {{ Form::text('title', @$slideshow->title, array('class' => "form-control")) }}
+                                {{ Form::text('title', @$slideshow->title, array('class' => "form-control", 'required' => "required", 'data-error' => "Title is required.", 'autofocus')) }}
                             </div>
                         </div>
                         <div class="card-footer">

@@ -21,7 +21,7 @@
 
             <!-- Listings -->
             <div class="col-lg-4 sidebar_col">
-                <h5>Advertise banner</h5>
+                {{--<h5>Advertise banner</h5>--}}
             </div>
             <div class="col-lg-8 listings_col">
 
