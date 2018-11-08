@@ -159,6 +159,7 @@
                 </div>
 
                 <!-- Listing Video -->
+                @if($property->video_url != null) {
                 <div class="listing_video">
                     <div class="listing_subtitle">Property Video</div>
                     <div class="listing_video_link">
@@ -167,6 +168,7 @@
                         <div class="video_play"><img src="../images/play.svg" alt=""></div>
                     </div>
                 </div>
+            @endif
 
                 <!-- Listing Map -->
                 <div class="listing_map">

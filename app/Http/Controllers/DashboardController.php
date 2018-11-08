@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Offer;
 use App\Message;
+use App\Offer;
 use App\Property;
 use App\RequestInfo;
 use App\Status;
@@ -31,7 +31,6 @@ class DashboardController extends Controller
         $totalAgency = User::SelectCountTotallyAgency();
         $request_info = RequestInfo::limit(5)->get();
         $messages = Message::limit(5)->get();
-//        dd($customer);
 
         $offers = Offer::SelectShowDashboard();
         $showings = Property::SelectShowingDashboard(Status::SHOWING);

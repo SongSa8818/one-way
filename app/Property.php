@@ -13,9 +13,18 @@ class Property extends Model
     public function scopeSelectPropertyExclusive($query)
     {
         $query = DB::table('properties')
-            ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
-            ->select('properties.title','properties.status','properties.description',
-                'properties.id','properties.type','properties.price','property_images.img')
+            ->LeftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
+            ->select('properties.property_number',
+                DB::raw('MAX(properties.id) AS id,
+                MAX(properties.title) AS title,
+                MAX(properties.type) AS type,
+                MAX(properties.description) AS description,
+                MAX(properties.price) AS price,
+                MAX(properties.status) AS status,
+                MAX(properties.updated_at) AS updated_at,
+                MAX(property_images.img) AS img'))
+            ->groupBy('properties.property_number')
+            ->orderBy("updated_at", "DESC")
             ->paginate(10);
         return $query;
     }
@@ -49,11 +58,18 @@ class Property extends Model
         $query = DB::table('properties')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
             ->leftJoin('users', 'users.id', '=', 'properties.blocked_by')
-            ->select('properties.property_number','properties.title','properties.description',
-                'properties.id','properties.type',
-                'properties.price','properties.status','properties.updated_at',
-                'property_images.img','users.picture')
-            ->where('properties.status', '=', $status)
+            ->select('properties.property_number',
+                DB::raw('MAX(properties.id) AS id,
+                MAX(properties.title) AS title,
+                MAX(properties.type) AS type,
+                MAX(properties.description) AS description,
+                MAX(properties.price) AS price,
+                MAX(properties.status) AS status,
+                MAX(properties.updated_at) AS updated_at,
+                MAX(users.picture) AS picture,
+                MAX(property_images.img) AS img'))
+            ->groupBy('properties.property_number')
+            ->orderBy("updated_at", "DESC")
             ->paginate(10);
         return $query;
     }
@@ -68,10 +84,18 @@ class Property extends Model
     public function scopeSelectHomeLatest($query)
     {
         $query = DB::table('properties')
-            ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
-            ->select('properties.title','properties.description','properties.id',
-                'properties.type','properties.price','properties.status','property_images.img')
+            ->LeftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
+            ->select('properties.property_number',
+                DB::raw('MAX(properties.id) AS id,
+                MAX(properties.title) AS title,
+                MAX(properties.type) AS type,
+                MAX(properties.price) AS price,
+                MAX(properties.status) AS status,
+                MAX(properties.updated_at) AS updated_at,
+                MAX(property_images.img) AS img'))
+            ->groupBy('properties.property_number')
             ->limit(10)
+            ->orderBy("updated_at", "DESC")
             ->get();
         return $query;
     }
@@ -79,10 +103,18 @@ class Property extends Model
     public function scopeSearch($query, $parameters = array())
     {
         $query = DB::table('properties')
-            ->select('properties.title', 'properties.status', 'properties.description',
-                'properties.id', 'properties.type', 'properties.price', 'property_images.img')
+            ->select('properties.property_number',
+                DB::raw('MAX(properties.id) AS id,
+                MAX(properties.title) AS title,
+                MAX(properties.description) AS description,
+                MAX(properties.type) AS type,
+                MAX(properties.price) AS price,
+                MAX(properties.status) AS status,
+                MAX(properties.updated_at) AS updated_at,
+                MAX(property_images.img) AS img'))
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
             ->leftJoin('cities', 'properties.city_id', '=', 'cities.id');
+
             if($parameters['property_number'] != null) {
                 $query->where('properties.property_number', 'like', '%' . $parameters['property_number'] . '%');
             }
@@ -98,6 +130,8 @@ class Property extends Model
             if ($parameters['location'] != null) {
                 $query->where('cities.name', '=', $parameters['location']);
             }
+        $query->groupBy('properties.property_number');
+        $query->orderBy("updated_at", "DESC");
         return $query->paginate(10);
     }
 
@@ -116,11 +150,16 @@ class Property extends Model
         $query = DB::table('properties')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
             ->leftJoin('users', 'users.id', '=', 'properties.blocked_by')
-            ->select('properties.title','properties.description',
-                'properties.id',
-                'properties.price','properties.updated_at')
+            ->select('properties.property_number',
+                DB::raw('MAX(properties.id) AS id,
+                MAX(properties.title) AS title,
+                MAX(properties.description) AS description,
+                MAX(properties.price) AS price,
+                MAX(properties.updated_at) AS updated_at'))
             ->where('properties.status', '=', $status)
+            ->groupBy('properties.property_number')
             ->limit(4)
+            ->orderBy("updated_at", "DESC")
             ->get();
         return $query;
     }

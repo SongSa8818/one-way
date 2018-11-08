@@ -184,6 +184,14 @@ p {
 .Active {
     background: green;
 }
+
+.card-img-top {
+    height: 260px;
+}
+
+.featured_card_col {
+    margin-bottom: 30px;
+}
 @media only screen and (max-width: 991px)
 {
     .navbar-right { display: none; }
