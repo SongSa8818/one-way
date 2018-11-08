@@ -94,7 +94,7 @@ class Property extends Model
                 MAX(properties.updated_at) AS updated_at,
                 MAX(property_images.img) AS img'))
             ->groupBy('properties.property_number')
-            ->limit(10)
+            ->limit(12)
             ->orderBy("updated_at", "DESC")
             ->get();
         return $query;
