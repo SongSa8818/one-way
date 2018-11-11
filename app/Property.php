@@ -53,7 +53,7 @@ class Property extends Model
         return $query;
     }
 
-    public function scopeSelectPropertyByShowing($query, $status)
+    public function scopeSelectPropertyByBlocking($query, $status)
     {
         $query = DB::table('properties')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
@@ -68,6 +68,7 @@ class Property extends Model
                 MAX(properties.updated_at) AS updated_at,
                 MAX(users.picture) AS picture,
                 MAX(property_images.img) AS img'))
+            ->where('properties.status', '=', $status)
             ->groupBy('properties.property_number')
             ->orderBy("updated_at", "DESC")
             ->paginate(10);

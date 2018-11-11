@@ -15,13 +15,13 @@ class ShowingController extends Controller
      */
     public function index()
     {
-        $showings = Property::SelectPropertyByShowing(Status::SHOWING);
+        $showings = Property::SelectPropertyByBlocking(Status::BLOCKING);
         return view('pages.showing')->with('showings', $showings);
     }
 
     public function list()
     {
-        $showings = Property::SelectPropertyByShowing(Status::SHOWING);
+        $showings = Property::SelectPropertyByBlocking(Status::BLOCKING);
         return view('admin.showing.list')->with('showings', $showings);
     }
 

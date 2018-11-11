@@ -55,8 +55,39 @@
                                 </div>
                             </div>
                             <div class="room_tags">
-                                <div class="button elements_button_1"><a href="#">Unblock now</a></div>
-                                <div class="button elements_button_2"><a href="#">Visitor</a></div>
+                                <div class="button elements_button_1"><a href="#" data-toggle="modal"
+                                                                         data-target="#blockProperty">{{ $property->status == 'Blocking' ? 'Unblock' : 'Block' }}
+                                        now</a></div>
+                                {{--<div class="button elements_button_2"><a href="#">Visitor</a></div>--}}
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="blockProperty" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        {{ Form::model(@$property, array('route' => array('property.block', @$property->id), 'class' => '', 'method' => 'put')) }}
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalCenterTitle">Confirmation</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3>Are you sure
+                                                to {{ $property->status == 'Blocking' ? 'Unblock' : 'Block' }} this
+                                                property?</h3>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary w-120 h-40"
+                                                    data-dismiss="modal">No
+                                            </button>
+                                            <button type="submit" type="button" class="btn btn-primary w-120 h-40">Yes
+                                            </button>
+                                        </div>
+                                        {{ Form::close() }}
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="featured_card_box d-flex flex-row align-items-center trans_300">

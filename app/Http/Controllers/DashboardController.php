@@ -33,7 +33,7 @@ class DashboardController extends Controller
         $messages = Message::limit(5)->get();
 
         $offers = Offer::SelectShowDashboard();
-        $showings = Property::SelectShowingDashboard(Status::SHOWING);
+        $showings = Property::SelectShowingDashboard(Status::BLOCKING);
         return view('admin.dashboard')->with([
             'totalProperty' => $totalProperty,
             'totalOffer' => $totalOffer,
