@@ -84,10 +84,10 @@
                     <div class="footer_contact_form_container">
                         <div class="social-buttons">
                             <ul class="list-group">
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be" class="btn btn-outline-primary"><span class="fa fa-facebook-official"></span> Share on Facebook</a>
-                                <a href="https://twitter.com/intent/tweet?text=my share text&amp;url=http://jorenvanhocht.be" class="btn btn-outline-info"><span class="fa fa-twitter"></span> Share on Twitter</a>
-                                <a href="https://https://plus.google.com/share?url=http://jorenvanhocht.be" class="btn btn-outline-danger"><span class="fa fa-google-plus"></span> Share on Google+</a>
-                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://jorenvanhocht.be&amp;title=my share text&amp;summary=dit is de linkedin summary" class="btn btn-outline-info"><span class="fa fa-linkedin"></span> Share on Link In</a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}" target="_blank" class="btn btn-outline-primary"><span class="fa fa-facebook-official"></span> Share on Facebook</a>
+                                <a href="https://twitter.com/intent/tweet?url={{ urlencode(Request::fullUrl()) }}" target="_blank" class="btn btn-outline-info"><span class="fa fa-twitter"></span> Share on Twitter</a>
+                                <a href="https://plus.google.com/share?url={{ urlencode(Request::fullUrl()) }}" target="_blank" class="btn btn-outline-danger"><span class="fa fa-google-plus"></span> Share on Google+</a>
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ urlencode(Request::fullUrl()) }}" target="_blank" class="btn btn-outline-info"><span class="fa fa-linkedin"></span> Share on Link In</a>
                             </ul>
                         </div>
                     </div>
