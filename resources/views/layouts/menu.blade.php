@@ -8,7 +8,7 @@
                 <!-- Logo -->
 
                 <div class="logo_container">
-                    <a href="#">
+                    <a href="{{ route("home") }}">
                         <div class="logo">
                             <img src="{{ asset('/images/logo.png') }}" alt="">
                             <span>OneWay Realty</span>
