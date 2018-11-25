@@ -7,7 +7,6 @@
             <div>Request Form</div>
         </h1>
         <div class="section-body">
-
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
                     <div class="card-body">
@@ -26,8 +25,8 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <th scope="row">Customer Id:</th>
-                                                    <td>{{ $request_infos->customer_id }}</td>
+                                                    <th scope="row">Customer Name:</th>
+                                                    <td>{{ $request_infos->customer_name }}</td>
 
                                                 </tr>
                                                 <tr>

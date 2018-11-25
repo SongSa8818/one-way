@@ -29,7 +29,7 @@ class DashboardController extends Controller
         $totalOffer = Offer::SelectCountTotallyOffer();
         $totalRequest = RequestInfo::SelectCountTotallyRequest();
         $totalAgency = User::SelectCountTotallyAgency();
-        $request_info = RequestInfo::limit(5)->get();
+        $request_info = RequestInfo::Dashboard();
         $messages = Message::limit(5)->get();
 
         $offers = Offer::SelectShowDashboard();

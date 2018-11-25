@@ -283,7 +283,7 @@
                                         <img src="{{ url('/uploads/requests/'.@$request_info->image) }}" alt="">
                                     </div>
                                     <div class="city_details"><img src="images/search.png" alt=""></div>
-                                    <div class="city_name"><span>miami</span></div>
+                                    <div class="city_name"><span>{{ $request_info->description }}</span></div>
                                 </a>
                             </div>
                         @endforeach

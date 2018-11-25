@@ -14,7 +14,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Requested by</th>
                                         <th>Service Type</th>
                                         <th>Property Type</th>
                                         <th>Purpose</th>

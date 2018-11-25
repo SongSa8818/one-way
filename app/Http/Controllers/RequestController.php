@@ -82,7 +82,7 @@ class RequestController extends Controller
 
     public function show($id)
     {
-        $request_info = RequestInfo::findOrFail($id);
+        $request_info = RequestInfo::GetSingleRecord($id);
         return view('admin.requests.show')->with(array('request_infos' => $request_info));
     }
 

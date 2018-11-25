@@ -129,7 +129,7 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Title</th>
+                                <th>Description</th>
                                 <th>Price</th>
                                 <th>Action</th>
                             </tr>
