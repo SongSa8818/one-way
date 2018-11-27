@@ -6,11 +6,12 @@ namespace App\Http\Controllers;
 use App\DeleteImage;
 use App\Role;
 use App\User;
-use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -23,7 +24,11 @@ class UserController extends Controller
 
     public function index()
     {
-        $user = User::paginate(10);
+        if (Auth::user()->role == "Admin") {
+            $user = User::paginate(10);
+        } else {
+            $user = User::ListUserForAgency(Auth::user()->getAuthIdentifier());
+        }
         return view('admin.users.list')->with('users', $user);
     }
 
@@ -59,7 +64,8 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->address = $request->address;
-        $user->role = $request->role;
+        $user->role = Auth::user()->role == "Agency" ? "Customer" : $request->role;
+        $user->added_by = Auth::user()->getAuthIdentifier();
 
         $picture = $request->file('picture');
         if ($picture && in_array($picture->getClientMimeType(), array('image/jpeg', 'image/jpg', 'image/png'))) {

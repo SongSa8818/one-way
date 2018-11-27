@@ -45,7 +45,7 @@ class OfferController extends Controller
     {
         $offer = new Offer();
         $offer->property_id = $request->property_id;
-        $offer->user_id = Auth::user()->getAuthIdentifier();
+        $offer->user_id = $request->customer_id != null ? $request->customer_id : Auth::user()->getAuthIdentifier();
         $offer->offer_amount = $request->offer_amount;
         $offer->save();
         return redirect('offer');

@@ -23,6 +23,9 @@
                             <li class="main_nav_item {{ ($isCustomer == true && in_array($key, ['showing.index','offer.index','request.index']))? 'hidden' : '' }} {{ $key == $uri ? 'main_nav_item_active' : '' }}">
                                 <a href="{{ route($key) }}">{{$value}}</a></li>
                         @endforeach
+                        @if(!Auth::check())
+                            <li class="main_nav_item"><a href="{{ route("login") }}">Login</a></li>
+                        @endif
                     </ul>
                 </nav>
 

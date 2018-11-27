@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
@@ -38,11 +38,17 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->role == 'Admin';
+        return $this->role != 'Customer';
     }
 
     public function scopeSelectCountTotallyAgency($query) {
         $query = DB::table('users')->where('users.role', '=', Role::AGENCY)->count();
+        return $query;
+    }
+
+    public function scopeListUserForAgency($query, $user_id)
+    {
+        $query = DB::table('users')->where('users.added_by', '=', $user_id)->get();
         return $query;
     }
 }

@@ -16,18 +16,20 @@ class Offer extends Model
             ->leftJoin('properties', 'properties.id', '=', 'offers.property_id')
             ->leftJoin('users', 'users.id', '=', 'offers.user_id')
             ->leftJoin('property_images', 'properties.id', '=', 'property_images.property_id')
-            ->select('properties.property_number',
+            ->select('offers.id',
                 DB::raw('MAX(properties.id) AS property_id,
                 MAX(properties.title) AS title,
+                MAX(properties.type) AS type,
                 MAX(properties.description) AS description,
                 MAX(properties.price) AS price,
                 MAX(properties.updated_at) AS updated_at,
-                MAX(offers.id) AS id,
+                MAX(properties.status) AS status,
+                MAX(properties.property_number) AS property_number,
                 MAX(offers.offer_amount) AS offer_amount,
                 MAX(users.full_name) AS full_name,
                 MAX(property_images.img) AS img
                 '))
-            ->groupBy('properties.property_number')
+            ->groupBy('offers.id')
             ->orderBy("updated_at", "DESC")
             ->paginate(10);
         return $query;

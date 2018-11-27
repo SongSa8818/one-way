@@ -16,6 +16,11 @@
 
     <link rel="stylesheet" href="{{ asset('dist/css/demo.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 
 </head>
 <body>

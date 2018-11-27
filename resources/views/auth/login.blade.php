@@ -30,7 +30,7 @@
 
                         <div class="form-group">
                             <label for="password" class="d-block">Password
-                                <div class="float-right">
+                                <div class="float-right hidden">
                                     <a href="{{ route('password.request') }}">
                                         Forgot Password?
                                     </a>
@@ -55,9 +55,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="mt-5 text-muted text-center">
-                Don't have an account? <a href="{{ route('register') }}">Create One</a>
             </div>
             <div class="simple-footer">
                 Copyright &copy; OneWayRealty 2019

@@ -198,6 +198,9 @@ p {
     margin-bottom: 30px;
 }
 
+.hidden {
+    display: none;
+}
 .card {
     border: 1px solid #dedede;
 }

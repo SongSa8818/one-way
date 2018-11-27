@@ -68,15 +68,16 @@
                                     </span>
                                     @endif
                                 </div>
-                                <div class="form-group col-12">
-                                    {!! Form::Label('role', 'User role') !!}
-                                    <select class="form-control" name="role">
-                                        @foreach($roles as $value)
-                                            <option value="{{$value}}" {{ $value == @$user->role? 'selected': '' }}>{{$value}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
+                                @if (Auth::user()->role == "Admin")
+                                    <div class="form-group col-12">
+                                        {!! Form::Label('role', 'User role') !!}
+                                        <select class="form-control" name="role">
+                                            @foreach($roles as $value)
+                                                <option value="{{$value}}" {{ $value == @$user->role? 'selected': '' }}>{{$value}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                @endif
                                 <div class="form-group col-6">
                                     {{ Form::Label('picture', 'Change profile picture') }}
                                     {{ Form::file('picture') }}

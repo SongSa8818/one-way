@@ -94,6 +94,7 @@
                     <li>
                         <a href="{{ route('home') }}"><i class="ion ion-wifi"></i><span>Visit Site</span></a>
                     </li>
+                    @if(@Auth::user()->role == "Admin")
                     <li class="{{ $uri == 'dashboard.index'?'active':'' }}">
                         <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
                     </li>
@@ -140,6 +141,13 @@
                         <li class="{{ in_array($uri, array('slideshow-list','slideshow'))?'active':'' }}">
                         <a href="{{ route('slideshow.list') }}"><i class="ion ion-laptop"></i><span>Slideshow Image</span></a>
                     </li>
+                    @endif
+                    @if(@Auth::user()->role == "Agency")
+                        <li class="{{ in_array($uri, array('user.index','user.edit'))?'active':'' }}">
+                            <a href="{{ route('user.index') }}"><i
+                                        class="ion ion-ios-contact-outline"></i><span>Users</span></a>
+                        </li>
+                    @endif
                 </ul>
             </aside>
         </div>

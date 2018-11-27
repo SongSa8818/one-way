@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Active;
 use App\City;
 use App\DeleteImage;
 use App\ImageProperty;
@@ -9,9 +10,9 @@ use App\Khan;
 use App\Offer;
 use App\Property;
 use App\PropertyTypes;
-use App\Active;
 use App\Sangkat;
 use App\Status;
+use App\User;
 use App\Village;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -99,7 +100,13 @@ class PropertyController extends Controller
     {
         $property = Property::SelectById($id);
         $images = ImageProperty::List($id);
-        return view('pages.property')->with(array('property' => $property, 'images' => $images));
+        $customers = User::ListUserForAgency(Auth::user()->getAuthIdentifier());
+        return view('pages.property')->with(
+            array(
+                'property' => $property,
+                'images' => $images,
+                'customers' => $customers
+            ));
     }
 
     public function block(Request $request, $id) {

@@ -73,6 +73,13 @@
                     <div class="footer_col_title">Offer form</div>
                     <div class="footer_contact_form_container">
                         {{ Form::model(@$property, array('route' => array('offer.store'), 'class' => 'footer_contact_form','id' => 'hello_contact_form', 'method' => 'POST')) }}
+                        <select name="customer_id" id="" class="form-control">
+                            <option value="">-- select customer --</option>
+                            @foreach($customers as $value)
+                                <option value="{{ $value->id }}">{{ $value->full_name }}</option>
+                            @endforeach
+                        </select>
+                        <br>
                             <input id="hello_contact_form_name" class="input_field contact_form_name" name="offer_amount" type="text" placeholder="Price" required="required" data-error="Price is required.">
                             <input type="hidden" name="property_id" value="{{ $property->id }}">
                             <button id="hello_contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">Send</button>

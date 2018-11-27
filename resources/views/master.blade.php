@@ -66,7 +66,7 @@
 
     @if($uri == 'request.index')
     <script>
-        signatureCapture();
+        signaturePad();
     </script>
     @endif
 
