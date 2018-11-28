@@ -100,12 +100,11 @@ class PropertyController extends Controller
     {
         $property = Property::SelectById($id);
         $images = ImageProperty::List($id);
-        $customers = User::ListUserForAgency(Auth::user()->getAuthIdentifier());
         return view('pages.property')->with(
             array(
                 'property' => $property,
                 'images' => $images,
-                'customers' => $customers
+                'customers' => User::ListUserForAgency(Auth::user() != null ? Auth::user()->getAuthIdentifier() : null)
             ));
     }
 
