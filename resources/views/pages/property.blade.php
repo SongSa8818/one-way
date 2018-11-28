@@ -69,6 +69,7 @@
                         </div>
                     </div>
                 </div>
+                @if(Auth::check())
                 <div class="hello">
                     <div class="footer_col_title">Offer form</div>
                     <div class="footer_contact_form_container">
@@ -86,6 +87,7 @@
                         {{ Form::close() }}
                     </div>
                 </div>
+                @endif
                 <div class="hello">
                     <div class="footer_col_title">Share Now</div>
                     <div class="footer_contact_form_container">
