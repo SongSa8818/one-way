@@ -79,5 +79,16 @@
                 </div>
             </li>
         @endforeach
+        @if(!Auth::check())
+            <li class="menu_item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <a href="{{ route("login") }}">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        @endif
     </ul>
 </div>
