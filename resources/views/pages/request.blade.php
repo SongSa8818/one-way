@@ -39,51 +39,51 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     {{ Form::label('service_type', 'Service type', array('class' => 'required') ) }}
-                                    {{ Form::text('service_type', @$request_info->service_type, array('class' => "form-control", 'required' => "required", 'data-error' => "Service type is required.", 'autofocus')) }}
+                                    {{ Form::text('service_type', @$request_info->service_type, array('class' => "form-control", 'required' => "required", 'data-error' => "Service type is required.")) }}
                                 </div>
                                 <div class="form-group col-6">
                                     {{ Form::label('property_type', 'Property type', array('class' => 'required') ) }}
-                                    {{ Form::text('property_type', @$request_info->property_type, array('class' => "form-control", 'required' => "required", 'data-error' => "Property type is required.", 'autofocus')) }}
+                                    {{ Form::text('property_type', @$request_info->property_type, array('class' => "form-control", 'required' => "required", 'data-error' => "Property type is required.")) }}
                                 </div>
                             </div>
                         </div>
                             <div class="form-group">
                                 {{ Form::label('business_purpose', 'Business purpose', array('class' => 'required') ) }}
-                                {{ Form::text('business_purpose', @$request_info->business_purpose, array('class' => "form-control", 'required' => "required", 'data-error' => "Business Purpose is required.", 'autofocus')) }}
+                                {{ Form::text('business_purpose', @$request_info->business_purpose, array('class' => "form-control", 'required' => "required", 'data-error' => "Business Purpose is required.")) }}
                             </div>
                         <div class="body">
                             <div class="row">
                                 <div class="form-group col-6">
                                     {{ Form::label('location', 'Location', array('class' => 'required') ) }}
-                                    {{ Form::text('location', @$request_info->location, array('class' => "form-control", 'required' => "required", 'data-error' => "Location is required.", 'autofocus')) }}
+                                    {{ Form::text('location', @$request_info->location, array('class' => "form-control", 'required' => "required", 'data-error' => "Location is required.")) }}
                                 </div>
                                 <div class="form-group col-6">
                                     {{ Form::label('zone', 'Zone', array('class' => 'required') ) }}
-                                    {{ Form::text('zone', @$request_info->zone, array('class' => "form-control", 'required' => "required", 'data-error' => "Zone is required.", 'autofocus')) }}
+                                    {{ Form::text('zone', @$request_info->zone, array('class' => "form-control", 'required' => "required", 'data-error' => "Zone is required.")) }}
                                 </div>
                                 <div class="form-group col-6">
                                     {{ Form::label('minsize_area', 'Min size area', array('class' => 'required') ) }}
-                                    {{ Form::text('minsize_area', @$request_info->minsize_area, array('class' => "form-control", 'required' => "required", 'data-error' => "Min Size Area is required.", 'autofocus')) }}
+                                    {{ Form::text('minsize_area', @$request_info->minsize_area, array('class' => "form-control", 'required' => "required", 'data-error' => "Min Size Area is required.")) }}
                                 </div>
                                 <div class="form-group col-6">
                                     {{ Form::label('maxsize_area', 'Max size area', array('class' => 'required') ) }}
-                                    {{ Form::text('maxsize_area', @$request_info->maxsize_area, array('class' => "form-control", 'required' => "required", 'data-error' => "Max Size Area is required.", 'autofocus')) }}
+                                    {{ Form::text('maxsize_area', @$request_info->maxsize_area, array('class' => "form-control", 'required' => "required", 'data-error' => "Max Size Area is required.")) }}
                                 </div>
                                 <div class="form-group col-6">
                                     {{ Form::label('min_budget', 'Min budget', array('class' => 'required') ) }}
-                                    {{ Form::text('min_budget', @$request_info->min_budget, array('class' => "form-control", 'required' => "required", 'data-error' => "Min Budget is required.", 'autofocus')) }}
+                                    {{ Form::text('min_budget', @$request_info->min_budget, array('class' => "form-control", 'required' => "required", 'data-error' => "Min Budget is required.")) }}
                                 </div>
                                 <div class="form-group col-6">
                                     {{ Form::label('max_budget', 'Max budget', array('class' => 'required') ) }}
-                                    {{ Form::text('max_budget', @$request_info->max_budget, array('class' => "form-control", 'required' => "required", 'data-error' => "Max Budget is required.", 'autofocus')) }}
+                                    {{ Form::text('max_budget', @$request_info->max_budget, array('class' => "form-control", 'required' => "required", 'data-error' => "Max Budget is required.")) }}
                                 </div>
                                 <div class="form-group col-6">
                                     {{ Form::label('bank_loan_service', 'Bank loan service', array('class' => 'required') ) }}
-                                    {{ Form::text('bank_loan_service', @$request_info->bank_loan_service, array('class' => "form-control", 'required' => "required", 'data-error' => "Bank Loan Service is required.", 'autofocus')) }}
+                                    {{ Form::text('bank_loan_service', @$request_info->bank_loan_service, array('class' => "form-control", 'required' => "required", 'data-error' => "Bank Loan Service is required.")) }}
                                 </div>
                                 <div class="form-group col-6">
                                     {{ Form::label('bank_statement', 'Bank statement', array('class' => 'required') ) }}
-                                    {{ Form::text('bank_statement', @$request_info->bank_statement, array('class' => "form-control", 'required' => "required", 'data-error' => "Bank Statement is required.", 'autofocus')) }}
+                                    {{ Form::text('bank_statement', @$request_info->bank_statement, array('class' => "form-control", 'required' => "required", 'data-error' => "Bank Statement is required.")) }}
                                 </div>
                             </div>
                             <div class="form-group">
