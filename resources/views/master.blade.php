@@ -39,11 +39,6 @@
         <link rel="stylesheet" type="text/css" href="{{asset('styles/elements_responsive.css')}}">
     @endif
     <link rel="stylesheet" type="text/css" href="{{asset('css/customize.css')}}">
-
-    @if($uri == 'request.index')
-    <script src="{{ asset('js/signature.js') }}"></script>
-    @endif
-
 </head>
 <body>
 
@@ -64,12 +59,6 @@
 
     </div>
 
-    @if($uri == 'request.index')
-    <script>
-        signatureCapture();
-    </script>
-    @endif
-
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('styles/bootstrap4/popper.js')}}"></script>
     <script src="{{asset('styles/bootstrap4/bootstrap.min.js')}}"></script>
@@ -83,6 +72,15 @@
     <script src="{{asset('plugins/scrollTo/jquery.scrollTo.min.js')}}"></script>
     <script src="{{asset('plugins/easing/easing.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
+
+    @if($uri == 'request.index')
+        <script src="{{asset('js/signature/signature_pad.min.js')}}"></script>
+        <script src="{{asset('js/signature/signaturePad.js')}}"></script>
+        <script>
+            signatureCustom();
+        </script>
+    @endif
+
     @if($uri == 'about.index')
         <script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
         <script src="{{asset('js/about_custom.js')}}"></script>

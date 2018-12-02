@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\RequestInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RequestController extends Controller
 {
@@ -12,6 +13,7 @@ class RequestController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth');
         $this->no_image = 'NO_IMAGE.png';
     }
 
@@ -55,12 +57,12 @@ class RequestController extends Controller
             // the 2nd item in the base_to_php array contains the content of the image
             $data = base64_decode(@$base_to_php[1]);
             // here you can detect if type is png or jpg if you want
-            $safeName = "request-signature-" . @$request->customer_id . "-" . mt_rand().time() . '.' . 'png';
+            $safeName = "request-signature-UID" . @$request_info->customer_id . "-" . mt_rand() . time() . '.' . 'png';
             $folderName = '/uploads/signatures/';
-            $filepath = public_path() . $folderName . $safeName; // or image.jpg
+            $filePath = public_path() . $folderName . $safeName; // or image.jpg
             $request_info->signature = $safeName;
             // Save the image in a defined path
-            file_put_contents($filepath, $data);
+            file_put_contents($filePath, $data);
         }
 
         $file = $request->file('image');
@@ -72,6 +74,7 @@ class RequestController extends Controller
             $request_info->image = "no_picture";
         }
         $request_info->save();
+        Session::flash('alert-success', 'Successfully saved your request, Thanks you !');
         return redirect(route('request.index'));
     }
 

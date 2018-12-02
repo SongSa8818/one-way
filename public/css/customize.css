@@ -197,7 +197,6 @@ p {
 .featured_card_col {
     margin-bottom: 30px;
 }
-
 .hidden {
     display: none;
 }
@@ -205,6 +204,11 @@ p {
     border: 1px solid #dedede;
 }
 
+.required:after {
+    content: '*';
+    color: red;
+    padding-left: 5px;
+}
 .city_image img {
     height: 120px;
 }
