@@ -89,6 +89,22 @@
                     </div>
                 </div>
             </li>
+        @else
+            <li class="menu_item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </li>
         @endif
     </ul>
 </div>

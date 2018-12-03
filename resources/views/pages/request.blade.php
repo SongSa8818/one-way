@@ -99,7 +99,7 @@
                                 <canvas id="signature" width="450" height="150"
                                         style="border: 1px solid #ddd;"></canvas>
                                 <br>
-                                <button class="btn btn-warning mr-2" id="clear-signature">Clear</button>
+                                <button type="button" class="btn btn-warning mr-2" id="clear-signature">Clear</button>
                                 <button type="button" class="btn btn-info mr-2" id="save-signature">Add signature
                                 </button>
                             </div>
