@@ -33,7 +33,7 @@ class LoginController extends Controller
         if ($user->role == "Admin") {
             return '/dashboard';
         } elseif ($user->role == "Agency") {
-            return '/user';
+            return '/';
         } else {
             return '/';
         }
