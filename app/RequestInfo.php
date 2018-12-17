@@ -9,8 +9,8 @@ class RequestInfo extends Model
 {
     public function scopeList($query){
         $query = DB::table('request_infos')
-            ->leftJoin('users', 'users.id', '=', 'request_infos.customer_id')
-            ->select('request_infos.*', 'users.full_name AS customer_id', 'users.phone_number')
+            ->leftJoin('users', 'users.id', '=', 'request_infos.customer_name')
+            ->select('request_infos.*', 'users.full_name AS customer_name', 'users.phone_number')
             ->paginate(10);
         return $query;
     }
@@ -18,8 +18,8 @@ class RequestInfo extends Model
     public function scopeDashboard($query)
     {
         $query = DB::table('request_infos')
-            ->leftJoin('users', 'users.id', '=', 'request_infos.customer_id')
-            ->select('request_infos.*', 'users.full_name AS customer_id', 'users.phone_number')
+            ->leftJoin('users', 'users.id', '=', 'request_infos.customer_name')
+            ->select('request_infos.*', 'users.full_name AS customer_name', 'users.phone_number')
             ->paginate(5);
         return $query;
     }
@@ -27,7 +27,7 @@ class RequestInfo extends Model
     public function scopeGetSingleRecord($query, $id)
     {
         $query = DB::table('request_infos')
-            ->leftJoin('users', 'users.id', '=', 'request_infos.customer_id')
+            ->leftJoin('users', 'users.id', '=', 'request_infos.customer_name')
             ->select('request_infos.*', 'users.full_name AS customer_name', 'users.phone_number')
             ->where('request_infos.id', '=', $id)
             ->first();

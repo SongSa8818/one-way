@@ -38,7 +38,7 @@ class RequestController extends Controller
     public function store(Request $request)
     {
         $request_info = new RequestInfo();
-        $request_info->customer_id = Auth::user()->getAuthIdentifier();
+        $request_info->customer_name = Auth::user()->getAuthIdentifier();
         $request_info->service_type = $request->service_type;
         $request_info->property_type = $request->property_type;
         $request_info->business_purpose = $request->business_purpose;
@@ -57,7 +57,7 @@ class RequestController extends Controller
             // the 2nd item in the base_to_php array contains the content of the image
             $data = base64_decode(@$base_to_php[1]);
             // here you can detect if type is png or jpg if you want
-            $safeName = "request-signature-UID" . @$request_info->customer_id . "-" . mt_rand() . time() . '.' . 'png';
+            $safeName = "request-signature-UID" . @$request_info->customer_name . "-" . mt_rand() . time() . '.' . 'png';
             $folderName = '/uploads/signatures/';
             $filePath = public_path() . $folderName . $safeName; // or image.jpg
             $request_info->signature = $safeName;
