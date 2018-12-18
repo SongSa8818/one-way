@@ -63,7 +63,7 @@
                     </div>
                     <div class="card-footer text-right">
                         <nav class="d-inline-block">
-                            {{--{{ @$users->links() }}--}}
+                            {{ @$users->links() }}
                         </nav>
                     </div>
                 </div>

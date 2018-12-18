@@ -26,11 +26,7 @@ class UserController extends Controller
     {
         if (Auth::user()->role == "Admin") {
             $user = User::paginate(10);
-        }
-//        if (Auth::user()->role == "Agency") {
-//            $user = User::ListUserForAgency(Auth::user()->getAuthIdentifier());
-//        }
-        else {
+        } else {
             $user = User::ListUserForAgency(Auth::user()->getAuthIdentifier());
         }
         return view('admin.users.list')->with('users', $user);

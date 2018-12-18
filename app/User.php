@@ -48,7 +48,10 @@ class User extends Authenticatable
 
     public function scopeListUserForAgency($query, $user_id)
     {
-        $query = DB::table('users')->where('users.added_by', '=', $user_id)->get();
+        $query = DB::table('users')
+            ->where('users.added_by', '=', $user_id)
+            ->where("users.role", "=", Role::CUSTOMER)
+            ->paginate(10);
         return $query;
     }
 }
