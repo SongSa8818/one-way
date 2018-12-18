@@ -32,6 +32,7 @@ class Property extends Model
     public function scopeList($query){
         $query = DB::table('properties')
             ->select('*')
+            ->orderBy('created_at', "DESC")
             ->paginate(10);
         return $query;
     }

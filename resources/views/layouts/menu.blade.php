@@ -11,7 +11,7 @@
                     <a href="{{ route("home") }}">
                         <div class="logo">
                             <img src="{{ asset('/images/logo.png') }}" alt="">
-                            <span>OneWay Realty</span>
+                            <span>One Way Realty</span>
                         </div>
                     </a>
                 </div>
